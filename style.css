@@ -1,0 +1,59 @@
+/* Poppins Variable Font - Maximale Performance (1 Datei statt 9) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2') format('woff2'),
+         url('./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff') format('woff');
+    font-weight: 100 900; /* Alle Weights von 100 bis 900 in einer Datei */
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: #0E0E0E;
+    color: #E1E1E1;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 0;
+    position: sticky;
+    top: 0;
+    background: transparent;
+    mix-blend-mode: luminosity;
+    /* z-index entfernen */
+}
+
+.logo {
+    width: clamp(120px, 10vw, 180px);
+
+    /* isolation entfernen */
+}
+
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav span {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.location {
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-color: #c99090;
+}
+
+
