@@ -118,15 +118,16 @@ blockquote img {
     gap: 1rem;
     max-height: clamp(40vh, 70vh, 80vh); /* Korrigierte Syntax */
     column-gap: 5rem;
-
 }
-@media (min-width: 1059px) {
+@media (min-width: 1125px) {
     .hero-test-section {
         height: 90dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
+    .test-img-mobile { 
+        display: none; }
 }
 
 /* Standard (Mobile): Keine feste Höhe */
@@ -143,6 +144,8 @@ blockquote img {
     display: flex;
     flex-direction: column;
     gap: clamp(0.8rem, 1.3vw, 1.3rem);
+    padding-top: clamp(0px, calc(5vh - 4vw), 5vh);
+
 }
 
   .grid > div:last-child {
@@ -155,6 +158,13 @@ blockquote img {
     object-fit: cover;
     margin-inline: auto 0;
   }
+
+  .test-img-mobile {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
 .test-quote {
     display: grid;
     grid-template-columns: 1fr; 
@@ -195,4 +205,9 @@ blockquote img {
     grid-row: 3;
     font-size: clamp(0.75rem, 1vw, 0.875rem);
     margin-bottom: 0;
+  }
+
+  .test-images-wrapper {
+    display: flex;
+    gap: 1rem;
   }
