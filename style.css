@@ -137,11 +137,12 @@ blockquote img {
 
 
 @media (min-width: 1125px) {
-    .hero-test-section {
+    .hero-section {
         height: 90dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        
     }
     .img-mobil {
         display: none; /* Beste Performance */
@@ -164,12 +165,15 @@ blockquote img {
   }
 }
 
-
-/* Standard (Mobile): Keine feste Höhe */
-.hero-test-section {
+/* Hero Section - Normale Section ohne Basis-Klasse */
+.hero-section {
+    width: 100%;
     min-height: auto;
-    
+    padding-bottom: clamp(3rem, 6vw, 8rem);
 }
+
+/* Spezifische Section-Unterklassen */
+/* .hero-test-section hat spezifische Eigenschaften in Media Queries */
 .test-content-wrapper {
     display: grid;
     gap: 3rem;
@@ -200,7 +204,6 @@ blockquote img {
     object-fit: cover;
   }
 .h2-quote-container {
-    border: 0.5px solid #E1E1E1; 
     padding-top: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
@@ -246,7 +249,22 @@ blockquote img {
     margin-bottom: 0;
   }
 
-  .normal-section {
-    height: 100dvh;
-    margin-top: 5vh;
+  /* Spezifische Eigenschaften für section-Unterklassen auf Desktop */
+  .section {
+    padding-block: clamp(2rem, 4vw, 5rem);
+  }
+.referenz-raster {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    margin-top: 3vh;
+}
+
+.referenz-raster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1/1;
+    border: 0.5px solid #E1E1E1;
+    object-fit: cover;
 }
