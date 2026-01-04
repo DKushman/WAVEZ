@@ -119,6 +119,14 @@ blockquote img {
     max-height: clamp(40vh, 70vh, 80vh); /* Korrigierte Syntax */
     column-gap: 5rem;
 }
+
+.img-mobil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
 @media (min-width: 1125px) {
     .hero-test-section {
         height: 90dvh;
@@ -126,9 +134,27 @@ blockquote img {
         flex-direction: column;
         justify-content: center;
     }
-    .test-img-mobile { 
-        display: none; }
+    .img-mobil {
+        display: none; /* Beste Performance */
+    }
+    .test-container {
+        grid-template-columns: 1fr 1fr; /* Explizites Grid */
+    }
+    .test-content-wrapper {
+        grid-column: 1;
+        grid-template-rows: 1fr auto; /* Auf Desktop: nur 2 Zeilen (ohne Bilder) */
+    }
+    .test-img {
+        display: block; /* Sichtbar auf Desktop */
+        grid-column: 2;
+    }
 }
+@media (max-width: 1124px) {
+  .test-img {
+    display: none; /* Versteckt auf Mobile */
+  }
+}
+
 
 /* Standard (Mobile): Keine feste Höhe */
 .hero-test-section {
@@ -136,8 +162,8 @@ blockquote img {
 }
 .test-content-wrapper {
     display: grid;
-    grid-template-rows: 1fr auto;
-    gap: 1rem;
+    grid-template-rows: auto auto auto; /* 3 Zeilen: top, bilder, bottom */
+    gap: 3rem;
 }
 
 .test-grid-top {
@@ -206,5 +232,3 @@ blockquote img {
     font-size: clamp(0.75rem, 1vw, 0.875rem);
     margin-bottom: 0;
   }
-
- 
