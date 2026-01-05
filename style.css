@@ -293,6 +293,7 @@ blockquote img {
     object-fit: cover;
     z-index: 0;
     opacity: 0.5;
+    border-radius: 50px;
 }
 .stagger-item {
     width: 100%;
@@ -311,7 +312,6 @@ blockquote img {
     z-index: 1;
 }
 .section.projekte-section {
-    padding: 0;
     margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
     margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
     width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
@@ -323,32 +323,32 @@ blockquote img {
 }
 .stagger-item:nth-child(2) {
     background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
-    top: 7%;
+    top: 8%;
     z-index: 3;
     color: #0E0E0E;
 }
 .stagger-item:nth-child(3) {
     background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
-    top: 7%;
+    top: 10%;
     z-index: 3;
     color: #E1E1E1;
 }
 .stagger-item:nth-child(4) {
     background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
-    top: 7%;
+    top: 12%;
     z-index: 3;
     color: #0E0E0E;
 }
 .stagger-item:nth-child(5) {
     background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
-    top: 7%;
+    top: 14%;
     z-index: 3;
 }
 
 .bild-von-projekt-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
 }
 .bild-von.projekt {
      width: 100%;
