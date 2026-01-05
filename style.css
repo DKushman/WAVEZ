@@ -298,6 +298,7 @@ blockquote img {
     width: 100%;
     height: 100vh;
     position: sticky;
+    overflow: hidden;
 }
 .h2.stagger {
     margin:0;
@@ -311,33 +312,36 @@ blockquote img {
 }
 .section.projekte-section {
     padding: 0;
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
+    width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
 }
-.stagger-item.end {
-    height: 50dvh;
-}
+
 
 .stagger-item:nth-child(1) {
     background-color: transparent;
 }
 .stagger-item:nth-child(2) {
-    background-color: #E1E1E1;
-    top: 0;
+    background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
+    top: 7%;
     z-index: 3;
     color: #0E0E0E;
 }
 .stagger-item:nth-child(3) {
-    background-color: #0E0E0E;
-    top: 0;
+    background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
+    top: 7%;
     z-index: 3;
+    color: #E1E1E1;
 }
 .stagger-item:nth-child(4) {
-    background-color: #E1E1E1;
-    top: 0;
+    background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
+    top: 7%;
     z-index: 3;
+    color: #0E0E0E;
 }
 .stagger-item:nth-child(5) {
-    background-color: #0E0E0E;
-    top: 0;
+    background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
+    top: 7%;
     z-index: 3;
 }
 
@@ -346,4 +350,129 @@ blockquote img {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+.bild-von.projekt {
+     width: 100%;
+     max-width: 100%; 
+     max-height: 100%; 
+     object-fit: cover; 
+     position: relative;
+     aspect-ratio: 1/1;
+}
 
+.inhalt-stagger {
+    padding-left: clamp(1rem, 2vw, 2vw);
+    padding-right: clamp(1rem, 2vw, 2vw);
+    display: grid;
+
+}
+
+.h3 {
+    font-size: clamp(1.75rem, 2.5vw, 3.5rem);
+    margin-bottom: 0;
+}
+
+.logo-projekt {
+    width: 100%;
+    max-width: clamp(60px, 8vw, 150px);
+    max-height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.positionlogo-container {
+    height: 7%;
+    padding-left: clamp(1rem, 2vw, 2vw);
+    padding-right: clamp(1rem, 2vw, 2vw);
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+    overflow: visible;
+}
+
+.stagger-item:nth-child(2) .positionlogo-container {
+    justify-content: center;
+}
+
+.stagger-item:nth-child(2) .positionlogo-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #E1E1E1;
+    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    z-index: -1;
+}
+
+.stagger-item:nth-child(2) .logo-projekt {
+    position: absolute;
+    left: 12.5%; /* Mitte von 0-25% */
+    transform: translateX(-50%);
+}
+
+.stagger-item:nth-child(3) .positionlogo-container {
+    justify-content: center;
+}
+
+.stagger-item:nth-child(3) .positionlogo-container::before {
+    content: '';
+    position: absolute;
+    left: 25%;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #0E0E0E;
+    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    z-index: -1;
+}
+
+.stagger-item:nth-child(3) .logo-projekt {
+    position: absolute;
+    left: 37.5%; /* Mitte von 25-50% */
+    transform: translateX(-50%);
+}
+
+.stagger-item:nth-child(4) .positionlogo-container {
+    justify-content: center;
+}
+
+.stagger-item:nth-child(4) .positionlogo-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #E1E1E1;
+    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    z-index: -1;
+}
+
+.stagger-item:nth-child(4) .logo-projekt {
+    position: absolute;
+    left: 62.5%; /* Mitte von 50-75% */
+    transform: translateX(-50%);
+}
+
+.stagger-item:nth-child(5) .positionlogo-container {
+    justify-content: center;
+}
+
+.stagger-item:nth-child(5) .positionlogo-container::before {
+    content: '';
+    position: absolute;
+    left: 75%;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #0E0E0E;
+    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    z-index: -1;
+}
+
+.stagger-item:nth-child(5) .logo-projekt {
+    position: absolute;
+    left: 87.5%; /* Mitte von 75-100% */
+    transform: translateX(-50%);
+}
