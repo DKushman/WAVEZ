@@ -56,7 +56,6 @@ nav span {
     font-size: clamp(2rem, 3vw, 5rem);
     line-height: 1.1;
     position: relative;
-    margin-bottom: 0;
 }
 
 .h1 span {
@@ -88,7 +87,9 @@ nav span {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
 }
-.erstgesprach {
+
+.button {
+    display: inline-block;
     background-color: #004CB2;
     color: #E1E1E1;
     padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
@@ -98,6 +99,8 @@ nav span {
     align-self: flex-start;
     font-size: clamp(0.6rem, 0.9vw, 0.8rem); /* Mittelweg */  
     width: auto;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+    width: fit-content;
 }
 
 .h2 {
@@ -108,13 +111,6 @@ nav span {
 }
 .h2 span {
     font-weight: 600
-}
-.h2-hero {
-    margin-top: 0;
-    font-weight: 600;
-    font-size: clamp(1.5rem, 2vw, 2.5rem);
-    line-height: 1;
-    padding-left: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 blockquote img {
@@ -158,11 +154,20 @@ blockquote img {
         grid-column: 2;
         grid-template-rows: 1fr auto; /* Auf Desktop: nur 2 Zeilen (ohne Bilder) */
     }
+    .test-quote {
+        justify-self: center;
+        align-self: center;
+        margin-inline: auto;
+    }
+    .button.portfolio-mobile {
+        display: none;
+    }
 }
 @media (max-width: 1124px) {
   .test-img {
     display: none; /* Versteckt auf Mobile */
   }
+
 }
 
 /* Hero Section - Normale Section ohne Basis-Klasse */
@@ -172,11 +177,13 @@ blockquote img {
     padding-bottom: clamp(3rem, 6vw, 8rem);
 }
 
+
 /* Spezifische Section-Unterklassen */
 /* .hero-test-section hat spezifische Eigenschaften in Media Queries */
 .test-content-wrapper {
     display: grid;
     gap: 3rem;
+    grid-template-rows: auto;
 }
 
 .test-grid-top {
@@ -184,12 +191,10 @@ blockquote img {
     flex-direction: column;
     gap: clamp(0.8rem, 1.3vw, 1.3rem);
     padding-top: clamp(0px, calc(5vh - 4vw), 5vh);
-
 }
-
-  .grid > div:last-child {
-    grid-row: span 2;
-  }
+.test-grid-top-content {
+    justify-self: center;
+}
 
   .test-img {
     width: 100%;
@@ -211,22 +216,22 @@ blockquote img {
     display: grid;
     grid-template-columns: 1fr; 
     grid-template-rows: auto auto; /* Zwei Zeilen */
+    row-gap: clamp(0.75rem, 1.5vw, 1.5rem);
     padding: clamp(0.75rem, 1.5vw, 1.5rem);
-    border-top: 0.5px solid #E1E1E1; 
     font-size: clamp(0.75rem, 1.2vw, 1rem);
-    max-width: clamp(300px, 90vw, 1200px);
-    margin: 0 0;
+    max-width: clamp(300px, 90vw, 1200px);    
 }
-  
+
   .test-logo {
     grid-row: 1;
   }
   
   .quote-name-title-logo {
-    grid-row: 1;
+    grid-row: 2;
     display: flex;
     gap: clamp(0.75rem, 1.5vw, 1.5rem);
     align-items: start;
+    padding-top: clamp(0.5rem, 1vw, 1rem);
 }
 
 .quote-name-title-logo > * {
@@ -234,20 +239,26 @@ blockquote img {
 }
 
   .quote-name {
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 0;
     margin-top: 0;
   }
   .quote-title {
     font-size: clamp(0.75rem, 1vw, 0.875rem);
     margin: 0;
+    font-weight: 600;
   }
 
   .quote-text {
-    grid-row: 3;
-    font-size: clamp(0.75rem, 1vw, 0.875rem);
-    margin-bottom: 0;
-  }
+    grid-row: 1;
+    font-size: clamp(1.25rem, 2.5vw, 3rem); /* Deutlich größer */    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 300;
+    justify-self: center;
+    background-color: #E1E1E1;
+    color: #0E0E0E;
+    padding: clamp(1rem, 2vw, 2vw);  
+}
 
   /* Spezifische Eigenschaften für section-Unterklassen auf Desktop */
   .section {
@@ -267,6 +278,7 @@ blockquote img {
     border: 0.5px solid #E1E1E1;
     object-fit: cover;
 }
+
 
 .stagger-container {
     position: sticky;
@@ -295,11 +307,15 @@ blockquote img {
     opacity: 0.5;
     border-radius: 50px;
 }
+
 .stagger-item {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     position: sticky;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
 }
 .h2.stagger {
     margin:0;
@@ -311,10 +327,11 @@ blockquote img {
     width: 50%;
     z-index: 1;
 }
-.section.projekte-section {
+.section.projekte {
     margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
     margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
     width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
+    padding-bottom: 0;
 }
 
 
@@ -322,32 +339,33 @@ blockquote img {
     background-color: transparent;
 }
 .stagger-item:nth-child(2) {
-    background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
-    top: 8%;
-    z-index: 3;
-    color: #0E0E0E;
-}
-.stagger-item:nth-child(3) {
-    background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
+    background: linear-gradient(to bottom, transparent 7%, #9CC4FF 7%);
     top: 10%;
     z-index: 3;
     color: #E1E1E1;
 }
-.stagger-item:nth-child(4) {
-    background: linear-gradient(to bottom, transparent 7%, #E1E1E1 7%);
+.stagger-item:nth-child(3) {
+    background: linear-gradient(to bottom, transparent 7%, #5B8FE6 7%);
     top: 12%;
     z-index: 3;
-    color: #0E0E0E;
+    color: #E1E1E1;
 }
-.stagger-item:nth-child(5) {
-    background: linear-gradient(to bottom, transparent 7%, #0E0E0E 7%);
+.stagger-item:nth-child(4) {
+    background: linear-gradient(to bottom, transparent 7%, #1F63C6 7%);
     top: 14%;
     z-index: 3;
+    color: #E1E1E1;
+}
+.stagger-item:nth-child(5) {
+    background: linear-gradient(to bottom, transparent 7%, #004CB2 7%);
+    top: 16%;
+    z-index: 3;
+    color: #E1E1E1;
 }
 
 .bild-von-projekt-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
 }
 .bild-von.projekt {
@@ -363,12 +381,37 @@ blockquote img {
     padding-left: clamp(1rem, 2vw, 2vw);
     padding-right: clamp(1rem, 2vw, 2vw);
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* WICHTIG: Immer definieren - Desktop: 3 Spalten */
+    grid-template-rows: auto 1fr auto; /* projekte-text oben, services/bilder in der Mitte, button unten */
+    gap: 1rem;
+    min-height: 0; /* Wichtig für Grid in Flex-Container */
+    margin-top: clamp(2rem, 4vw, 8vw);
+    align-self: center; /* Horizontal zentrieren */
+}
 
+@media (max-width: 1124px) {
+    .inhalt-stagger {
+        grid-template-columns: 1fr 1fr; /* Mobile: 2 Spalten für Bilder */
+    }
+    
+    .services-projekte {
+        grid-column: 1 / -1; /* services-projekte über beide Spalten */
+    }
+    
+    .button.portfolio-projekte {
+        display: none;
+    }
+    
+    .button.portfolio-mobile {
+        display: inline-block;
+        background-color: #0E0E0E;
+        color: #E1E1E1;
+    }
 }
 
 .h3 {
     font-size: clamp(1.75rem, 2.5vw, 3.5rem);
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .logo-projekt {
@@ -387,6 +430,7 @@ blockquote img {
     background-color: transparent;
     position: relative;
     overflow: visible;
+    flex-shrink: 0; /* WICHTIG: Logo behält seine Position */
 }
 
 .stagger-item:nth-child(2) .positionlogo-container {
@@ -400,7 +444,7 @@ blockquote img {
     top: 0;
     width: 25%;
     height: 100%;
-    background-color: #E1E1E1;
+    background-color: #9CC4FF;
     border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
     z-index: -1;
 }
@@ -422,7 +466,7 @@ blockquote img {
     top: 0;
     width: 25%;
     height: 100%;
-    background-color: #0E0E0E;
+    background-color: #5B8FE6;
     border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
     z-index: -1;
 }
@@ -444,7 +488,7 @@ blockquote img {
     top: 0;
     width: 25%;
     height: 100%;
-    background-color: #E1E1E1;
+    background-color: #1F63C6;
     border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
     z-index: -1;
 }
@@ -466,7 +510,7 @@ blockquote img {
     top: 0;
     width: 25%;
     height: 100%;
-    background-color: #0E0E0E;
+    background-color: #004CB2;
     border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
     z-index: -1;
 }
@@ -475,4 +519,230 @@ blockquote img {
     position: absolute;
     left: 87.5%; /* Mitte von 75-100% */
     transform: translateX(-50%);
+}
+
+.button.portfolio-projekte {
+    width: fit-content;    
+    margin-top: auto;
+    background-color: #0E0E0E;
+    color: #E1E1E1;
+}
+
+.services-projekte {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+}
+.p-services {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: clamp(0.875rem, 1.3vw, 1.125rem);
+    margin: 0;
+}
+
+.section.zahlen {
+    background-color: #004CB2;
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-bottom: clamp(2rem, 4vw, 5rem);
+
+}
+.h3.zahlen {
+    padding-block: clamp(0.5rem, 1vw, 1rem);
+    display: none;
+}
+.services-projekte-content {
+    display: flex;
+    gap: clamp(0.2rem, 0.5vw, 0.4rem);    
+    flex-wrap: wrap;
+}
+.zahlen {
+    background-color: #004CB2;
+    padding-left: clamp(1rem, 2vw, 2vw);
+    padding-right: clamp(1rem, 2vw, 2vw);
+}
+
+.uber-zahlen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(50%, 500px), 1fr));
+    gap: 2rem;
+}
+
+.zahlen-img {
+    grid-column: 1 / 3;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+.p.zahlen {
+    margin: 0;
+    padding: 0;
+}
+.button.team {
+    background-color: #0E0E0E;
+    color: #E1E1E1;
+}
+.h4.metric {
+    align-self: center;
+    margin: 0;
+    font-size: clamp(0.5rem, 1vw, 1.5rem);
+
+}
+.zahlen-text {
+    margin-top: auto;
+}
+.metric {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(1.25rem, 3.5vw, 7rem);
+    color: #E1E1E1;
+    width: fit-content;
+    align-self: center;
+}
+.metrics-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.zahlen-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    justify-items: center;
+    margin-block: clamp(2rem, 4vw, 8vw);
+    border: 1px solid #E1E1E1;
+    padding: clamp(1rem, 2vw, 2vw);
+    border-radius: 10px;
+}
+.dickeiwas {
+    font-weight: 600;
+    color: #0E0E0E;
+}
+.leistungen-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5rem;
+    grid-column: 2;
+}
+.alle-leistungen {
+    grid-column: 2;
+    grid-column: 2/-2;
+}
+.leistungen-text-container {
+    grid-column: 2/-2;
+}
+.h3.leistungen {
+    grid-row: 2;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 500;
+}
+.button.leistungen {
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.h4-leistungen {
+    margin-bottom: clamp(0.5rem, 1vw, 1vw);
+    line-height: 1;
+    font-weight: 200;
+    font-size: clamp(1.25rem, 3vw, 5rem); /* Minimum kleiner für kleine Geräte */
+    transition: font-weight 0.3s ease;
+    margin-top: 0;
+    
+}
+.h4-leistungen:hover {  /* Kein Leerzeichen = hover auf .h4-leistungen selbst */
+    font-weight: 400;
+}
+.p-leistungen {
+    font-weight: 200;
+    margin-top: 0;
+}
+
+.section.bts {
+    background-color: #E1E1E1;
+    padding: 0;
+    margin-block: clamp(2rem, 4vw, 5rem);
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
+    width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
+    border-radius: 50px;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.h2.bts {
+    display: none;
+}
+
+@media (max-width: 1124px) {
+    .leistungen-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .h3.leistungen {
+        display: none;
+    }
+    .leistungen-text-container {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+    .alle-leistungen {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .h4-leistungen {
+        padding-bottom: clamp(0.5rem, 1vw, 1vw);
+    }
+    .button.leistungen {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin:0;
+    }
+}
+
+.bts-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    /* Kein z-index hier - würde neuen Stacking-Context erstellen */
+}
+
+.bts-text {
+    font-size: clamp(0.5rem, 1vw, 2rem);
+    font-weight: 700;
+    color: #FFFFFF; /* Weiß für besseren Kontrast */
+    mix-blend-mode: difference; /* Blend-Mode aktivieren */
+    position: relative;
+    z-index: 2; /* Text über den Bildern */
+}
+
+.bts-images-track {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Startet außerhalb des Viewports (rechts) */
+    transform: translateY(-50%);
+    will-change: transform;
+    pointer-events: none;
+    opacity: 0; /* Versteckt bis Animation startet */
+    z-index: 1; /* Bilder unter dem Text */
+}
+
+.bts-img {
+    width: clamp(250px, 30vw, 400px);
+    height: clamp(300px, 40vw, 500px);
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
 }

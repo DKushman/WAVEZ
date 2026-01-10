@@ -8,6 +8,9 @@
     <!-- Preload Variable Font für maximale Performance -->
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
     
+    <!-- Preload GSAP für frühes Laden -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,29 +36,14 @@
                 </h1>
                 <p class="p">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
                 </p>
+                <button class="button erstgesprach">KOSTENLOSES ERSTGESPRÄCH</button>
+
             </div>
-                <button class="erstgesprach">KOSTENLOSES ERSTGESPRÄCH</button>
             </div>
             
             <div class="img-mobil">
                 <img class="test-img-mobile" src="./images/DSC00175.jpeg" alt="Racing Podium">
                 <img class="test-img-mobile" src="./images/DSC00103.jpeg" alt="Racing Podium">
-            </div>
-            
-            <div class="test-grid-bottom">
-                <div class="h2-quote-container">
-                <h2 class="h2-hero">Das sagen unsere <span>Kunden:</span></h2>
-                <blockquote class="test-quote">
-                    <div class="quote-name-title-logo">
-                        <img class="test-logo" src="./images/bentley logo.png" alt="Bentley Logo">
-                        <div class="quote-name-title">
-                            <p class="quote-name">Melanie Manyak</p>
-                            <p class="quote-title">Head of Marketing bei Bentley</p>
-                        </div>
-                    </div>
-                    <p class="quote-text"><i>"Die Jungs haben toll Eier geleckt! ioejrivper. eopijr io wpr kopek poek porkpo epor kpoerkpoerk poewrk pokep oprk peork opwekr pwkpr"</i></p>
-                </blockquote>
-                </div>
             </div>
         </div>
     </div>
@@ -76,10 +64,22 @@
             <img src="./images/DSC00321.jpeg" alt="Referenz 10" loading="lazy">
         </div>
     </section>
-    <section class="section projekte-section">
+    <section class="section quote">
+        <div class="h2-quote-container">
+            <h2 class="h2 quote">Vertrauen, das <span>überzeugt:</span></h2>
+            <p class="p quote">Wenn du uns nicht glaubst, glaub den Unternehmen die uns schon vertrauen:</p>
+            <blockquote class="test-quote">
+                <div class="quote-name-title-logo">
+                    <img class="test-logo" src="./images/bentley logo.png" alt="Bentley Logo">
+                    <footer class="quote-name">Melanie Manyak, <br><span class="quote-title">Head of Marketing bei Bentley</span></footer>
+                </div>
+                <p class="quote-text"><i>"Die Jungs haben toll Eier geleckt! ioejrivper. eopijr io wpr kopek poek porkpo epor kpoerkpoerk poewrk pokep oprk peork opwekr pwkpr"</i></p>
+            </blockquote>
+        </div>
+    </section>
+    <section class="section projekte">
         <div class="projekte-stagger">
             <div class="stagger-container">
-                <div class="projekte-text"></div>
                 <h2 class="h2 stagger">Unsere letzten Projekte
                 </h2>
                 <p class="p stagger">Wir sind täglich dabei digitale Visionen umzusetzen, um unseren Kunden die bestmögliche Online-Präsenz zu verschaffen
@@ -90,28 +90,55 @@
                 <div class="positionlogo-container">
                     <img class="logo-projekt" src="./images/bentley logo.png" alt="Logo">
                 </div>
+                
                 <div class="inhalt-stagger">
-                    <h3 class="h3">RALPH LAUREN</h3>
-                    <p class="p">Wir sind täglich dabei digitale Visionen umzusetzen, um ioejrfiorejiorjio feo</p>
-                    <div class="bild-von-projekt-container">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
+                    
+                    <div class="services-projekte">
+                        <div class="projekte-text">
+                            <h3 class="h3">RALPH LAUREN</h3>
+                            <p class="p">Wir sind täglich dabei digitale Visionen umzusetzen, um ioejrfiorejiorjio feo</p>
+                        </div>
+                        <h4 class="h4">Services:</h4>
+                        <div class="services-projekte-content">
+                            <p class="p-services">Branding</p>
+                            <p class="p-services">Design</p>
+                            <p class="p-services">Digitales Wachstum</p>
+                            <p class="p-services">Social Media</p>
+                        </div>
+                        <button class="button portfolio-projekte">ZUM PORTFOLIO</button>
+
                     </div>
+                    <div class="button-img-mobile">
+                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 2" loading="lazy">
+                        <button class="button portfolio-mobile">ZUM PORTFOLIO</button>
+                    </div>
+                    <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
                 </div>
             </div>
             <div class="stagger-item">
                 <div class="positionlogo-container">
-                    <img class="logo-projekt" src="./images/bentley logo.png" alt="Logo" loading="lazy"> 
+                    <img class="logo-projekt" src="./images/bentley logo.png" alt="Logo" loading="lazy">
                 </div>
                 <div class="inhalt-stagger">
-                    <h3 class="h3">BENTLEY</h3>
-                    <p class="p">Wir sind täglich dabei digitale Vierferf erfref erfferf erferf er fer ferf  er</p>
-                    <div class="bild-von-projekt-container">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
+                    <div class="services-projekte">
+                        <div class="projekte-text">
+                            <h3 class="h3">BENTLEY</h3>
+                            <p class="p">Wir sind täglich dabei digitale Vierferf erfref erfferf erferf er fer ferf  er</p>
+                        </div>
+                        <h4 class="h4">Services:</h4>
+                        <div class="services-projekte-content">
+                            <p class="p-services">Branding</p>
+                            <p class="p-services">Design</p>
+                            <p class="p-services">Digitales Wachstum</p>
+                            <p class="p-services">Social Media</p>
+                        </div>
+                        <button class="button portfolio-projekte">ZUM PORTFOLIO</button>
                     </div>
+                    <div class="button-img-mobile">
+                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 2" loading="lazy">
+                        <button class="button portfolio-mobile">ZUM PORTFOLIO</button>
+                    </div>
+                    <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
                 </div>
             </div>
             <div class="stagger-item">
@@ -119,12 +146,25 @@
                     <img class="logo-projekt" src="./images/bentley logo.png" alt="Logo">
                 </div>
                 <div class="inhalt-stagger">
-                    <h3 class="h3">ANDERE</h3>
-                    <p class="p">Wir sind täglich dabei digitale Visionen umzusetzen, um unseren Kunden die </p>
-                    <div class="bild-von-projekt-container">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
+                    <div class="services-projekte">
+                        <div class="projekte-text">
+                            <h3 class="h3">ANDERE</h3>
+                            <p class="p">Wir sind täglich dabei digitale Visionen umzusetzen, um unseren Kunden die </p>
+                        </div>
+                        <h4 class="h4">Services:</h4>
+                        <div class="services-projekte-content">
+                            <p class="p-services">Branding</p>
+                            <p class="p-services">Design</p>
+                            <p class="p-services">Digitales Wachstum</p>
+                            <p class="p-services">Social Media</p>
+                        </div>
+                        <button class="button portfolio-projekte">ZUM PORTFOLIO</button>
                     </div>
+                    <div class="button-img-mobile">
+                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 2" loading="lazy">
+                        <button class="button portfolio-mobile">ZUM PORTFOLIO</button>
+                    </div>
+                    <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
                 </div>
             </div>
             <div class="stagger-item">
@@ -132,15 +172,93 @@
                     <img class="logo-projekt" src="./images/bentley logo.png" alt="Logo">
                 </div>
                 <div class="inhalt-stagger">
-                    <h3 class="h3">LEBANON</h3>
-                    <p class="p">Wir sind täglich dabei digitale Veiorjgioj oiejrio feoirfj oierjfiorej foierjf</p>
-                    <div class="bild-von-projekt-container">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
-                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy"   >
+                    <div class="services-projekte">
+                        <div class="projekte-text">
+                            <h3 class="h3">LEBANON</h3>
+                            <p class="p">Wir sind täglich dabei digitale Veiorjgioj oiejrio feoirfj oierjfiorej foierjf</p>
+                        </div>
+                        <h4 class="h4">Services:</h4>
+                        <div class="services-projekte-content">
+                            <p class="p-services">Branding</p>
+                            <p class="p-services">Design</p>
+                            <p class="p-services">Digitales Wachstum</p>
+                            <p class="p-services">Social Media</p>
+                        </div>
+                        <button class="button portfolio-projekte">ZUM PORTFOLIO</button>
                     </div>
+                    <div class="button-img-mobile">
+                        <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 2" loading="lazy">
+                        <button class="button portfolio-mobile">ZUM PORTFOLIO</button>
+                    </div>
+                    <img class="bild-von projekt" src="./images/DSC00321.jpeg" alt="Projekt 1" loading="lazy">
                 </div>
             </div>
             <div class="stagger-item end"></div>
         </div>
+        </section>
+        <section class="section zahlen">
+            <h2 class="h2">Experience-focussed Design</h2>
+            <h3 class="h3 zahlen">Unsere Zahlen!</h3>
+            <div class="zahlen-container">
+                <div class="metrics-container">
+                 <h4 class="h4 metric">Personen erreicht</h4>   
+                 <p class="metric">+20 <span class="dickeiwas">Mio.</span></p>
+                </div>
+                <div class="metrics-container">
+                 <h4 class="h4 metric">Personen erreicht</h4>   
+                 <p class="metric">+ 1 <span class="dickeiwas">Mio.</span></p>
+                 </div>
+                 <div class="metrics-container">
+                 <h4 class="h4 metric">Personen erreicht</h4>   
+                 <p class="metric">+ 20</p>
+                 </div>
+            </div>
+            <div class="uber-zahlen">
+                <img class="zahlen-img" src="./images/DSC00321.jpeg" alt="Zahlen" loading="lazy">
+                <div class="zahlen-text">
+                <p class="p zahlen">Wir sind täglich dabei digitale Visionen umzusetzen, um unseren Kunden die bestmögliche Online-Präsenz zu verschaffen und eier lecken weil die jugns können auf jedn fall sehrt gut eier lecken auf jeden fall mega gut ich mein boris hat sowieos iuele fähigkeiten mit sienem mund er kann beatboxen viielleicht sollte er mal mein meat boxen</p>
+                <button class="button team">ZUM TEAM</button>
+            </div>
+            </div>
+        </section>
+        <section class="section leistungen">
+            <div class="leistungen-container">
+                <div class="leistungen-text-container">
+            <h2 class="h2">Unsere Leistungen im Überblick</h2>
+            <p class="p">Wir sind täglich dabei digitale Visionen umzusetzen, um unseren Kunden die bestmögliche Online-Präsenz zu verschaffen und eier lecken weil die jugns können auf jedn fall sehrt gut eier lecken auf jeden fall mega gut ich mein boris hat sowieos iuele fähigkeiten mit sienem mund er kann beatboxen viielleicht sollte er mal mein meat boxen</p>
+            </div>
+            <h3 class="h3 leistungen">*LEISTUNGEN</h3>
+            <div class="alle-leistungen">
+                <h4 class="h4-leistungen">Social Media Content</h4>
+                <h4 class="h4-leistungen">Management</h4>
+                <h4 class="h4-leistungen">Fotoproduktion</h4>
+                <h4 class="h4-leistungen">Videoproduktion</h4>
+                <h4 class="h4-leistungen">3D Design</h4>
+                <h4 class="h4-leistungen">Motion Graphics</h4>
+            </div>
+            <button class="button leistungen">MEHR ZU LEISTUNGEN</button>
+            </div>
+        </section>
+        <section class="section bts">
+            <div class="bts-text-container">
+                <h2 class="h2 bts">Wie sehen wir bei der Arbeit aus?</h2>
+                <p class="bts-text">Unsere Arbeit formt sich im Hintergrund und entfaltet sich im Vordergrund.</p>
+            </div>
+            <div class="bts-images-track">
+                <img class="bts-img" src="./images/DSC00103.jpeg" alt="BTS 1" loading="lazy">
+                <img class="bts-img" src="./images/DSC00110.jpeg" alt="BTS 2" loading="lazy">
+                <img class="bts-img" src="./images/DSC00122.jpeg" alt="BTS 3" loading="lazy">
+                <img class="bts-img" src="./images/DSC00129.jpeg" alt="BTS 4" loading="lazy">
+                <img class="bts-img" src="./images/DSC00148.jpeg" alt="BTS 5" loading="lazy">
+                <img class="bts-img" src="./images/DSC00175.jpeg" alt="BTS 6" loading="lazy">
+            </div>
+        </section>
+        <section class="section">
+
+        </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
