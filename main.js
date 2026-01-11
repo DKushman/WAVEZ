@@ -33,3 +33,15 @@ gsap.fromTo(track,
         }
     }
 );
+
+// Testimonials Scroll Progress
+const quoteContainer = document.querySelector('.blockquote-container');
+const progressBar = document.querySelector('.scroll-progress-bar');
+
+if (quoteContainer && progressBar) {
+    quoteContainer.addEventListener('scroll', () => {
+        const maxScroll = quoteContainer.scrollWidth - quoteContainer.clientWidth;
+        const scrollPercent = maxScroll > 0 ? quoteContainer.scrollLeft / maxScroll : 0;
+        progressBar.style.transform = `translateX(${scrollPercent * 233}%)`;
+    });
+}
