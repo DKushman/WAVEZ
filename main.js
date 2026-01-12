@@ -45,3 +45,20 @@ if (quoteContainer && progressBar) {
         progressBar.style.transform = `translateX(${scrollPercent * 233}%)`;
     });
 }
+
+// Lightbox für Projekt-Bilder
+document.querySelectorAll('.bild-von.projekt').forEach(img => {
+    img.addEventListener('click', () => {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox active';
+        const fullImg = document.createElement('img');
+        fullImg.src = img.src;
+        fullImg.alt = img.alt;
+        lightbox.appendChild(fullImg);
+        document.body.appendChild(lightbox);
+        
+        lightbox.addEventListener('click', () => {
+            lightbox.remove();
+        });
+    });
+});

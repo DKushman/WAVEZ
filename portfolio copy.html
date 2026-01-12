@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- Preload Variable Font für maximale Performance -->
+    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Preload GSAP für frühes Laden -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleport.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo">
+        <nav class="burger-menu">
+            <span>☰</span>
+        </nav>
+        <span class="location">BERLIN, GERMANY</span>
+    </header>
+    
+    <div class="portfolio-section">
+        <h1 class="h1 portfolio-title">PORTFOLIO</h1>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00103.jpeg" alt="Portfolio Image 1">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00110.jpeg" alt="Portfolio Image 2">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00122.jpeg" alt="Portfolio Image 3">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00129.jpeg" alt="Portfolio Image 4">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00148.jpeg" alt="Portfolio Image 5">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00175.jpeg" alt="Portfolio Image 6">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00203.jpeg" alt="Portfolio Image 7">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-image">
+                        <img src="./images/DSC00257.jpeg" alt="Portfolio Image 8">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <footer>
+
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Alle Slides auswählen
+        const slides = document.querySelectorAll('.slide');
+        
+        // Jedes Bild von rechts nach links animieren beim Scrollen
+        slides.forEach((slide, index) => {
+            gsap.fromTo(slide,
+                {
+                    x: window.innerWidth + 300, // Startet außerhalb rechts
+                    opacity: 0
+                },
+                {
+                    x: 0, // Endet an normaler Position
+                    opacity: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: slide,
+                        start: "top 85%", // Startet wenn Slide 85% vom Viewport entfernt ist
+                        end: "top 15%",
+                        scrub: 1.5, // Animation ist an Scroll gebunden (etwas verzögert für smoothness)
+                    }
+                }
+            );
+        });
+    </script>
+    <script src="main.js"></script>
+    </body>
+</html>
