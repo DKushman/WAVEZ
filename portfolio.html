@@ -13,373 +13,178 @@
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleport.css">
-    
-    <style>
-        /* Portfolio Section Styles - gleiche Struktur wie BTS */
-        .section.portfolio {
-            padding: 0;
-            margin-block: clamp(2rem, 4vw, 5rem);
-            margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
-            margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
-            width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
-            position: relative;
-            height: 400vh; /* Mehr Höhe für langsamere, smooth Animation */
-            overflow: hidden;
-        }
-
-        .portfolio-images-track {
-            display: flex;
-            gap: 3rem;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%);
-            will-change: transform;
-            opacity: 0; /* Versteckt bis Animation startet */
-        }
-
-        .portfolio-img-container {
-            width: clamp(200px, 35vw, 600px);
-            height: clamp(280px, 45vw, 750px);
-            border: 1px solid #E1E1E1;
-            border-radius: 20px;
-            flex-shrink: 0;
-            overflow: hidden;
-            pointer-events: auto;
-            cursor: pointer;
-            transition: all 0.1s ease-in-out;
-        }
-
-        .portfolio-img-container figure {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            position: relative;
-            background-color: #004CB2;
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 17px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .portfolio-img-container figcaption {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            color: #E1E1E1;
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .portfolio-img-container figcaption .external-link-icon {
-            width: 16px;
-            height: 16px;
-            fill: #E1E1E1;
-            flex-shrink: 0;
-        }
-
-        /* Wrapper für Mobile - Plus außerhalb des Containers */
-        .portfolio-item-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        /* Plus-Symbol für Mobile */
-        .portfolio-plus {
-            display: none;
-            width: 30px;
-            height: 30px;
-            margin: 1rem auto 0;
-            cursor: pointer;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .portfolio-plus::before,
-        .portfolio-plus::after {
-            content: '';
-            position: absolute;
-            background-color: #E1E1E1;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .portfolio-plus::before {
-            width: 2px;
-            height: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .portfolio-plus::after {
-            width: 100%;
-            height: 2px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .portfolio-plus.active {
-            transform: rotate(45deg);
-        }
-
-        /* Desktop: Hover-Animation */
-        @media (min-width: 769px) {
-            .portfolio-img-container:hover {
-                border-color: #E1E1E1; /* Border bleibt sichtbar */
-            }
-
-            .portfolio-img-container:hover .portfolio-img {
-                transform: scale(0.5); /* Bild wird kleiner beim Hover */
-            }
-
-            .portfolio-img-container:hover figcaption {
-                opacity: 1; /* Figcaption wird sichtbar beim Hover */
-            }
-        }
-
-
-
-        /* Mobile Anpassungen */
-        @media (max-width: 768px) {
-            .portfolio-img-container {
-                width: clamp(180px, 50vw, 300px);
-                height: clamp(250px, 70vw, 400px);
-            }
-            
-            .portfolio-images-track {
-                gap: 2rem;
-            }
-            
-            .section.portfolio {
-                height: 500vh; /* Mehr Höhe auf Mobile für langsamere Animation */
-            }
-
-            /* Plus-Symbol auf Mobile anzeigen */
-            .portfolio-plus {
-                display: block;
-            }
-
-            /* Figcaption auf Mobile unter dem Bild */
-            .portfolio-img-container figcaption {
-                position: relative;
-                top: auto;
-                opacity: 0;
-                max-height: 0;
-                padding: 0 1rem;
-                overflow: hidden;
-                transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-            }
-
-            .portfolio-item-wrapper.active .portfolio-img-container figcaption {
-                opacity: 1;
-                max-height: 200px;
-                padding: 1rem;
-            }
-        }
-        .portfolio-title {
-    position: fixed;
-    margin-bottom: 0;
-    font-size: clamp(2rem, 6vw, 10rem);
-    mix-blend-mode: difference;
-    z-index: 10;
-}
-
-    </style>
 </head>
 <body>
     <header>
         <img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo">
         <nav class="burger-menu">
-            <span>☰</span>
+            <a href="portfolio copy.html"><span>☰</span></a>
         </nav>
         <span class="location">BERLIN, GERMANY</span>
     </header>
-    <section class="portfolio-title>">
-        <h1 class="h1 portfolio-title">PORTFOLIO.</h1>
-
-    </section>
-    <section class="section portfolio">
-        <div class="portfolio-images-track">
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00103.jpeg" alt="Portfolio 1" loading="lazy">
-                        <figcaption>
-                            Portfolio 1
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00110.jpeg" alt="Portfolio 2" loading="lazy">
-                        <figcaption>
-                            Portfolio 2
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00122.jpeg" alt="Portfolio 3" loading="lazy">
-                        <figcaption>
-                            Portfolio 3
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00129.jpeg" alt="Portfolio 4" loading="lazy">
-                        <figcaption>
-                            Portfolio 4
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00148.jpeg" alt="Portfolio 5" loading="lazy">
-                        <figcaption>
-                            Portfolio 5
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00175.jpeg" alt="Portfolio 6" loading="lazy">
-                        <figcaption>
-                            Portfolio 6
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00203.jpeg" alt="Portfolio 7" loading="lazy">
-                        <figcaption>
-                            Portfolio 7
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
-            </div>
-            <div class="portfolio-item-wrapper">
-                <article class="portfolio-img-container">
-                    <figure>
-                        <img class="portfolio-img" src="./images/DSC00257.jpeg" alt="Portfolio 8" loading="lazy">
-                        <figcaption>
-                            Portfolio 8
-                            <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </figcaption>
-                    </figure>
-                </article>
-                <div class="portfolio-plus"></div>
+    <section class="portfolio section">
+        <h1 class="h1 portfolio-title">PORTFOLIO</h1>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <a href="index.html"><article class="slide-image">
+                        <figure><a href="index.html">
+                            <img src="./images/DSC00103.jpeg" alt="Portfolio Image 1" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 1</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </a>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00110.jpeg" alt="Portfolio Image 2" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 2</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00122.jpeg" alt="Portfolio Image 3" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 3</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00129.jpeg" alt="Portfolio Image 4" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 4</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00148.jpeg" alt="Portfolio Image 5" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 5</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00175.jpeg" alt="Portfolio Image 6" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 6</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00203.jpeg" alt="Portfolio Image 7" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 7</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
+                <div class="slide">
+                    <article class="slide-image">
+                        <figure>
+                            <img src="./images/DSC00257.jpeg" alt="Portfolio Image 8" loading="lazy">
+                            <figcaption>
+                                <div>
+                                    <strong>Portfolio 8</strong>
+                                    <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
+                                </div>
+                                <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 3h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <img src="./plus.svg" alt="Plus" class="plus">
+                </div>
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const portfolioTrack = document.querySelector(".portfolio-images-track");
-    const portfolioSection = document.querySelector(".section.portfolio");
-
-    gsap.fromTo(portfolioTrack, 
-        { x: -(portfolioTrack.scrollWidth + window.innerWidth), opacity: 1 },
-        {
-            x: window.innerWidth,
-            ease: "none",
-            scrollTrigger: {
-                trigger: portfolioSection,
-                start: "top 100%",              // Startet später
-                end: "bottom top",             // Endet später - mehr Scroll-Distanz
-                scrub: 2                       // Smooth und langsamer (höherer Wert = smoother)
-            }
-        }
-    );
-
-    // Mobile: Plus-Symbol Klick-Animation
-    const portfolioWrappers = document.querySelectorAll('.portfolio-item-wrapper');
-    
-    portfolioWrappers.forEach(wrapper => {
-        const plus = wrapper.querySelector('.portfolio-plus');
-        
-        if (plus) {
-            plus.addEventListener('click', (e) => {
-                e.stopPropagation();
-                wrapper.classList.toggle('active');
-                plus.classList.toggle('active');
-            });
-        }
-    });
-
-    
-</script>
-<script src="main.js"></script>
+</html>
