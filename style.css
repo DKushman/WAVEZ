@@ -16,6 +16,33 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     position: relative;
+    transition: filter 0.3s ease;
+}
+
+/* Blur effect on body content when menu is open */
+.logo,
+.location,
+.page-content,
+footer {
+    transition: filter 0.8s ease;
+}
+
+body.menu-open .logo,
+body.menu-open .location,
+body.menu-open .page-content,
+body.menu-open footer {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+
+
+/* Nav overlay and list should not be blurred and should be clickable */
+body.menu-open .nav-overlay,
+body.menu-open .nav-list,
+body.menu-open .burger-button {
+    filter: blur(0) ;
+    pointer-events: auto;
 }
 
 header {
@@ -44,8 +71,97 @@ header {
     transform: translateX(-50%);
 }
 
-nav span {
+.burger-button {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #E1E1E1;
+    padding: 0;
+    margin: 0;
+    z-index: 10000;
+    position: relative;
+}
+
+.burger-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform: scale(1);
+}
+
+.burger-button.active .burger-icon {
+    transform: scale(0);
+}
+/* Nav Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 14, 14, 0.3);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    filter: blur(0);
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    filter: blur(0);
+    position: relative;
+    z-index: 10000;
+}
+.nav-list a:hover {
+    opacity: 0.8;
+    transition: opacity 0.8s ease;
+}
+
+
+.nav-overlay .close-icon {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    padding: 2vh;
+    line-height: 1;
+
+    transform: translateX(-50%) scale(0);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #E1E1E1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10001;
+}
+
+.nav-overlay.active .close-icon {
+    transform: translateX(-50%) scale(1);
+}
+
+.nav-list li a {
+    color: #E1E1E1;
+    text-decoration: none;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 .location {
@@ -1570,3 +1686,4 @@ nav span {
     padding-block: clamp(2rem, 4vw, 5rem);
 
 }
+

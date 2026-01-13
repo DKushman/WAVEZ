@@ -79,3 +79,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Burger Menu Toggle
+document.querySelector('.burger-button').addEventListener('click', function() {
+    document.querySelector('.nav-overlay').classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    this.classList.toggle('active');
+});
+
+// Close overlay when clicking on close icon
+document.querySelector('.close-icon').addEventListener('click', function() {
+    document.querySelector('.nav-overlay').classList.remove('active');
+    document.body.classList.remove('menu-open');
+    document.querySelector('.burger-button').classList.remove('active');
+});
+
+// Close overlay when clicking on a nav link
+document.querySelectorAll('.nav-list a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.querySelector('.nav-overlay').classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.querySelector('.burger-button').classList.remove('active');
+    });
+});
