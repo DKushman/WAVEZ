@@ -1687,3 +1687,300 @@ header {
 
 }
 
+/* SMC Hero Section */  
+
+.smc-hero-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 600px), 1fr));
+    overflow: hidden;
+    gap: clamp(1rem, 2vw, 2rem);
+    height: fit-content;
+
+}
+.smc-hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.smc-hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    margin-top: auto;
+    border-radius: 10px;
+    margin-top: 0;
+}
+
+.h1-hero {
+    font-size: clamp(0.5rem, 0.7vw, 3rem);
+    font-weight: 200;
+
+}
+.smc-hero-img-mobile {
+    width: 100vw;
+    display: none;
+}
+@media (max-width: 1277px) {
+    .smc-hero-img {
+        display: none;
+    }
+    .smc-hero-img-mobile {
+        display: block;
+    }
+    .smc-hero-content {
+        height: fit-content;
+    }
+    .smc-hero-container {
+        margin-top: 0;
+    }
+}
+.span-hero {
+    font-size: clamp(2rem, 3.5vw, 5rem);
+    line-height: 1.2;
+    margin: 0;
+}
+.hero-smc-span {
+    color: #004CB2;
+    font-weight: 600;
+}
+.button.hero {
+    margin-bottom: auto;
+}
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 2rem;
+    padding-bottom: clamp(2rem, 4vw, 5rem);
+}
+.service-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+}
+.service-list {
+    margin-top: 0;
+}
+.zahlen-services {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: clamp(2rem, 4vw, 5rem);
+
+}
+.h2.zahlen-service {
+    text-align: center;
+}
+.zahlen-item {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+}
+.zahlen-number {
+    font-size: clamp(2rem, 10vw, 9rem);
+    font-weight: 600;
+    line-height: 1;
+}
+.zahlen-text {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    margin: 0;
+    align-self: center;
+    font-weight: 200;
+}
+
+.zahlen-service-container {
+    background-color: #004CB2;
+    color: #E1E1E1;
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
+    padding: clamp(1rem, 2vw, 2vw);
+    border-radius: 10px;
+}
+
+.farben-container {
+    display: block;
+    width: clamp(40px, 5vw, 90px);
+    height: clamp(40px, 5vw, 90px);
+    background-color: #ffc800;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+.focuspoints-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: clamp(2rem, 4vw, 4rem);
+    gap: clamp(1rem, 1vw, 1rem);
+    padding: 0;
+    margin-top: clamp(4rem, 8vw, 10rem);
+}
+.focuspoints-item {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    align-items: center;
+}
+.focuspoints-item-description {
+    text-align: center;
+    font-size: clamp(0.5rem, 1vw, 2rem);
+}
+
+.focuspoints-item-title {
+    font-size: clamp(0.7rem, 2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.focuspoints-item-container:nth-child(1) .farben-container {
+    background-color: #ffc800; /* Erste Farbe */
+}
+
+.focuspoints-item-container:nth-child(2) .farben-container {
+    background-color: #171e28; /* Zweite Farbe */
+}
+
+.focuspoints-item-container:nth-child(3) .farben-container {
+    background-color: #149e6c; /* Dritte Farbe */
+}
+
+.focuspoints-item-container:nth-child(4) .farben-container {
+    background-color: #7f1e74; /* Vierte Farbe */
+}
+
+.focuspoints-item-container:nth-child(5) .farben-container {
+    background-color: #9CC4FF; /* Fünfte Farbe */
+}
+
+.focuspoints-item-container:nth-child(6) .farben-container {
+    background-color: #E1E1E1; /* Sechste Farbe */
+}
+
+.section.sneakpeak {
+    overflow: hidden;
+    position: relative;
+}
+
+.sneakpeak-container {
+    display: flex;
+    gap: clamp(1rem, 1vw, 1rem);
+    padding: 0;
+    width: fit-content;
+    list-style: none;
+    position: relative;
+    will-change: transform;
+    opacity: 0;
+    margin-top: clamp(2rem, 4vw, 5rem);
+    margin-left: 50vw;
+}
+
+.sneakpeak-hcontainer {
+    padding-top: clamp(2rem, 4vw, 5rem);
+}
+.sneakpeak-img {
+    width: clamp(250px, 30vw, 400px);
+    height: clamp(300px, 40vw, 500px);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+}
+
+
+/* Details Container */
+.faq-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #0E0E0E;
+    margin-top: clamp(3rem, 2vw, 4rem);
+    margin: 0;
+    cursor: pointer;
+    padding-block: clamp(1rem, 2vw, 2rem);
+    border-radius: 10px;
+}
+.faq-item:hover {
+    background-color: #E1E1E1;
+    color: #0E0E0E;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.faq-item-title {
+    font-size: clamp(1rem, 2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.faq-container {
+    border: 1px solid #E1E1E1;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #0E0E0E;
+    margin-top: clamp(3rem, 2vw, 4rem);
+}
+
+.faq-item {
+    overflow: hidden;
+}
+
+.faq-item-description {
+    font-size: clamp(0.7rem, 1vw, 1.5rem);
+}
+
+.faq-item[open] .faq-item-description {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 1rem;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease, 
+                transform 0.3s ease,
+                padding 0.3s ease;
+}
+.h2.fragen {
+    text-align: center;
+}
+.fragen-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.button.fragen {
+    position: relative;
+}
+
+.section.service-quote {
+    background-color: #E1E1E1;
+    color: #0E0E0E;
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
+    padding: clamp(2rem, 4vw, 4vw);
+}
+.quote-services-text {
+    font-size: clamp(4vw, 2vw, 2.5rem);
+    font-weight: 200;
+    line-height: 1.2;
+}
+
+@media (min-width: 1124px) {
+    .quote-services-text {
+        padding-inline: clamp(5rem, 4vw, 4vw);
+    }
+    .testimonial-author.services {
+        padding-inline: clamp(5rem, 4vw, 4vw);
+    }
+    .quote-services-text {
+        font-size: clamp(2vw, 3vw, 5rem);
+
+    }
+}
+.quote-services-author {
+    display: flex;
+    flex-direction: row;
+}
+
