@@ -24,14 +24,14 @@ body {
 .location,
 .page-content,
 footer {
-    transition: filter 0.8s ease;
+    transition: filter 1.5s ease;
 }
 
 body.menu-open .logo,
 body.menu-open .location,
 body.menu-open .page-content,
 body.menu-open footer {
-    filter: blur(5px);
+    filter: blur(10px);
     pointer-events: none;
 }
 
@@ -106,7 +106,7 @@ header {
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 1s ease, visibility 1s ease;
     pointer-events: none;
     filter: blur(0);
 }
