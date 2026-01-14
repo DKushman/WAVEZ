@@ -94,11 +94,3 @@ document.querySelector('.close-icon').addEventListener('click', function() {
     document.querySelector('.burger-button').classList.remove('active');
 });
 
-// Close overlay when clicking on a nav link
-document.querySelectorAll('.nav-list a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.querySelector('.nav-overlay').classList.remove('active');
-        document.body.classList.remove('menu-open');
-        document.querySelector('.burger-button').classList.remove('active');
-    });
-});
