@@ -120,3 +120,26 @@ if (closeIcon && navOverlay && burgerButton) {
     });
 }
 
+// Submenu Toggle für Leistungen (Event Delegation - performant)
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('nav-submenu-toggle')) {
+        e.preventDefault();
+        const parent = e.target.closest('.nav-item-has-submenu');
+        if (parent) {
+            parent.classList.toggle('active');
+        }
+    }
+});
+
+// Close overlay when clicking on overlay itself (but not on nav-list)
+if (navOverlay && burgerButton) {
+    navOverlay.addEventListener('click', function(e) {
+        // Nur schließen wenn Klick direkt auf Overlay (nicht auf nav-list)
+        if (e.target === navOverlay) {
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            burgerButton.classList.remove('active');
+        }
+    });
+}
+
