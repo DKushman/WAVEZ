@@ -1817,7 +1817,7 @@ header {
 }
 .service-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     padding-bottom: clamp(2rem, 4vw, 5rem);
 }
@@ -1828,8 +1828,19 @@ header {
     aspect-ratio: 1 / 1;
     border-radius: 10px;
 }
+.service-item {
+    min-width: 0;
+}
+.service-item-list {
+    font-size: clamp(0.5rem, 1.2vw, 1.5rem);
+}
+
+.h3.service {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+}
 .service-list {
     margin-top: 0;
+    padding: clamp(0.5rem, 1vw, 1rem);
 }
 .zahlen-services {
     display: flex;
