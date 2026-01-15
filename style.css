@@ -1786,16 +1786,11 @@ header {
 
 }
 .smc-hero-img-mobile {
-    width: 100vw;
-    display: none;
+    width: 100%;
+    height: auto;
 }
 @media (max-width: 1277px) {
-    .smc-hero-img {
-        display: none;
-    }
-    .smc-hero-img-mobile {
-        display: block;
-    }
+
     .smc-hero-content {
         height: fit-content;
     }
@@ -1817,7 +1812,7 @@ header {
 }
 .service-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     padding-bottom: clamp(2rem, 4vw, 5rem);
 }
