@@ -24,6 +24,7 @@ body {
 /* Blur effect on body content when menu is open */
 .logo,
 .location,
+.kontakt-button,
 .page-content,
 footer {
     transition: filter 1.5s ease;
@@ -31,9 +32,10 @@ footer {
 
 body.menu-open .logo,
 body.menu-open .location,
+body.menu-open .kontakt-button,
 body.menu-open .page-content,
 body.menu-open footer {
-    filter: blur(10px);
+    filter: blur(8px);
     pointer-events: none;
 }
 
@@ -2214,7 +2216,7 @@ textarea { resize: vertical; min-height: 120px; }
     gap: clamp(2rem, 4vw, 4rem);
     max-width: 1200px;
     margin: 8vh auto;
-    min-height: 70vh;
+    min-height: 100vh;
     align-items: start;
 }
 .fragebogen {
@@ -2309,4 +2311,8 @@ textarea { resize: vertical; min-height: 120px; }
         width: 80px;
         height: 80px;
     }
+}
+
+.h1.contact {
+    margin-top: 0;
 }

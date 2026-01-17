@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <!-- Preload Variable Font für maximale Performance -->
+    <title>Kontakt | WAVEZ</title>
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- Preload GSAP für frühes Laden -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
-    
     <link rel="stylesheet" href="style.css">
+    <style>
+        .kontaktseite-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(2rem, 4vw, 4rem);
+            min-height: 60vh;
+        }
+        .kontaktseite-heading {
+            grid-column: 1;
+        }
+        .kontaktseite-info {
+            grid-column: 2 / 4;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 3vw, 3rem);
+        }
+        .kontaktseite-img {
+            grid-column: 1 / -1;
+            width: 100%;
+            height: 40vh;
+            object-fit: cover;
+            margin-top: clamp(3rem, 6vw, 6rem);
+        }
+        .kontakt-category {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .kontakt-label {
+            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            color: #666;
+            text-transform: lowercase;
+        }
+        .kontakt-value {
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            font-weight: 500;
+            color: #E1E1E1;
+            text-decoration-line: none;
+        }
+        .kontakt-value a {
+            color: #E1E1E1;
+        }
+        .kontakt-category a:hover {
+            text-decoration-line: underline;
+        }
+        @media (max-width: 900px) {
+            .kontaktseite-grid {
+                grid-template-columns: 1fr;
+            }
+            .kontaktseite-heading,
+            .kontaktseite-info {
+                grid-column: 1;
+            }
+            .kontaktseite-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -24,7 +76,7 @@
         <div class="nav-overlay">
             <span class="close-icon">×</span>
             <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="fragebogen.html">Kontakt</a></li>
@@ -44,114 +96,42 @@
         <a href="fragebogen.html" class="kontakt-button">KONTAKT</a>    
     </header>
     <main class="page-content">
-    <section class="section team-hero">
-        <div class="hero-team-container">
-            <img class="hero-team-img" src="./images/DSC00103.jpeg" alt="Team Hero Image">
-            <div class="hero-team-content">
-        <h1 class="h1 team">ÜBER UNS
-        </h1>
-        <p class="p team">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
-        </p>
-        </div>
-    </div>
-    </section>
-    <section class="section wers-wavez">
-        <div class="wers-wavez-container">
-            <div class="h2-container">
-            <h2 class="h2 wers-wavez">WOFÜR STEHEN WIR?</h2>
-            </div>
-            <div class="team-container">
-                <img class="wers-wavez-img" src="./images/DSC00203.jpeg" alt="Team Image">
-                <p class="p team-name">Miau  weofie jfwej fiwej fiejwoi djj iowejd iojdoijdio wjdoijio jdwjd wdjeio jidwjeidj wedj  wed wed ewd ewd ew d </p>
-            </div>
-        </div>
-    </section>
-    <section class="section das-team">
-        <div class="das-team-container">
-            <div class="h2-dasteam">
-                <h2 class="h2 dasteam">Wer ist WAVEZ?</h2>
-                <p class="p dasteam">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
-                </p>
-            </div>
-            <ul class="team-list">
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00103.jpeg"
-                            alt="Boris Becker – Head of Design"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Boris Becker</h3>
-                            <p class="p team-member-role">Head of Design</p>
-                        </figcaption>
-                    </figure>
-                </li>
+        <section class="section kontaktseite">
+            <div class="kontaktseite-grid">
+                <div class="kontaktseite-heading">
+                    <h1 class="h1 contact">Kontaktiere Uns!</h1>
+                    <p class="p">Tritt direkt mit uns in Kontakt für alle Anfragen und Fragen</p>
+                </div>
                 
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00110.jpeg"
-                            alt="Aland Maland – Head of Development"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Aland Maland</h3>
-                            <p class="p team-member-role">Head of Development</p>
-                        </figcaption>
-                    </figure>
-                </li>
+                <div class="kontaktseite-info">
+                    <div>
+                        <div class="kontakt-category">
+                            <span class="kontakt-label">allgemeine anfragen</span>
+                            <a href="mailto:info@wavez.de" class="kontakt-value">info@wavez.de</a>
+                            <a href="tel:+4917678901234" class="kontakt-value">+49 176 78901234</a>
+                        </div>
+                        <div class="kontakt-category" style="margin-top: 2rem;">
+                            <span class="kontakt-label">kooperationen</span>
+                            <a href="mailto:kooperationen@wavez.de" class="kontakt-value">kooperationen@wavez.de</a>
+                            <a href="tel:+4917678901235" class="kontakt-value">+49 176 78901235</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="kontakt-category">
+                            <span class="kontakt-label">karriere</span>
+                            <a href="mailto:hr@wavez.de" class="kontakt-value">hr@wavez.de</a>
+                        </div>
+                        <div class="kontakt-category" style="margin-top: 2rem;">
+                            <span class="kontakt-label">adresse</span>
+                            <span class="kontakt-value">Berlin, Germany</span>
+                            <span class="kontakt-value">WAVEZ Studio</span>
+                        </div>
+                    </div>
+                </div>
                 
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00122.jpeg"
-                            alt="Max Mustermann – Creative Director"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Max Mustermann</h3>
-                            <p class="p team-member-role">Creative Director</p>
-                        </figcaption>
-                    </figure>
-                </li>
-
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00134.jpeg"
-                            alt="Max Mustermann – Creative Director"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Max Mustermann</h3>
-                            <p class="p team-member-role">Creative Director</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-
-        </div>
-    </section>
-    <img class="team-big-picture" src="./images/DSC00103.jpeg" alt="Team Big Picture">
-    <section class="section fragen?">
-        <div class="fragen-container">
-            <h2 class="h2 fragen">Habt ihr noch Fragen? Meldet euch gerne bei uns!</h2>
-        <a href="fragebogen.html" class="button fragen?">ZUM KONTAKTFORMULAR</a>
-    </div>
-    </section>
+                <img class="kontaktseite-img" src="./images/DSC00103.jpeg" alt="WAVEZ Studio">
+            </div>
+        </section>
     </main>
     <footer class="section footer">
         <div class="footer-main">
@@ -215,10 +195,9 @@
             <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ">
         </div>
     </footer>
-</body>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
