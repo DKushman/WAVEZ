@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <!-- Preload Variable Font für maximale Performance -->
-    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- Preload GSAP für frühes Laden -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
-    
     <link rel="stylesheet" href="style.css">
+    
+    <title>Fragebogen | WAVEZ</title>
+    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
     <header>
@@ -19,12 +14,12 @@
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
-            </button>
+            </a>
         </nav>
         <div class="nav-overlay">
             <span class="close-icon">×</span>
             <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="fragebogen.html">Kontakt</a></li>
@@ -41,111 +36,112 @@
                 </li>
             </ul>
         </div>
-        <span class="location">BERLIN, GERMANY</span>
+        <a href="fragebogen.html" class="kontakt-button">KONTAKT</a>    
     </header>
-    <main class="page-content">
-    <section class="section team-hero">
-        <div class="hero-team-container">
-            <img class="hero-team-img" src="./images/DSC00103.jpeg" alt="Team Hero Image">
-            <div class="hero-team-content">
-        <h1 class="h1 team">ÜBER UNS
-        </h1>
-        <p class="p team">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
-        </p>
-        </div>
-    </div>
-    </section>
-    <section class="section wers-wavez">
-        <div class="wers-wavez-container">
-            <div class="h2-container">
-            <h2 class="h2 wers-wavez">WOFÜR STEHEN WIR?</h2>
-            </div>
-            <div class="team-container">
-                <img class="wers-wavez-img" src="./images/DSC00203.jpeg" alt="Team Image">
-                <p class="p team-name">Miau  weofie jfwej fiwej fiejwoi djj iowejd iojdoijdio wjdoijio jdwjd wdjeio jidwjeidj wedj  wed wed ewd ewd ew d </p>
-            </div>
-        </div>
-    </section>
-    <section class="section das-team">
-        <div class="das-team-container">
-            <div class="h2-dasteam">
-                <h2 class="h2 dasteam">Wer ist WAVEZ?</h2>
-                <p class="p dasteam">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
-                </p>
-            </div>
-            <ul class="team-list">
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00103.jpeg"
-                            alt="Boris Becker – Head of Design"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Boris Becker</h3>
-                            <p class="p team-member-role">Head of Design</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00110.jpeg"
-                            alt="Aland Maland – Head of Development"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Aland Maland</h3>
-                            <p class="p team-member-role">Head of Development</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00122.jpeg"
-                            alt="Max Mustermann – Creative Director"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Max Mustermann</h3>
-                            <p class="p team-member-role">Creative Director</p>
-                        </figcaption>
-                    </figure>
-                </li>
 
-                <li class="team-member">
-                    <figure>
-                        <img
-                            src="./images/DSC00134.jpeg"
-                            alt="Max Mustermann – Creative Director"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                            class="team-member-img"
-                        />
-                        <figcaption>
-                            <h3 class="h3 team-member-name">Max Mustermann</h3>
-                            <p class="p team-member-role">Creative Director</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-
+    <main class="fragebogen-wrapper page-content">
+        <div class="fragebogen">
+            <div class="progress">
+            <div class="progress-step active"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
         </div>
-    </section>
-    <img class="team-big-picture" src="./images/DSC00103.jpeg" alt="Team Big Picture">
+
+        <!-- Step 1 -->
+        <div class="step active" data-step="1">
+            <span class="step-label">Schritt 1 von 4</span>
+            <h2>Wobei brauch ihr Hilfe?</h2>
+            <p>Wähle die Option, die am besten passt</p>
+            <div class="options">
+                <button class="option" data-value="Social Media Content">Social Media Content</button>
+                <button class="option" data-value="Management">Management</button>
+                <button class="option" data-value="Fotoproduktion">Fotoproduktion</button>
+                <button class="option" data-value="Videoproduktion">Videoproduktion</button>
+                <button class="option" data-value="3D-Design">3D-Design</button>
+                <button class="option" data-value="Motion Graphics">Motion Graphics</button>
+                <button class="option" data-value="other">Sonstiges</button>
+            </div>
+            <div class="nav-btns">
+                <button class="btn btn-next" disabled>WEITER</button>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" data-step="2">
+            <span class="step-label">Schritt 2 von 4</span>
+            <h2>Wann braucht ihr die Leistung?</h2>
+            <p>Mehrfachauswahl möglich</p>
+            <div class="options multi">
+                <button class="option" data-value="asap">Sofort / asap</button>
+                <button class="option" data-value="woche">innerhalb der nächsten Woche</button>
+                <button class="option" data-value="monat">innerhalb des nächsten Monats</button>
+                <button class="option" data-value="jahr">Innerhalb dieses Jahres</button>
+                <button class="option" data-value="jahre">> 1 Jahr</button>
+                <button class="option" data-value="sonstiges">sonstiges</button>
+            </div>
+            <div class="nav-btns">
+                <button class="btn btn-back">ZURÜCK</button>
+                <button class="btn btn-next" disabled>WEITER</button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" data-step="3">
+            <span class="step-label">Schritt 3 von 4</span>
+            <h2>Was ist euer ungefähres Budget?</h2>
+            <p>Eine grobe Einschätzung reicht</p>
+            <div class="options">
+                <button class="option" data-value="small">Unter 5.000 €</button>
+                <button class="option" data-value="medium">5.000 – 15.000 €</button>
+                <button class="option" data-value="large">15.000 – 50.000 €</button>
+                <button class="option" data-value="enterprise">Über 50.000 €</button>
+                <button class="option" data-value="unsure">Noch nicht sicher</button>
+            </div>
+            <div class="nav-btns">
+                <button class="btn btn-back">ZURÜCK</button>
+                <button class="btn btn-next" disabled>WEITER</button>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step" data-step="4">
+            <span class="step-label">Schritt 4 von 4</span>
+            <h2>Fast geschafft! Wie können wir euch erreichen?</h2>
+            <p>Wir melden uns innerhalb von 24 Stunden</p>
+            <input type="text" id="name" placeholder="Name / Unternehmen *" required>
+            <input type="email" id="email" placeholder="E-Mail Adresse *" required>
+            <input type="tel" id="phone" placeholder="Telefonnummer *" required>
+            <textarea id="message" placeholder="Erzähl uns kurz von eurem Projekt (optional)"></textarea>
+            <div class="nav-btns">
+                <button class="btn btn-back">ZURÜCK</button>
+                <button class="btn btn-next">ABSENDEN</button>
+            </div>
+        </div>
+
+            <!-- Success -->
+            <div class="step success" data-step="5">
+                <div class="checkmark">✓</div>
+                <h2>Vielen Dank!</h2>
+                <p>Wir haben eure Anfrage erhalten und melden uns zeitnah bei euch.</p>
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div class="sidebar-line"></div>
+            <div class="sidebar-content">
+                <span class="sidebar-label">Dein Ansprechpartner</span>
+                <img class="sidebar-img" src="./images/DSC00103.jpeg" alt="Ansprechpartner">
+                <div>
+                    <p class="sidebar-name">Haaland</p>
+                    <p class="sidebar-role">Head of Sales</p>
+                </div>
+                <div class="sidebar-contact">
+                    <a href="tel:+4917612345678">+49 176 1234 5678</a>
+                    <a href="mailto:max@wavez.de">max@wavez.de</a>
+                </div>
+            </div>
+        </aside>
     </main>
     <footer class="section footer">
         <div class="footer-main">
@@ -209,8 +205,6 @@
             <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ">
         </div>
     </footer>
-</body>
-
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
