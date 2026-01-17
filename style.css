@@ -18,7 +18,9 @@ body {
     position: relative;
     transition: filter 0.3s ease;
 }
-
+.reveal {
+    overflow: hidden;
+}
 /* Blur effect on body content when menu is open */
 .logo,
 .location,
@@ -269,7 +271,10 @@ header {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
 }
-
+.kontakt-button {
+    color: #E1E1E1;
+    text-decoration: none;
+}
 .button {
     display: inline-block;
     background-color: #004CB2;
@@ -283,6 +288,7 @@ header {
     width: auto;
     margin-top: clamp(0.5rem, 1vw, 1rem);
     width: fit-content;
+    text-decoration: none;
 }
 
 .h2 {
@@ -854,9 +860,7 @@ header {
     font-size: clamp(0.5rem, 1vw, 1.5rem);
 
 }
-.zahlen-text {
-    margin-top: auto;
-}
+
 .metric {
     margin: 0;
     padding: 0;
@@ -899,7 +903,7 @@ header {
 .span.leistungen {
     grid-row: 2;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
-    font-weight: 600;
+    font-weight: 500;
 }
 .button.leistungen {
     margin-top: auto;
@@ -961,6 +965,9 @@ header {
         grid-column-start: 1;
         grid-column-end: 3;
         margin:0;
+    }
+    .span.leistungen {
+        display: none;
     }
 }
 
@@ -1778,6 +1785,8 @@ header {
     margin-top: auto;
     border-radius: 10px;
     margin-top: 0;
+    filter: grayscale(100%);
+
 }
 
 .h1-hero {
@@ -1832,6 +1841,7 @@ header {
 
 .h3.service {
     font-size: clamp(1rem, 1.5vw, 2rem);
+    font-weight: 500;
 }
 .service-list {
     margin-top: 0;
@@ -1853,6 +1863,9 @@ header {
     flex-direction: column;
     gap: clamp(0.5rem, 1vw, 1rem);
 }
+.animation-zahl {
+    overflow: hidden;
+}
 .zahlen-number {
     font-size: clamp(2rem, 10vw, 9rem);
     font-weight: 600;
@@ -1860,9 +1873,9 @@ header {
 }
 .zahlen-text {
     font-size: clamp(1rem, 1.5vw, 2rem);
-    margin: 0;
-    align-self: center;
+    margin-top: auto;
     font-weight: 200;
+    margin-inline: auto;
 }
 
 .zahlen-service-container {
@@ -1905,7 +1918,7 @@ header {
 
 .focuspoints-item-title {
     font-size: clamp(0.7rem, 2vw, 2.5rem);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
 }
 
@@ -1936,6 +1949,7 @@ header {
 .section.sneakpeak {
     overflow: hidden;
     position: relative;
+    height: 100vh; 
 }
 
 .sneakpeak-container {
@@ -1995,6 +2009,7 @@ header {
     padding: 1rem;
     background-color: #0E0E0E;
     margin-top: clamp(3rem, 2vw, 4rem);
+    margin-inline: clamp(1rem, 4vw, 4vw);
 }
 
 .faq-item {
@@ -2033,7 +2048,9 @@ header {
     color: #0E0E0E;
     margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
     margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
-    padding: clamp(2rem, 4vw, 4vw);
+    padding-inline: clamp(2rem, 4vw, 4vw);
+    margin-block: clamp(2rem, 4vw, 4vw);
+
 }
 .quote-services-text {
     font-size: clamp(4vw, 2vw, 2.5rem);
@@ -2044,17 +2061,252 @@ header {
 @media (min-width: 1124px) {
     .quote-services-text {
         padding-inline: clamp(5rem, 4vw, 4vw);
+        font-size: clamp(2vw, 3vw, 5rem);
+
     }
     .testimonial-author.services {
         padding-inline: clamp(5rem, 4vw, 4vw);
     }
-    .quote-services-text {
-        font-size: clamp(2vw, 3vw, 5rem);
 
-    }
 }
 .quote-services-author {
     display: flex;
     flex-direction: row;
 }
 
+/* Fragebogen */
+.fragebogen {
+    max-width: 900px;
+    margin: 10vh auto;
+    height: 100vh;
+}
+.progress {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+.progress-step {
+    flex: 1;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+.progress-step.active { background: #004CB2; }
+.progress-step.done { background: #E1E1E1; }
+
+.step {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.step.active { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-label {
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+.step h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+.step p {
+    color: #999;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.option {
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: #E1E1E1;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+.option:hover { border-color: #666; background: #1a1a1a; }
+.option.selected { border-color: #004CB2; background: rgba(0, 76, 178, 0.15); }
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem;
+    color: #E1E1E1;
+    font-family: inherit;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #004CB2;
+}
+textarea { resize: vertical; min-height: 120px; }
+::placeholder { color: #555; }
+
+.nav-btns {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.btn {
+    padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
+    border: none;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-back {
+    background: #E1E1E1;
+    color: #0E0E0E;
+    border: 1px solid #333;
+}
+.btn-next {
+    background: #004CB2;
+    color: #E1E1E1;
+    margin-left: auto;
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.success {
+    text-align: center;
+    padding: 3rem 0;
+}
+.success h2 { margin-bottom: 1rem; }
+.checkmark {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #004CB2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 1.5rem;
+}
+
+/* Layout mit Sidebar */
+.fragebogen-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 4vw, 4rem);
+    max-width: 1200px;
+    margin: 8vh auto;
+    min-height: 70vh;
+    align-items: start;
+}
+.fragebogen {
+    max-width: none;
+    margin: 0;
+    height: auto;
+}
+.sidebar {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1.5rem, 2vw, 2rem);
+    position: sticky;
+    top: 15vh;
+}
+.sidebar-line {
+    width: 1px;
+    height: 280px;
+    background: #333;
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.sidebar-img {
+    width: clamp(100px, 10vw, 140px);
+    height: clamp(100px, 10vw, 140px);
+    border-radius: 8px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+.sidebar-label {
+    font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.sidebar-name {
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-weight: 600;
+    margin: 0;
+}
+.sidebar-role {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    color: #999;
+    margin: 0;
+}
+.sidebar-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+.sidebar-contact a {
+    color: #E1E1E1;
+    text-decoration: none;
+    font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+
+}
+.sidebar-contact a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .fragebogen-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .fragebogen {
+        overflow: hidden;
+        min-width: 0;
+    }
+    .step {
+        overflow: hidden;
+    }
+    .sidebar {
+        flex-direction: column;
+        position: relative;
+        top: 0;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+    }
+    .sidebar-line {
+        display: none;
+    }
+    .sidebar-content {
+        display: grid;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .sidebar-img {
+        width: 80px;
+        height: 80px;
+    }
+}
