@@ -45,22 +45,61 @@ function createScrollAnimation(trackSelector, sectionSelector) {
 createScrollAnimation(".bts-images-track", ".section.bts");
 createScrollAnimation(".sneakpeak-container", ".section.sneakpeak");
 
-// Testimonials Scroll Progress (optimized with requestAnimationFrame)
+
+
+// Testimonials Scroll Progress + Drag-to-Scroll
 const quoteContainer = document.querySelector('.blockquote-container');
 const progressBar = document.querySelector('.scroll-progress-bar');
 
-if (quoteContainer && progressBar) {
-    let ticking = false;
-    quoteContainer.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const maxScroll = quoteContainer.scrollWidth - quoteContainer.clientWidth;
-                const scrollPercent = maxScroll > 0 ? quoteContainer.scrollLeft / maxScroll : 0;
-                progressBar.style.transform = `translateX(${scrollPercent * 233}%)`;
-                ticking = false;
-            });
-            ticking = true;
-        }
+if (quoteContainer) {
+    // Scroll Progress Bar Update
+    if (progressBar) {
+        let ticking = false;
+        quoteContainer.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const maxScroll = quoteContainer.scrollWidth - quoteContainer.clientWidth;
+                    const scrollPercent = maxScroll > 0 ? quoteContainer.scrollLeft / maxScroll : 0;
+                    progressBar.style.transform = `translateX(${scrollPercent * 233}%)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+
+    // Drag-to-Scroll für Desktop
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    quoteContainer.addEventListener('mousedown', (e) => {
+        // Nur wenn nicht auf einem klickbaren Element (z.B. Link, Button)
+        if (e.target.closest('a, button')) return;
+        
+        isDown = true;
+        quoteContainer.classList.add('dragging');
+        startX = e.pageX - quoteContainer.offsetLeft;
+        scrollLeft = quoteContainer.scrollLeft;
+        e.preventDefault();
+    });
+
+    quoteContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        quoteContainer.classList.remove('dragging');
+    });
+
+    quoteContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        quoteContainer.classList.remove('dragging');
+    });
+
+    quoteContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - quoteContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll-Geschwindigkeit anpassbar
+        quoteContainer.scrollLeft = scrollLeft - walk;
     });
 }
 
@@ -143,3 +182,7 @@ if (navOverlay && burgerButton) {
     });
 }
 
+// Zahlen aufdecken beim Scrollen
+gsap.utils.toArray('.zahlen-number, .metric, .reveal').forEach(el => {
+    gsap.fromTo(el, {y: '100%'}, {y: '0%', duration: 0.8, ease: 'power2.out', scrollTrigger: {trigger: el, start: 'top 80%'}});
+});
