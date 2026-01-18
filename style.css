@@ -1552,19 +1552,58 @@ header {
     padding: 0;
     margin-block: clamp(2rem, 4vw, 5rem);
     margin-top: 0;
+    position: relative; /* Für absolute Kinder */
+    height: calc(100vh - 65px);
+
+}
+.hero-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 .hero-team-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 65px);
     width: 100%;
     position: relative;
-    max-height: calc(100vh - 65px);
     gap: clamp(1rem, 2vw, 2rem); /* Kleinerer Abstand zwischen den Objekten */
-    max-height: calc(100vh - 65px);
     max-width: 100%;
+}
+.section.test {
+    height: calc(100vh - 65px);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+}
+.span-test {
+    font-weight: 200;
+    margin-top: 0;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 10rem);
+    line-height: 1;
+}
+.visuelle-kommunikation {
+    font-weight: 600;
+}
+.h1-hero.team {
+    top: clamp(4rem, 3vw, 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
 }
 
 .hero-team-content {
@@ -1592,6 +1631,7 @@ header {
     aspect-ratio: 1 / 1;
     align-self: center;
     justify-self: center;
+    max-height: 500px;
 }
 
 @media (min-width: 1124px) {
@@ -1815,7 +1855,6 @@ header {
     margin: 0;
 }
 .hero-smc-span {
-    color: #004CB2;
     font-weight: 600;
 }
 .button.hero {
@@ -2315,4 +2354,94 @@ textarea { resize: vertical; min-height: 120px; }
 
 .h1.contact {
     margin-top: 0;
+}
+
+/* Ja oder Nein Buttons */
+.section.jaodernein {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: clamp(2rem, 4vw, 4rem);
+}
+.h2.jaodernein {
+    text-align: center;
+    max-width: 800px;
+}
+.jaodernein-buttons {
+    display: flex;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+.jaodernein-btn {
+    width: clamp(80px, 12vw, 120px);
+    height: clamp(80px, 12vw, 120px);
+    border-radius: 50%;
+    border: 2px solid #E1E1E1;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+    text-decoration: none;
+}
+.jaodernein-btn svg {
+    width: 50%;
+    height: 50%;
+    color: #E1E1E1;
+    transition: color 0.3s;
+}
+.jaodernein-btn.ja:hover {
+    background: #22c55e;
+    border-color: #22c55e;
+}
+.jaodernein-btn.nein:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+.section.nein {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 4vw, 4rem);
+    height: 100vh;
+    padding-top: 0;
+
+}
+.h1.nein {
+    text-align: center;
+    max-width: 800px;
+    margin-top: 0;
+}
+
+.p.nein {
+    text-align: center;
+    max-width: 800px;
+}
+.button.nein {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Partikel-Effekt */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60a5fa 0%, #ffffff 100%);
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+    transform: translate(-50%, -50%);
 }

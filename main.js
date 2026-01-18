@@ -36,6 +36,12 @@ if (typeof gsap !== 'undefined') {
     gsap.utils.toArray('.zahlen-number, .metric, .reveal').forEach(el => {
         gsap.fromTo(el, {y: '100%'}, {y: '0%', duration: 0.8, ease: 'power2.out', scrollTrigger: {trigger: el, start: 'top 80%'}});
     });
+    
+    // Ja/Nein Button Hover Animation
+    document.querySelectorAll('.jaodernein-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => gsap.to(btn, {scale: 1.15, duration: 0.3, ease: 'back.out(1.7)'}));
+        btn.addEventListener('mouseleave', () => gsap.to(btn, {scale: 1, duration: 0.3, ease: 'power2.out'}));
+    });
 }
 
 // Berlin Time
@@ -196,11 +202,15 @@ let current = 1;
 if (steps.length > 0) {
     // Option selection
     document.querySelectorAll('.options').forEach(container => {
-        const isMulti = container.classList.contains('multi');
         container.querySelectorAll('.option').forEach(btn => {
-            btn.onclick = () => {
-                if (!isMulti) container.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-                btn.classList.toggle('selected');
+            btn.onclick = function() {
+                const container = this.closest('.options');
+                const isMulti = container && container.classList.contains('multi');
+                
+                if (!isMulti) {
+                    container.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                }
+                this.classList.toggle('selected');
                 updateNav();
             };
         });
@@ -278,3 +288,11 @@ if (steps.length > 0) {
     if (emailInput) emailInput.oninput = updateNav;
     if (phoneInput) phoneInput.oninput = updateNav;
 }
+document.addEventListener('mousemove', (e) => {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = e.clientX + 'px';
+    p.style.top = e.clientY + 'px';
+    document.getElementById('particles').appendChild(p);
+    gsap.to(p, {y: '+=100', opacity: 0, duration: 1, onComplete: () => p.remove()});
+});

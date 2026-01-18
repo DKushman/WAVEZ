@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
     
-    <title>Fragebogen | WAVEZ</title>
+    <!-- Preload Variable Font für maximale Performance -->
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Preload GSAP für frühes Laden -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -38,111 +43,14 @@
         </div>
         <a href="kontakt.html" class="kontakt-button">KONTAKT</a>    
     </header>
+    <main class="page-content">
+        <section class="section nein">
+            <h1 class="h1 nein">Wenn du keine Hilfe brauchst, brauchst du keine Hilfe :)</h1>
+            <p class="p nein">Schau dich gerne weiter auf unserer Website um, vielleicht findest du ja was tolles! </p>
+            <a href="index.html" class="button nein">ZUM PORTFOLIO</a>
+            </section> 
+        </main>
 
-    <main class="fragebogen-wrapper page-content">
-        <div class="fragebogen">
-            <div class="progress">
-            <div class="progress-step active"></div>
-            <div class="progress-step"></div>
-            <div class="progress-step"></div>
-            <div class="progress-step"></div>
-        </div>
-
-        <!-- Step 1 -->
-        <div class="step active" data-step="1">
-            <span class="step-label">Schritt 1 von 4</span>
-            <h2>Wobei brauch ihr Hilfe?</h2>
-            <p>Wähle die Optionen, die am besten passen</p>
-            <div class="options multi">
-                <button class="option" data-value="Social Media Content">Social Media Content</button>
-                <button class="option" data-value="Management">Management</button>
-                <button class="option" data-value="Fotoproduktion">Fotoproduktion</button>
-                <button class="option" data-value="Videoproduktion">Videoproduktion</button>
-                <button class="option" data-value="3D-Design">3D-Design</button>
-                <button class="option" data-value="Motion Graphics">Motion Graphics</button>
-                <button class="option" data-value="other">Sonstiges</button>
-            </div>
-            <div class="nav-btns">
-                <button class="btn btn-next" disabled>WEITER</button>
-            </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step" data-step="2">
-            <span class="step-label">Schritt 2 von 4</span>
-            <h2>Wann braucht ihr die Leistung?</h2>
-            <p>Mehrfachauswahl möglich</p>
-            <div class="options multi">
-                <button class="option" data-value="asap">Sofort / asap</button>
-                <button class="option" data-value="woche">innerhalb der nächsten Woche</button>
-                <button class="option" data-value="monat">innerhalb des nächsten Monats</button>
-                <button class="option" data-value="jahr">Innerhalb dieses Jahres</button>
-                <button class="option" data-value="jahre">> 1 Jahr</button>
-                <button class="option" data-value="sonstiges">sonstiges</button>
-            </div>
-            <div class="nav-btns">
-                <button class="btn btn-back">ZURÜCK</button>
-                <button class="btn btn-next" disabled>WEITER</button>
-            </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="step" data-step="3">
-            <span class="step-label">Schritt 3 von 4</span>
-            <h2>Was ist euer ungefähres Budget?</h2>
-            <p>Eine grobe Einschätzung reicht</p>
-            <div class="options">
-                <button class="option" data-value="small">Unter 5.000 €</button>
-                <button class="option" data-value="medium">5.000 – 15.000 €</button>
-                <button class="option" data-value="large">15.000 – 50.000 €</button>
-                <button class="option" data-value="enterprise">Über 50.000 €</button>
-                <button class="option" data-value="unsure">Noch nicht sicher</button>
-            </div>
-            <div class="nav-btns">
-                <button class="btn btn-back">ZURÜCK</button>
-                <button class="btn btn-next" disabled>WEITER</button>
-            </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="step" data-step="4">
-            <span class="step-label">Schritt 4 von 4</span>
-            <h2>Fast geschafft! Wie können wir euch erreichen?</h2>
-            <p>Wir melden uns innerhalb von 24 Stunden</p>
-            <input type="text" id="name" placeholder="Name / Unternehmen *" required>
-            <input type="email" id="email" placeholder="E-Mail Adresse *" required>
-            <input type="tel" id="phone" placeholder="Telefonnummer *" required>
-            <textarea id="message" placeholder="Erzähl uns kurz von eurem Projekt (optional)"></textarea>
-            <div class="nav-btns">
-                <button class="btn btn-back">ZURÜCK</button>
-                <button class="btn btn-next">ABSENDEN</button>
-            </div>
-        </div>
-
-            <!-- Success -->
-            <div class="step success" data-step="5">
-                <div class="checkmark">✓</div>
-                <h2>Vielen Dank!</h2>
-                <p>Wir haben eure Anfrage erhalten und melden uns zeitnah bei euch.</p>
-            </div>
-        </div>
-        
-        <aside class="sidebar">
-            <div class="sidebar-line"></div>
-            <div class="sidebar-content">
-                <span class="sidebar-label">Dein Ansprechpartner</span>
-                <img class="sidebar-img" src="./images/DSC00103.jpeg" alt="Ansprechpartner">
-                <div>
-                    <p class="sidebar-name">Haaland</p>
-                    <p class="sidebar-role">Head of Sales</p>
-                </div>
-                <div class="sidebar-contact">
-                    <a href="tel:+4917612345678">+49 176 1234 5678</a>
-                    <a href="mailto:max@wavez.de">max@wavez.de</a>
-                </div>
-            </div>
-        </aside>
-    </main>
     <footer class="section footer">
         <div class="footer-main">
             <div class="footer-col footer-location">
@@ -205,6 +113,12 @@
             <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ">
         </div>
     </footer>
-<script src="main.js"></script>
+    
+    <div id="particles"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+
 </body>
 </html>
