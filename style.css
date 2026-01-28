@@ -273,6 +273,137 @@ header {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
 }
+
+.hero-benefits {
+    list-style: none;
+    padding: 0;
+    margin: clamp(1rem, 2vw, 1.5rem) 0;
+    display: flex;
+    flex-direction: row;
+    gap: clamp(1rem, 2vw, 2rem);
+    flex-wrap: wrap;
+}
+
+.hero-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    color: #E1E1E1;
+    opacity: 0.8;
+    font-weight: 300;
+    border: 1px solid #666;
+    border-radius: clamp(0.5rem, 0.8vw, 0.75rem);
+    padding: clamp(0.5rem, 0.8vw, 0.75rem) clamp(0.75rem, 1.2vw, 1rem);
+}
+
+.hero-benefits .icon {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1;
+}
+
+.hero-benefits strong {
+    font-weight: 400;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+}
+
+@media (max-width: 1124px) {
+    .hero-benefits {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: clamp(0.5rem, 1vw, 1rem);
+    }
+    
+    .hero-benefits li {
+        flex: 1;
+        min-width: 0;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.5rem, 0.8vw, 0.75rem);
+    }
+    
+    .hero-benefits .icon {
+        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    }
+    
+    .hero-benefits strong {
+        font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+    }
+}
+
+.trust {
+    margin-top: clamp(1.5rem, 2.5vw, 2rem);
+    opacity: 0.6;
+}
+
+.trust-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: clamp(0.75rem, 1.2vw, 1rem);
+    color: #999;
+}
+
+.trust-label svg {
+    width: clamp(0.8rem, 1vw, 0.9rem);
+    height: clamp(0.8rem, 1vw, 0.9rem);
+    fill: #999;
+    display: block;
+}
+
+.trust-label strong {
+    color: #999;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.trust-logos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 1.2vw, 1rem);
+    flex-wrap: wrap;
+}
+
+.trust-logos li {
+    display: flex;
+    align-items: center;
+}
+
+.trust-logos li img {
+    width: clamp(40px, 5vw, 60px);
+    height: clamp(20px, 2.5vw, 30px);
+    object-fit: contain;
+    opacity: 0.7;
+    filter: grayscale(100%);
+}
+
+.trust-logos li.more {
+    color: #999;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+@media (max-width: 1124px) {
+    .trust {
+        margin-top: clamp(1rem, 2vw, 1.5rem);
+    }
+    
+    .trust-logos {
+        gap: clamp(0.5rem, 1vw, 0.75rem);
+    }
+    
+    .trust-logos li img {
+        width: clamp(35px, 4vw, 50px);
+        height: clamp(18px, 2vw, 25px);
+    }
+}
 .kontakt-button {
     color: #E1E1E1;
     text-decoration: none;
@@ -376,6 +507,13 @@ header {
     flex-direction: column;
     gap: clamp(0.8rem, 1.3vw, 1.3rem);
     padding-top: clamp(0px, calc(5vh - 4vw), 5vh);
+    justify-content: space-between;
+    flex: 1;
+}
+
+.test-grid-top .button.erstgesprach {
+    margin-top: auto;
+    align-self: flex-start;
 }
 .test-grid-top-content {
     justify-self: center;
@@ -1877,12 +2015,12 @@ header {
     min-width: 0;
 }
 .service-item-list {
-    font-size: clamp(0.5rem, 1.2vw, 1.5rem);
+    font-size: clamp(0.5rem, 1vw, 1rem);
 }
 
 .h3.service {
     font-size: clamp(1rem, 1.5vw, 2rem);
-    font-weight: 500;
+    font-weight: 600;
 }
 .service-list {
     margin-top: 0;
