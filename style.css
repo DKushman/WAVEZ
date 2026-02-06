@@ -242,6 +242,7 @@ header {
     font-size: clamp(2rem, 3vw, 5rem);
     line-height: 1.1;
     position: relative;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 
 .h1 span {
@@ -272,6 +273,7 @@ header {
 .p {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
+    margin-top: 0;
 }
 
 .hero-benefits {
@@ -282,6 +284,7 @@ header {
     flex-direction: row;
     gap: clamp(1rem, 2vw, 2rem);
     flex-wrap: wrap;
+    
 }
 
 .hero-benefits li {
@@ -304,7 +307,7 @@ header {
 
 .hero-benefits strong {
     font-weight: 400;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-size: clamp(0.5rem, 1vw, 0.9rem);
 }
 
 @media (max-width: 1124px) {
@@ -328,9 +331,7 @@ header {
         font-size: clamp(1.1rem, 1.5vw, 1.3rem);
     }
     
-    .hero-benefits strong {
-        font-size: clamp(0.7rem, 0.9vw, 0.85rem);
-    }
+
 }
 
 .trust {
@@ -393,6 +394,9 @@ header {
 @media (max-width: 1124px) {
     .trust {
         margin-top: clamp(1rem, 2vw, 1.5rem);
+        justify-self: center;  
+        align-items: center;
+
     }
     
     .trust-logos {
@@ -514,6 +518,11 @@ header {
 .test-grid-top .button.erstgesprach {
     margin-top: auto;
     align-self: flex-start;
+}
+@media (max-width: 1124px) {
+.button.erstgesprach {
+    margin-inline: auto;
+}
 }
 .test-grid-top-content {
     justify-self: center;

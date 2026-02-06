@@ -7,8 +7,17 @@
     
     <title>Fragebogen | WAVEZ</title>
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+<script>if(sessionStorage.getItem('pageTransition'))document.documentElement.classList.add('page-transition-active');</script>
 </head>
 <body>
+<script>if(sessionStorage.getItem('pageTransition')==='out')document.body.classList.add('curtain-exit');</script>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition">
+        <div class="page-transition-logo">
+            <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo">
+        </div>
+    </div>
     <header>
         <img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo">
         <nav class="burger-menu">
@@ -205,6 +214,9 @@
             <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ">
         </div>
     </footer>
-<script src="main.js"></script>
+    <div id="page-transition-curtain" class="page-transition-curtain" aria-hidden="true"></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
