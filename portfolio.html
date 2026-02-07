@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo">
+        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo"></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
@@ -53,7 +53,7 @@
                     <a href="index.html"><article class="slide-image">
                         <figure><a href="index.html">
                             <img src="./images/DSC00103.jpeg" alt="Portfolio Image 1" loading="lazy">
-                            <figcaption>
+                            <figcaption class="js-lightbox-trigger" role="button" tabindex="0" aria-label="Bild vergrößern">
                                 <div>
                                     <strong>Portfolio 1</strong>
                                     <p>Kurze Beschreibung des Projekts oder der Arbeit</p>
@@ -206,6 +206,31 @@
         </div>
     </section>
     </main>
+    <div class="lightbox-overlay" id="portfolio-lightbox" aria-hidden="true">
+        <img src="" alt="">
+    </div>
+    <style>
+        .lightbox-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,.92); align-items: center; justify-content: center; cursor: pointer; }
+        .lightbox-overlay.is-open { display: flex; }
+        .lightbox-overlay img { max-width: 90vw; max-height: 90vh; object-fit: contain; pointer-events: none; }
+    </style>
+    <script>
+        (function() {
+            var trigger = document.querySelector('.js-lightbox-trigger');
+            var overlay = document.getElementById('portfolio-lightbox');
+            var img = overlay.querySelector('img');
+            if (!trigger || !overlay) return;
+            var figure = trigger.closest('figure');
+            var src = figure && figure.querySelector('img') && figure.querySelector('img').src;
+            if (!src) return;
+            function open(e) { e.preventDefault(); e.stopPropagation(); img.src = src; img.alt = figure.querySelector('img').alt || 'Vergrößerte Ansicht'; overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+            function close() { overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; img.src = ''; }
+            trigger.addEventListener('click', open);
+            overlay.addEventListener('click', close);
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) close(); });
+            trigger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(e); } });
+        })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>

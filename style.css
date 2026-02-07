@@ -63,8 +63,16 @@ header {
     /* z-index entfernen */
 }
 
+header > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo {
     width: clamp(120px, 10vw, 180px);
+    display: block;
+    vertical-align: middle;
 
     /* isolation entfernen */
 }
@@ -346,7 +354,14 @@ header {
     margin-bottom: clamp(0.75rem, 1.2vw, 1rem);
     color: #999;
 }
-
+@media (max-width: 1124px) {
+    .trust-label {
+        justify-content: center;
+    }
+    .trust-logos {  
+        justify-content: center;
+    }
+}
 .trust-label svg {
     width: clamp(0.8rem, 1vw, 0.9rem);
     height: clamp(0.8rem, 1vw, 0.9rem);
@@ -682,13 +697,34 @@ header {
     margin-top: 3vh;
 }
 
+.referenz-box {
+    aspect-ratio: 1/1;
+    border: 0.15px solid #E1E1E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.referenz-box-plus {
+    text-decoration: none;
+    color: #E1E1E1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.referenz-box-plus:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
 .referenz-raster img {
-    width: 100%;
+    max-width: 100%;
+    width: auto;
     height: auto;
     display: block;
-    aspect-ratio: 1/1;
-    border: 0.5px solid #E1E1E1;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -1007,7 +1043,7 @@ header {
     align-self: center;
     margin: 0;
     font-size: clamp(0.5rem, 1vw, 1.5rem);
-
+    font-weight: 200;
 }
 
 .metric {
