@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
+    <!-- Critical CSS für Header - schnellerer First Contentful Paint -->
+    <style>
+        body{margin:0;padding-left:clamp(1rem,2vw,2vw);padding-right:clamp(1rem,2vw,2vw);background-color:#0E0E0E;color:#E1E1E1;font-family:'Poppins',sans-serif}
+        header{display:flex;justify-content:space-between;align-items:center;padding:2vh 0;position:sticky;top:0;background:transparent;mix-blend-mode:difference;z-index:1000}
+        header>a{display:flex;align-items:center;text-decoration:none}
+        .logo{width:clamp(120px,10vw,180px);display:block}
+        .burger-menu{position:absolute;left:50%;transform:translateX(-50%)}
+        .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
+        .kontakt-button{color:#E1E1E1;text-decoration:none}
+    </style>
+    
     <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP -->
     <link rel="preload" href="./compressed-home/IMG_0875.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="./compressed-home/DSC00079.jpg" as="image" fetchpriority="high">
@@ -18,7 +29,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" width="150" height="60" fetchpriority=high></a>
+        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" fetchpriority=high></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
