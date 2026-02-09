@@ -287,89 +287,14 @@ if (steps.length > 0) {
     if (emailInput) emailInput.oninput = updateNav;
     if (phoneInput) phoneInput.oninput = updateNav;
 }
-
-// Optimierter Partikel-Effekt mit Throttling und DOM-Pooling
-(function() {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
-    
-    // Pool für wiederverwendbare Partikel
-    const particlePool = [];
-    const MAX_PARTICLES = 20; // Maximale Anzahl gleichzeitiger Partikel
-    const THROTTLE_MS = 50; // Nur alle 50ms ein Partikel erstellen
-    
-    let lastParticleTime = 0;
-    let activeParticles = 0;
-    
-    // Funktion zum Erstellen eines Partikels aus dem Pool
-    function createParticle(x, y) {
-        let particle;
-        
-        // Partikel aus dem Pool wiederverwenden oder neu erstellen
-        if (particlePool.length > 0) {
-            particle = particlePool.pop();
-        } else {
-            particle = document.createElement('div');
-            particle.className = 'particle';
-        }
-        
-        // Position setzen
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-        particle.style.opacity = '1';
-        particle.style.transform = 'translate(-50%, -50%)';
-        
-        particlesContainer.appendChild(particle);
-        activeParticles++;
-        
-        // Animation mit GSAP (falls verfügbar) oder Fallback
-        if (typeof gsap !== 'undefined') {
-            gsap.to(particle, {
-                y: '+=100',
-                opacity: 0,
-                duration: 1,
-                ease: 'power2.out',
-                onComplete: function() {
-                    particlesContainer.removeChild(particle);
-                    particlePool.push(particle); // Zurück in den Pool
-                    activeParticles--;
-                }
-            });
-        } else {
-            // Fallback ohne GSAP
-            particle.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-            particle.style.opacity = '0';
-            particle.style.transform = 'translate(-50%, calc(-50% + 100px))';
-            
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particlesContainer.removeChild(particle);
-                    particlePool.push(particle);
-                    activeParticles--;
-                }
-            }, 1000);
-        }
-    }
-    
-    // Throttled Event Handler
-    let ticking = false;
-    document.addEventListener('mousemove', (e) => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const now = Date.now();
-                
-                // Throttling: Nur alle X ms und wenn nicht zu viele Partikel aktiv
-                if (now - lastParticleTime >= THROTTLE_MS && activeParticles < MAX_PARTICLES) {
-                    createParticle(e.clientX, e.clientY);
-                    lastParticleTime = now;
-                }
-                
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-})();
+document.addEventListener('mousemove', (e) => {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = e.clientX + 'px';
+    p.style.top = e.clientY + 'px';
+    document.getElementById('particles').appendChild(p);
+    gsap.to(p, {y: '+=100', opacity: 0, duration: 1, onComplete: () => p.remove()});
+});
 
 (function() {
     var trigger = document.querySelector('.js-lightbox-trigger');
