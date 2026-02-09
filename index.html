@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <!-- Font Preload für schnelleres Laden -->
-    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- Preload kritische Hero-Bilder für schnelles LCP -->
+    <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP -->
     <link rel="preload" href="./compressed-home/IMG_0875.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="./compressed-home/DSC00079.jpg" as="image" fetchpriority="high">
+    
+    <!-- Font Preload danach -->
+    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- CSS asynchron laden für bessere Performance -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -44,12 +44,12 @@
                 </li>
             </ul>
         </div>
-        <a href="kontakt.html" class="kontakt-button">KOONTAKT</a>  
+        <a href="kontakt.html" class="kontakt-button">KAKANTAKT</a>  
     </header>
     <main class="page-content">
     <section class="hero-section">
         <div class="test-container">
-        <img class="test-img" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" width="800" height="800">
+        <img class="test-img" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" decoding="async" width="800" height="800">
         <div class="test-content-wrapper">
             <div class="test-grid-top">
                 <div class="test-grid-top-content">
@@ -104,8 +104,8 @@
             </div>
             
             <div class="img-mobil">
-                <img class="test-img-mobile" src="./compressed-home/DSC00079.jpg" alt="Racing Podium" fetchpriority="high" width="400" height="400">
-                <img class="test-img-mobile" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" width="400" height="400">
+                <img class="test-img-mobile" src="./compressed-home/DSC00079.jpg" alt="Racing Podium" fetchpriority="high" decoding="async" width="400" height="400">
+                <img class="test-img-mobile" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" decoding="async" width="400" height="400">
             </div>
         </div>
     </div>
