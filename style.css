@@ -2125,11 +2125,11 @@ header > a {
     padding: clamp(0.5rem, 1vw, 1rem);
 }
 .zahlen-services {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
-    justify-content: space-between;
     margin-top: clamp(2rem, 4vw, 5rem);
+    gap: clamp(1rem, 2vw, 2rem);
 
 }
 .h2.zahlen-service {
@@ -2144,12 +2144,13 @@ header > a {
     overflow: hidden;
 }
 .zahlen-number {
-    font-size: clamp(2rem, 10vw, 9rem);
+    font-size: clamp(1.5rem, 7vw, 9rem);
     font-weight: 600;
     line-height: 1;
+    text-align: center;
 }
 .zahlen-text {
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(0.6rem, 1.5vw, 2rem);
     margin-top: auto;
     font-weight: 200;
     margin-inline: auto;
