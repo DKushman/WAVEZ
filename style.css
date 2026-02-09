@@ -874,6 +874,7 @@ header > a {
      object-fit: cover; 
      position: relative;
      aspect-ratio: 1/1;
+     height: auto;
 }
 
 .inhalt-stagger {
@@ -1081,6 +1082,7 @@ header > a {
     max-width: 100%;
     object-fit: cover;
     aspect-ratio: 16/9;
+    height: auto;
 }
 .p.zahlen {
     margin: 0;
