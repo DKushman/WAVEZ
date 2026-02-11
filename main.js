@@ -9,9 +9,10 @@ if (typeof gsap !== 'undefined') {
         
         if (track && section) {
             gsap.fromTo(track, 
-                { x: 0, opacity: 1 },
+                { x: 0, yPercent: -50, opacity: 1 },
                 {
                     x: () => -(track.scrollWidth + window.innerWidth),
+                    yPercent: -50,
                     ease: "none",
                     scrollTrigger: {
                         trigger: section,
