@@ -1032,6 +1032,9 @@ header > a {
     color: #E1E1E1;
 }
 
+.button.portfolio-projekte:hover {
+    color: #000000;
+}
 .services-projekte {
     display: flex;
     flex-direction: column;
@@ -1048,6 +1051,40 @@ header > a {
     border-radius: 10px;
     font-size: clamp(0.5rem, 1vw, 1rem);
     margin: 0;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 0;
+    transition: color 0.3s ease;
+}
+
+.p-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.p-services:hover {
+    color: #004CB2;
+}
+
+.p-services:hover::before {
+    transform: scaleX(1);
+}
+.p-services a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.p-services a:hover {
+    text-decoration: none;
 }
 
 .section.zahlen {
@@ -1093,6 +1130,9 @@ header > a {
 .button.team {
     background-color: #0E0E0E;
     color: #E1E1E1;
+}
+.button.team:hover {
+    color: #000000;
 }
 .h4.metric {
     align-self: center;
@@ -2768,12 +2808,5 @@ textarea { resize: vertical; min-height: 120px; }
     color: #E1E1E1;
 }
 .p a:hover {
-    text-decoration: underline;
-}
-.p-services a {
-    text-decoration: none;
-    color: #E1E1E1;
-}
-.p-services a:hover {
     text-decoration: underline;
 }
