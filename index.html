@@ -501,8 +501,11 @@
     
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Hinweis" hidden>
-        <p class="cookie-banner-text">Wir verwenden Cookies, um die Website optimal für dich zu gestalten. Mit „Akzeptieren“ stimmst du der Verwendung zu.</p>
-        <button type="button" id="cookie-accept" class="cookie-banner-btn">Akzeptieren</button>
+        <p class="cookie-banner-text">Wir verwenden Cookies, um die Website optimal für dich zu gestalten. Wähle „Alle akzeptieren“ oder „Nur notwendige“.</p>
+        <div class="cookie-banner-buttons">
+            <button type="button" id="cookie-accept" class="cookie-banner-btn cookie-banner-btn-primary">Alle akzeptieren</button>
+            <button type="button" id="cookie-necessary" class="cookie-banner-btn cookie-banner-btn-secondary">Nur notwendige</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
@@ -517,10 +520,13 @@
           banner.removeAttribute('hidden');
         }
 
-        document.getElementById('cookie-accept').addEventListener('click', function () {
-          localStorage.setItem(STORAGE_KEY, 'accepted');
+        function hideBanner(value) {
+          localStorage.setItem(STORAGE_KEY, value);
           banner.setAttribute('hidden', '');
-        });
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', function () { hideBanner('accepted'); });
+        document.getElementById('cookie-necessary').addEventListener('click', function () { hideBanner('necessary'); });
       })();
     </script>
 </body>
