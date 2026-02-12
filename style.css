@@ -472,6 +472,7 @@ header > a {
     font-weight: 600;
     font-size: clamp(2rem, 3vw, 5rem);
     line-height: 1;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 .h2 span {
     font-weight: 600
@@ -823,6 +824,7 @@ header > a {
     margin:0;
     font-size: clamp(2rem, 7vw, 10rem);
     z-index: 1;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 .p.stagger {
     font-size: clamp(1rem, 1.5vw, 1.5rem);
