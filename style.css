@@ -2136,6 +2136,11 @@ header > a {
     font-weight: 200;
 
 }
+
+/* Nur auf Leistungen-Unterseiten: H1-Hero in Großbuchstaben anzeigen */
+.page-leistung .h1-hero {
+    text-transform: uppercase;
+}
 .smc-hero-img-mobile {
     width: 100%;
     height: auto;
@@ -2246,6 +2251,11 @@ header > a {
     gap: clamp(1rem, 1vw, 1rem);
     padding: 0;
     margin-top: clamp(4rem, 8vw, 10rem);
+}
+@media (max-width: 790px) {
+    .focuspoints-list {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 .focuspoints-item {
     display: flex;
