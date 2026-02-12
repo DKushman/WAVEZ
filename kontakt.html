@@ -6,64 +6,7 @@
     <title>Kontakt | WAVEZ</title>
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .kontaktseite-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(2rem, 4vw, 4rem);
-            min-height: 60vh;
-        }
-        .kontaktseite-heading {
-            grid-column: 1;
-        }
-        .kontaktseite-info {
-            grid-column: 2 / 4;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 3vw, 3rem);
-        }
-        .kontaktseite-img {
-            grid-column: 1 / -1;
-            width: 100%;
-            height: 40vh;
-            object-fit: cover;
-            margin-top: clamp(3rem, 6vw, 6rem);
-        }
-        .kontakt-category {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .kontakt-label {
-            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
-            color: #666;
-            text-transform: lowercase;
-        }
-        .kontakt-value {
-            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-            font-weight: 500;
-            color: #E1E1E1;
-            text-decoration-line: none;
-        }
-        .kontakt-value a {
-            color: #E1E1E1;
-        }
-        .kontakt-category a:hover {
-            text-decoration-line: underline;
-        }
-        @media (max-width: 900px) {
-            .kontaktseite-grid {
-                grid-template-columns: 1fr;
-            }
-            .kontaktseite-heading,
-            .kontaktseite-info {
-                grid-column: 1;
-            }
-            .kontaktseite-info {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+
 </head>
 <body>
     <header>
@@ -106,25 +49,26 @@
                 <div class="kontaktseite-info">
                     <div>
                         <div class="kontakt-category">
-                            <span class="kontakt-label">allgemeine anfragen</span>
+                            <span class="kontakt-label">Allgemeine Anfragen</span>
                             <a href="mailto:info@wavez.de" class="kontakt-value">info@wavez.de</a>
-                            <a href="tel:+4917678901234" class="kontakt-value">+49 176 78901234</a>
+                            <a href="tel:+4917678901234" class="kontakt-value">+49 176 56934068</a>
                         </div>
                         <div class="kontakt-category" style="margin-top: 2rem;">
-                            <span class="kontakt-label">kooperationen</span>
-                            <a href="mailto:kooperationen@wavez.de" class="kontakt-value">kooperationen@wavez.de</a>
-                            <a href="tel:+4917678901235" class="kontakt-value">+49 176 78901235</a>
+                            <span class="kontakt-label">Wann sind wir erreichbar?</span>
+                            <span class="kontakt-value">Mo - Fr: 10:00 - 18:00</span>
+
                         </div>
                     </div>
                     <div>
                         <div class="kontakt-category">
-                            <span class="kontakt-label">karriere</span>
-                            <a href="mailto:hr@wavez.de" class="kontakt-value">hr@wavez.de</a>
+                            <span class="kontakt-label">Willst du den Prozess beschleunigen?</span>
+                            <a href="fragebogen.html" class="kontakt-value">Zum Fragebogen</a>
                         </div>
                         <div class="kontakt-category" style="margin-top: 2rem;">
                             <span class="kontakt-label">adresse</span>
                             <span class="kontakt-value">Berlin, Germany</span>
-                            <span class="kontakt-value">WAVEZ Studio</span>
+                            <span class="kontakt-value">Gneiststr. 1,
+                                10437 </span>
                         </div>
                     </div>
                 </div>
