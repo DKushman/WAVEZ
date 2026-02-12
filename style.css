@@ -2851,6 +2851,13 @@ textarea { resize: vertical; min-height: 120px; }
     flex: 1;
     min-width: 200px;
 }
+.cookie-banner-link {
+    color: #6ba3e6;
+    text-decoration: underline;
+}
+.cookie-banner-link:hover {
+    color: #8fbcff;
+}
 .cookie-banner-buttons {
     display: flex;
     flex-wrap: wrap;
