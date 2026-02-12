@@ -558,6 +558,9 @@ header > a {
 .section.nein .h1.nein { animation: hero-in 0.5s ease-out both; }
 .section.nein .p.nein { animation: hero-in 0.5s ease-out 0.08s both; }
 .section.nein .button.nein { animation: hero-in 0.5s ease-out 0.15s both; }
+.section.impressum-hero .impressum-hero-container { animation: hero-in 0.5s ease-out both; }
+.section.impressum-hero .impressum-content { animation: hero-in 0.5s ease-out 0.1s both; }
+.section.datenschutz-hero .datenschutz-hero-container { animation: hero-in 0.5s ease-out both; }
 
 /* Spezifische Section-Unterklassen */
 /* .hero-test-section hat spezifische Eigenschaften in Media Queries */
@@ -2758,4 +2761,19 @@ textarea { resize: vertical; min-height: 120px; }
     background: linear-gradient(135deg, #60a5fa 0%, #ffffff 100%);
     box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
     transform: translate(-50%, -50%);
+}
+
+.p a {
+    text-decoration: none;
+    color: #E1E1E1;
+}
+.p a:hover {
+    text-decoration: underline;
+}
+.p-services a {
+    text-decoration: none;
+    color: #E1E1E1;
+}
+.p-services a:hover {
+    text-decoration: underline;
 }
