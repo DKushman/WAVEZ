@@ -5,7 +5,6 @@
     <!-- HERO SECTION -->
 
                     <h1 class="h1-hero">FOTO-PRODUKTION FÜR CONTENT IN BERLIN</h1>
-                    <p class="span-hero">Wir <span class="hero-smc-span">planen </span>und <span class="hero-smc-span">produzieren</span> Fotos für Ihre Marke</p>
                     <p class="p hero">Als Agentur für Videproduktion begleiten wir Marken von der ersten Idee bis zur finalen Bildauswahl – strukturiert, effizient und auf höchstem visuellen Niveau.</p>
 
     
@@ -64,8 +63,8 @@
             <h2 class="h2">Praxisprojekte: Erfolgreiche Umsetzungen aus der realen Welt</h2>
             <p class="p">Entdecke unsere Praxisprojekte, in denen innovative Lösungen direkt umgesetzt werden. Schau dir echte Projekte an und sieh, wie wir praxisnah Mehrwert schaffen.</p>
 
-
-    
+    <!-- QUOTE SECTION -->            <section class="section service-quote">
+            <h2 class="h2">5/5 Sterne: Foto-Produktion</h2>
 
         <h2 class="h2">Häufig gestellte Fragen zur kreativen Fotoproduktion</h2>
         <p class="p">Hier beantworten wir die wichtigsten Fragen rund um unsere Fotoproduktion, Videoproduktion, Motion Graphics und 3D-Design. Erfahren Sie, wie unsere kreative Agentur Projekte plant, umsetzt und qualitativ hochwertige visuelle Ergebnisse liefert.</p>
