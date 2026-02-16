@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <!-- Critical CSS für Header - schnellerer First Contentful Paint -->
+    <!-- Critical CSS für Header und Hero-Section - schnellerer First Contentful Paint -->
     <style>
         body{margin:0;padding-left:clamp(1rem,2vw,2vw);padding-right:clamp(1rem,2vw,2vw);background-color:#0E0E0E;color:#E1E1E1;font-family:'Poppins',sans-serif}
         header{display:flex;justify-content:space-between;align-items:center;padding:2vh 0;position:sticky;top:0;background:transparent;mix-blend-mode:difference;z-index:1000}
@@ -15,23 +15,46 @@
         .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
         .kontakt-button{color:#E1E1E1;text-decoration:none}
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
+        .hero-section{width:100%;min-height:auto;padding-bottom:clamp(3rem,6vw,8rem)}
+        .test-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,500px),1fr));gap:1rem;column-gap:5rem}
+        .test-img{width:100%;aspect-ratio:1/1;object-fit:cover;margin-inline:auto 0}
+        .test-img-mobile{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+        .img-mobil{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+        .test-content-wrapper{display:grid;gap:3rem;grid-template-rows:auto}
+        @media(min-width:1125px){.hero-section{height:90dvh;display:flex;flex-direction:column;justify-content:center}.img-mobil{display:none}.test-container{grid-template-columns:1fr 1fr}.test-img{display:block;grid-column:1}.test-content-wrapper{grid-column:2;grid-template-rows:1fr auto}}
+        @media(max-width:1124px){.test-img{display:none}}
     </style>
     
-    <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP - optimierte Varianten preloaden -->
-    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_1200,q_auto,f_auto/IMG_0875_y4gjkc.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)" crossorigin="anonymous">
-    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_auto,f_auto/DSC00079_ystbtt.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)" crossorigin="anonymous">
-    
-    <!-- Font Preload danach -->
-    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- DNS Prefetch und Preconnect für externe Ressourcen -->
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <!-- DNS Prefetch und Preconnect ZUERST - Verbindung vor Preload herstellen -->
     <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- KRITISCH: Bild-Preload NACH Preconnect für schnellstes LCP - optimierte Größen und Qualität -->
+    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)" crossorigin="anonymous">
+    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)" crossorigin="anonymous">
+    
+    <!-- Font Preload verzögert - nach LCP geladen -->
+    <script>
+      // Font nach LCP laden (nicht blockierend)
+      window.addEventListener('load', function() {
+        var fontLink = document.createElement('link');
+        fontLink.rel = 'preload';
+        fontLink.href = './fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
+        fontLink.as = 'font';
+        fontLink.type = 'font/woff2';
+        fontLink.crossOrigin = 'anonymous';
+        document.head.appendChild(fontLink);
+      });
+    </script>
     
     <!-- CSS asynchron laden für bessere Performance -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <script>
+      // CSS Fallback für Browser ohne onload Support
+      var raf=requestAnimationFrame||setTimeout;raf(function(){var link=document.querySelector('link[rel="preload"][href="style.css"]');if(link&&link.rel==="preload"){link.rel="stylesheet"}});
+    </script>
 
 </head>
 <body>
@@ -68,8 +91,8 @@
     <section class="hero-section">
         <div class="test-container">
         <img class="test-img" 
-             src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_1200,q_auto,f_auto/IMG_0875_y4gjkc.jpg" 
-             srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_auto,f_auto/IMG_0875_y4gjkc.jpg 800w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_1200,q_auto,f_auto/IMG_0875_y4gjkc.jpg 1200w"
+             src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg" 
+             srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_80,f_auto/IMG_0875_y4gjkc.jpg 600w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg 800w"
              sizes="(max-width: 1124px) 100vw, 50vw"
              alt="Racing Podium" 
              fetchpriority="high" 
@@ -123,9 +146,9 @@
             
             <div class="img-mobil">
                 <img class="test-img-mobile" 
-                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_auto,f_auto/DSC00079_ystbtt.jpg" 
-                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_auto,f_auto/DSC00079_ystbtt.jpg 400w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_auto,f_auto/DSC00079_ystbtt.jpg 600w"
-                     sizes="(max-width: 600px) 50vw, 600px"
+                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg" 
+                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg 300w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_80,f_auto/DSC00079_ystbtt.jpg 400w"
+                     sizes="(max-width: 600px) 50vw, 300px"
                      alt="Racing Podium" 
                      fetchpriority="high" 
                      decoding="sync" 
@@ -133,9 +156,9 @@
                      width="400" 
                      height="400">
                 <img class="test-img-mobile" 
-                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_auto,f_auto/IMG_0875_y4gjkc.jpg" 
-                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_auto,f_auto/IMG_0875_y4gjkc.jpg 400w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_auto,f_auto/IMG_0875_y4gjkc.jpg 600w"
-                     sizes="(max-width: 600px) 50vw, 600px"
+                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/IMG_0875_y4gjkc.jpg" 
+                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/IMG_0875_y4gjkc.jpg 300w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_80,f_auto/IMG_0875_y4gjkc.jpg 400w"
+                     sizes="(max-width: 600px) 50vw, 300px"
                      alt="Racing Podium" 
                      loading="lazy" 
                      decoding="async" 
@@ -587,13 +610,10 @@
         document.body.appendChild(gsapScript);
       }
       
-      // GSAP nach DOMContentLoaded laden (nicht blockierend für Bilder)
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadGSAP);
-      } else {
-        // DOM bereits geladen
-        setTimeout(loadGSAP, 100);
-      }
+      // GSAP nach window.load laden (noch später, nicht blockierend für LCP)
+      window.addEventListener('load', function() {
+        setTimeout(loadGSAP, 500);
+      });
     </script>
     <script>
       (function () {
