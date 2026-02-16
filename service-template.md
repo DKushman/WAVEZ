@@ -2,9 +2,12 @@
 
 
     
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION nur explizit das ändern was hier erwähnt wird, den restlichen Code unberührt lasssen! - diesen kommentar bitte mitschicken-->
+        <!-- NICHT SIEZEN, immer DU-->
 
-                    <h1 class="h1-hero">FOTO-PRODUKTION FÜR CONTENT IN BERLIN</h1>
+
+                    <h1 class="h1-hero">Foto-Produktion für Content in Berlin</h1>
+                    <p class="span-hero">Wir <span class="hero-smc-span">planen </span>und <span class="hero-smc-span">produzieren</span> Fotos für eure Marke</p>
                     <p class="p hero">Als Agentur für Videproduktion begleiten wir Marken von der ersten Idee bis zur finalen Bildauswahl – strukturiert, effizient und auf höchstem visuellen Niveau.</p>
 
     
@@ -63,7 +66,8 @@
             <h2 class="h2">Praxisprojekte: Erfolgreiche Umsetzungen aus der realen Welt</h2>
             <p class="p">Entdecke unsere Praxisprojekte, in denen innovative Lösungen direkt umgesetzt werden. Schau dir echte Projekte an und sieh, wie wir praxisnah Mehrwert schaffen.</p>
 
-    <!-- QUOTE SECTION -->            <section class="section service-quote">
+    <!-- QUOTE SECTION --> 
+               <section class="section service-quote">
             <h2 class="h2">5/5 Sterne: Foto-Produktion</h2>
 
         <h2 class="h2">Häufig gestellte Fragen zur kreativen Fotoproduktion</h2>
@@ -84,3 +88,4 @@
                 <summary class="faq-item-title">Welche Leistungen beinhaltet die Post‑Production bei einer Fotoproduktion?</summary>
                 <p class="faq-item-description">In der Post‑Production optimieren wir jedes Bild: Von der professionellen Retusche über Farb‑ und Lichtkorrektur bis zu Compositing und finalem Feinschliff, damit Ihre Fotos in höchster Qualität erscheinen.</p>
 
+    <!-- KOMMENTAR: bitte beachten, dass der Inhalt SEO-optimiert sein soll und in jeder Hinsicht für gute Suchmaschinen-Findung sorgt und eine exzellente Benutzererfahrung. Achte darauf, dass der Kontent immer einzigartig ist.  -->

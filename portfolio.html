@@ -216,19 +216,19 @@
     </style>
     <script>
         (function() {
-            var trigger = document.querySelector('.js-lightbox-trigger');
+            var triggers = document.querySelectorAll('.slide-image figure');
             var overlay = document.getElementById('portfolio-lightbox');
             var img = overlay.querySelector('img');
-            if (!trigger || !overlay) return;
-            var figure = trigger.closest('figure');
-            var src = figure && figure.querySelector('img') && figure.querySelector('img').src;
-            if (!src) return;
-            function open(e) { e.preventDefault(); e.stopPropagation(); img.src = src; img.alt = figure.querySelector('img').alt || 'Vergrößerte Ansicht'; overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+            if (!triggers.length || !overlay) return;
+            function open(e, src, alt) { e.preventDefault(); e.stopPropagation(); img.src = src; img.alt = alt || 'Vergrößerte Ansicht'; overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
             function close() { overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; img.src = ''; }
-            trigger.addEventListener('click', open);
+            triggers.forEach(function(figure) {
+                var imgEl = figure.querySelector('img');
+                if (!imgEl) return;
+                figure.addEventListener('click', function(e) { open(e, imgEl.src, imgEl.alt); });
+            });
             overlay.addEventListener('click', close);
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) close(); });
-            trigger.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(e); } });
         })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>

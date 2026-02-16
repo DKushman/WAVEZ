@@ -2904,3 +2904,60 @@ textarea { resize: vertical; min-height: 120px; }
         flex-direction: row;
     }
 }
+
+.kontaktseite-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    min-height: 60vh;
+}
+.kontaktseite-heading {
+    grid-column: 1;
+}
+.kontaktseite-info {
+    grid-column: 2 / 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 3vw, 3rem);
+}
+.kontaktseite-img {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    margin-top: clamp(3rem, 6vw, 6rem);
+}
+.kontakt-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.kontakt-label {
+    font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+    color: #666;
+    text-transform: lowercase;
+}
+.kontakt-value {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 500;
+    color: #E1E1E1;
+    text-decoration-line: none;
+}
+.kontakt-value a {
+    color: #E1E1E1;
+}
+.kontakt-category a:hover {
+    text-decoration-line: underline;
+}
+@media (max-width: 900px) {
+    .kontaktseite-grid {
+        grid-template-columns: 1fr;
+    }
+    .kontaktseite-heading,
+    .kontaktseite-info {
+        grid-column: 1;
+    }
+    .kontaktseite-info {
+        grid-template-columns: 1fr;
+    }
+}
