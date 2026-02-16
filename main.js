@@ -288,14 +288,19 @@ if (steps.length > 0) {
     if (emailInput) emailInput.oninput = updateNav;
     if (phoneInput) phoneInput.oninput = updateNav;
 }
-document.addEventListener('mousemove', (e) => {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = e.clientX + 'px';
-    p.style.top = e.clientY + 'px';
-    document.getElementById('particles').appendChild(p);
-    gsap.to(p, {y: '+=100', opacity: 0, duration: 1, onComplete: () => p.remove()});
-});
+// Particle-Effekt nur wenn GSAP verfügbar ist
+if (typeof gsap !== 'undefined') {
+    document.addEventListener('mousemove', (e) => {
+        const particlesEl = document.getElementById('particles');
+        if (!particlesEl) return;
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = e.clientX + 'px';
+        p.style.top = e.clientY + 'px';
+        particlesEl.appendChild(p);
+        gsap.to(p, {y: '+=100', opacity: 0, duration: 1, onComplete: () => p.remove()});
+    });
+}
 
 (function() {
     var trigger = document.querySelector('.js-lightbox-trigger');
