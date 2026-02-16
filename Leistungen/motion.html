@@ -5,13 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <!-- Preload Variable Font für maximale Performance -->
-    <link rel="preload" href="../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Critical CSS für Header - schnellerer First Contentful Paint -->
+    <style>
+        body{margin:0;padding-left:clamp(1rem,2vw,2vw);padding-right:clamp(1rem,2vw,2vw);background-color:#0E0E0E;color:#E1E1E1;font-family:'Poppins',sans-serif}
+        header{display:flex;justify-content:space-between;align-items:center;padding:2vh 0;position:sticky;top:0;background:transparent;mix-blend-mode:difference;z-index:1000}
+        header>a{display:flex;align-items:center;text-decoration:none}
+        .logo{width:clamp(120px,10vw,180px);display:block}
+        .burger-menu{position:absolute;left:50%;transform:translateX(-50%)}
+        .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
+        .kontakt-button{color:#E1E1E1;text-decoration:none}
+        .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
+    </style>
     
-    <!-- Preload GSAP für frühes Laden -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+    <!-- DNS Prefetch und Preconnect für externe Ressourcen -->
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
-    <link rel="stylesheet" href="../style.css">
+    <!-- Font Preload verzögert - nach LCP geladen -->
+    <script>
+      window.addEventListener('load', function() {
+        var fontLink = document.createElement('link');
+        fontLink.rel = 'preload';
+        fontLink.href = '../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
+        fontLink.as = 'font';
+        fontLink.type = 'font/woff2';
+        fontLink.crossOrigin = 'anonymous';
+        document.head.appendChild(fontLink);
+      });
+    </script>
+    
+    <!-- CSS asynchron laden für bessere Performance -->
+    <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../style.css"></noscript>
+    <script>
+      var raf=requestAnimationFrame||setTimeout;raf(function(){var link=document.querySelector('link[rel="preload"][href="../style.css"]');if(link&&link.rel==="preload"){link.rel="stylesheet"}});
+    </script>
 </head>
 <body>
     <header>
@@ -54,7 +83,7 @@
             <a href="../fragebogen.html" class="button hero">KONTAKT</a>
         </div>
         </div>
-            <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00031_2_ergebnis_nlphnt.webp" alt="Motion Graphics Produktion" loading="lazy">
+            <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" alt="Motion Graphics Produktion" loading="lazy" crossorigin="anonymous">
         </div>
         </section>
         <section class="section service">
@@ -62,7 +91,7 @@
             <p class="p">Wir bieten spezialisierte Services für jede Phase der Motion Graphics Produktion, um Projekte effizient und kreativ umzusetzen.</p>
             <div class="service-container">
                 <div class="service-item">
-                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00410_2_ergebnis_oxasof.webp" alt="Motion Graphics Konzept" loading="lazy">
+                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00410_2_ergebnis_oxasof.webp" alt="Motion Graphics Konzept" loading="lazy" crossorigin="anonymous">
                     <h3 class="h3 service">Konzept & Storytelling</h3>
                     <ul class="service-list">
                         <li class="service-item-list">Storyboard-Erstellung</li>
@@ -71,7 +100,7 @@
                     </ul>
                 </div>
                 <div class="service-item">
-                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00477_2_ergebnis_hvtunx.webp" alt="Motion Graphics Animation" loading="lazy">
+                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00477_2_ergebnis_hvtunx.webp" alt="Motion Graphics Animation" loading="lazy" crossorigin="anonymous">
                     <h3 class="h3 service">Animation & Design</h3>
                     <ul class="service-list">
                         <li class="service-item-list">2D Animation</li>
@@ -80,7 +109,7 @@
                     </ul>
                 </div>
                 <div class="service-item">
-                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC02454_3_ergebnis_yafxpx.webp" alt="Motion Graphics Post-Production" loading="lazy">
+                    <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC02454_3_ergebnis_yafxpx.webp" alt="Motion Graphics Post-Production" loading="lazy" crossorigin="anonymous">
                     <h3 class="h3 service">Post-Production & Optimierung</h3>
                     <ul class="service-list">
                         <li class="service-item-list">Rendering & Compositing</li>
@@ -170,19 +199,19 @@
             </div>
             <ul class="sneakpeak-container">
                 <li class="sneakpeak-item">
-                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC03854_2_ergebnis_izjxcu.webp" alt="Motion Graphics Social Media" loading="lazy">
+                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03854_2_ergebnis_izjxcu.webp" alt="Motion Graphics Social Media" loading="lazy" crossorigin="anonymous">
                 </li>
                 <li class="sneakpeak-item">
-                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC03939_2_ergebnis_br3k79.webp" alt="Motion Graphics Infografik" loading="lazy">
+                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03939_2_ergebnis_br3k79.webp" alt="Motion Graphics Infografik" loading="lazy" crossorigin="anonymous">
                 </li>
                 <li class="sneakpeak-item">
-                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC04559_2_ergebnis_gx9am6.webp" alt="Motion Graphics Produktpräsentation" loading="lazy">
+                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC04559_2_ergebnis_gx9am6.webp" alt="Motion Graphics Produktpräsentation" loading="lazy" crossorigin="anonymous">
                 </li>
                 <li class="sneakpeak-item">
-                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC05681_2_ergebnis_fl3g2g.webp" alt="Motion Graphics Brand Animation" loading="lazy">
+                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC05681_2_ergebnis_fl3g2g.webp" alt="Motion Graphics Brand Animation" loading="lazy" crossorigin="anonymous">
                 </li>
                 <li class="sneakpeak-item">
-                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC07977_2_ergebnis_wcyf8e.webp" alt="Motion Graphics Animation" loading="lazy">
+                    <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC07977_2_ergebnis_wcyf8e.webp" alt="Motion Graphics Animation" loading="lazy" crossorigin="anonymous">
                 </li>
             </ul>
             <a href="../portfolio.html" class="button sneakpeak">MEHR ZU SNEAKPEAK</a>
@@ -192,7 +221,7 @@
             <blockquote class="quote-services">
                 <p class="quote-services-text">"Manchmal gucke ich die Wand an und denk darüber nach, aus welchem Grund Katzen früher angebetet wurden und heute einer diese Hurensöhne die Opposition ist."</p>
                 <div class="testimonial-author services">
-                    <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00103_ergebnis_jp2dmj.webp" alt="John Doe" loading="lazy"></img>
+                    <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00103_ergebnis_jp2dmj.webp" alt="John Doe" loading="lazy" crossorigin="anonymous"></img>
                     <div class="author-info">
                         <span class="author-name">John Doe</span>
                         <span class="author-handle">@johndoe</span>

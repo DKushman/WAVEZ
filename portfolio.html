@@ -5,14 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <!-- Preload Variable Font für maximale Performance -->
-    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Critical CSS für Header - schnellerer First Contentful Paint -->
+    <style>
+        body{margin:0;padding-left:clamp(1rem,2vw,2vw);padding-right:clamp(1rem,2vw,2vw);background-color:#0E0E0E;color:#E1E1E1;font-family:'Poppins',sans-serif}
+        header{display:flex;justify-content:space-between;align-items:center;padding:2vh 0;position:sticky;top:0;background:transparent;mix-blend-mode:difference;z-index:1000}
+        header>a{display:flex;align-items:center;text-decoration:none}
+        .logo{width:clamp(120px,10vw,180px);display:block}
+        .burger-menu{position:absolute;left:50%;transform:translateX(-50%)}
+        .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
+        .kontakt-button{color:#E1E1E1;text-decoration:none}
+        .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
+    </style>
     
-    <!-- Preload GSAP für frühes Laden -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" as="script">
+    <!-- DNS Prefetch und Preconnect für externe Ressourcen -->
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleport.css">
+    <!-- Font Preload verzögert - nach LCP geladen -->
+    <script>
+      window.addEventListener('load', function() {
+        var fontLink = document.createElement('link');
+        fontLink.rel = 'preload';
+        fontLink.href = './fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
+        fontLink.as = 'font';
+        fontLink.type = 'font/woff2';
+        fontLink.crossOrigin = 'anonymous';
+        document.head.appendChild(fontLink);
+      });
+    </script>
+    
+    <!-- CSS asynchron laden für bessere Performance -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="preload" href="styleport.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styleport.css"></noscript>
+    <script>
+      var raf=requestAnimationFrame||setTimeout;raf(function(){var links=document.querySelectorAll('link[rel="preload"][as="style"]');links.forEach(function(link){if(link.rel==="preload"){link.rel="stylesheet"}})});
+    </script>
 </head>
 <body>
     <header>
@@ -52,7 +82,7 @@
                 <div class="slide">
                     <a href="index.html"><article class="slide-image">
                         <figure><a href="index.html">
-                            <img src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00079_ystbtt.jpg" alt="Portfolio Image 1" loading="lazy">
+                            <img src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00079_ystbtt.jpg" alt="Portfolio Image 1" loading="lazy" crossorigin="anonymous">
                             <figcaption class="js-lightbox-trigger" role="button" tabindex="0" aria-label="Bild vergrößern">
                                 <div>
                                     <strong>Portfolio 1</strong>
@@ -186,7 +216,7 @@
                 <div class="slide">
                     <article class="slide-image">
                         <figure>
-                            <img src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00257_ergebnis_vxziyi.webp" alt="Portfolio Image 8" loading="lazy">
+                            <img src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00257_ergebnis_vxziyi.webp" alt="Portfolio Image 8" loading="lazy" crossorigin="anonymous">
                             <figcaption>
                                 <div>
                                     <strong>Portfolio 8</strong>
