@@ -15,14 +15,6 @@
         .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
         .kontakt-button{color:#E1E1E1;text-decoration:none}
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
-        .hero-section{width:100%;min-height:auto;padding-bottom:clamp(3rem,6vw,8rem)}
-        .test-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,500px),1fr));gap:1rem;column-gap:5rem}
-        .test-img{width:100%;aspect-ratio:1/1;object-fit:cover;margin-inline:auto 0}
-        .test-img-mobile{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
-        .img-mobil{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
-        .test-content-wrapper{display:grid;gap:3rem;grid-template-rows:auto}
-        @media(min-width:1125px){.hero-section{height:90dvh;display:flex;flex-direction:column;justify-content:center}.img-mobil{display:none}.test-container{grid-template-columns:1fr 1fr}.test-img{display:block;grid-column:1}.test-content-wrapper{grid-column:2;grid-template-rows:1fr auto}}
-        @media(max-width:1124px){.test-img{display:none}}
     </style>
     
     <!-- DNS Prefetch und Preconnect ZUERST - Verbindung vor Preload herstellen -->
@@ -59,7 +51,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" width="150" height="60" fetchpriority="high" loading="eager"></a>
+        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" fetchpriority="high" loading="eager"></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
