@@ -262,7 +262,8 @@ header > a {
     font-weight: 600 !;
 }
 
-.schrift-svg {
+.schrift-svg,
+.schrift-svg-placeholder {
     position: absolute;
     top: 35%;
     left: 50%;

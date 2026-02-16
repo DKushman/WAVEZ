@@ -15,13 +15,11 @@
         .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
         .kontakt-button{color:#E1E1E1;text-decoration:none}
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
-        .test-content-wrapper{opacity:0}
-        .test-img{opacity:0}
     </style>
     
-    <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP -->
-    <link rel="preload" href="./compressed-home/IMG_0875.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="./compressed-home/DSC00079.jpg" as="image" fetchpriority="high">
+    <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP - nur das LCP-Bild preloaden -->
+    <link rel="preload" href="./compressed-home/IMG_0875.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)">
+    <link rel="preload" href="./compressed-home/DSC00079.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)">
     
     <!-- Font Preload danach -->
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -63,7 +61,7 @@
     <main class="page-content">
     <section class="hero-section">
         <div class="test-container">
-        <img class="test-img" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" decoding="async" width="800" height="800">
+        <img class="test-img" src="./compressed-home/IMG_0875.jpg" alt="Racing Podium" fetchpriority="high" decoding="sync" width="800" height="800">
         <div class="test-content-wrapper">
             <div class="test-grid-top">
                 <div class="test-grid-top-content">
