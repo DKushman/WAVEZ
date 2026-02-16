@@ -62,11 +62,6 @@
     <section class="hero-section">
         <div class="test-container">
         <img class="test-img" 
-             srcset="./compressed-home/IMG_0875-400.jpg 400w,
-                     ./compressed-home/IMG_0875-600.jpg 600w,
-                     ./compressed-home/IMG_0875-800.jpg 800w,
-                     ./compressed-home/IMG_0875.jpg 1200w"
-             sizes="(max-width: 1124px) 0px, (max-width: 1600px) 50vw, 600px"
              src="./compressed-home/IMG_0875.jpg" 
              alt="Racing Podium" 
              fetchpriority="high" 
@@ -119,10 +114,6 @@
             
             <div class="img-mobil">
                 <img class="test-img-mobile" 
-                     srcset="./compressed-home/DSC00079-300.jpg 300w,
-                             ./compressed-home/DSC00079-400.jpg 400w,
-                             ./compressed-home/DSC00079.jpg 600w"
-                     sizes="(max-width: 600px) 50vw, 400px"
                      src="./compressed-home/DSC00079.jpg" 
                      alt="Racing Podium" 
                      fetchpriority="high" 
@@ -130,10 +121,6 @@
                      width="400" 
                      height="400">
                 <img class="test-img-mobile" 
-                     srcset="./compressed-home/IMG_0875-300.jpg 300w,
-                             ./compressed-home/IMG_0875-400.jpg 400w,
-                             ./compressed-home/IMG_0875.jpg 600w"
-                     sizes="(max-width: 600px) 50vw, 400px"
                      src="./compressed-home/IMG_0875.jpg" 
                      alt="Racing Podium" 
                      fetchpriority="high" 
@@ -565,16 +552,19 @@
         }
       })();
       
-      // GSAP und ScrollTrigger erst nach LCP laden
+      // GSAP und ScrollTrigger nach DOMContentLoaded laden (nicht blockierend)
       function loadGSAP() {
         const gsapScript = document.createElement('script');
         gsapScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js';
+        gsapScript.async = true;
         gsapScript.onload = function() {
           const scrollTriggerScript = document.createElement('script');
           scrollTriggerScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js';
+          scrollTriggerScript.async = true;
           scrollTriggerScript.onload = function() {
             const mainScript = document.createElement('script');
             mainScript.src = 'main.js';
+            mainScript.async = true;
             document.body.appendChild(mainScript);
           };
           document.body.appendChild(scrollTriggerScript);
@@ -582,32 +572,12 @@
         document.body.appendChild(gsapScript);
       }
       
-      // LCP-Metriken abwarten oder nach window.load laden
-      if ('PerformanceObserver' in window) {
-        try {
-          const perfObserver = new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            const lcpEntry = entries[entries.length - 1];
-            if (lcpEntry && lcpEntry.renderTime) {
-              // LCP gemessen, GSAP nach kurzer Verzögerung laden
-              setTimeout(loadGSAP, 500);
-              perfObserver.disconnect();
-            }
-          });
-          perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-          
-          // Fallback: Nach 3 Sekunden laden falls LCP nicht gemessen wird
-          setTimeout(() => {
-            perfObserver.disconnect();
-            loadGSAP();
-          }, 3000);
-        } catch (e) {
-          // Fallback wenn PerformanceObserver nicht funktioniert
-          window.addEventListener('load', loadGSAP);
-        }
+      // GSAP nach DOMContentLoaded laden (nicht blockierend für Bilder)
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadGSAP);
       } else {
-        // Fallback für Browser ohne PerformanceObserver
-        window.addEventListener('load', loadGSAP);
+        // DOM bereits geladen
+        setTimeout(loadGSAP, 100);
       }
     </script>
     <script>
