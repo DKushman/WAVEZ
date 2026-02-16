@@ -20,9 +20,13 @@
     <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP - größte Variante preloaden -->
     <link rel="preload" href="./compressed-home/IMG_0875.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)">
     <link rel="preload" href="./compressed-home/DSC00079.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)">
+    <link rel="preload" href="./images/WAVEZ-LOGO-website.svg" as="image" fetchpriority="high">
     
     <!-- Font Preload danach -->
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- DNS Prefetch für externe Ressourcen -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
     <!-- CSS asynchron laden für bessere Performance -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -30,7 +34,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" fetchpriority=high></a>
+        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" width="150" height="60" fetchpriority="high"></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
@@ -410,12 +414,12 @@
                 <p class="bts-text">Unsere Arbeit formt sich im Hintergrund und entfaltet sich im Vordergrund.</p>
             </div>
             <div class="bts-images-track">
-                <img class="bts-img" src="./bts-hero/WAVEZ-06297.jpg" alt="Behind the Scenes Videoproduktion"  width="400" height="500">
-                <img class="bts-img" src="./images/DSC00129_ergebnis.webp" alt="Behind the Scenes Fotoshooting"  width="400" height="500">
-                <img class="bts-img" src="./bts-hero/WAVEZ-09212.jpg" alt="Behind the Scenes Social Media Produktion"  width="400" height="500">
-                <img class="bts-img" src="./images/DSC00148_ergebnis.webp" alt="Behind the Scenes Content Produktion" width="400" height="500">
-                <img class="bts-img" src="./bts-hero/WAVEZ-07703.jpg" alt="Behind the Scenes Eventbegleitung" width="400" height="500">
-                <img class="bts-img" src="./images/DSC00175_ergebnis.webp" alt="Behind the Scenes 3D Design" width="400" height="500">
+                <img class="bts-img" src="./bts-hero/WAVEZ-06297.jpg" alt="Behind the Scenes Videoproduktion" width="400" height="500" loading="lazy">
+                <img class="bts-img" src="./images/DSC00129_ergebnis.webp" alt="Behind the Scenes Fotoshooting" width="400" height="500" loading="lazy">
+                <img class="bts-img" src="./bts-hero/WAVEZ-09212.jpg" alt="Behind the Scenes Social Media Produktion" width="400" height="500" loading="lazy">
+                <img class="bts-img" src="./images/DSC00148_ergebnis.webp" alt="Behind the Scenes Content Produktion" width="400" height="500" loading="lazy">
+                <img class="bts-img" src="./bts-hero/WAVEZ-07703.jpg" alt="Behind the Scenes Eventbegleitung" width="400" height="500" loading="lazy">
+                <img class="bts-img" src="./images/DSC00175_ergebnis.webp" alt="Behind the Scenes 3D Design" width="400" height="500" loading="lazy">
             </div>
         </section>
         <section class="section kontakt">

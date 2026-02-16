@@ -1,9 +1,8 @@
-/* Poppins Variable Font - Maximale Performance (1 Datei statt 9) */
 @font-face {
     font-family: 'Poppins';
     src: url('./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2') format('woff2'),
          url('./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff') format('woff');
-    font-weight: 100 900; /* Alle Weights von 100 bis 900 in einer Datei */
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
@@ -21,7 +20,6 @@ body {
 .reveal {
     overflow: hidden;
 }
-/* Blur effect on body content when menu is open */
 .logo,
 .location,
 .kontakt-button,
@@ -41,11 +39,10 @@ body.menu-open footer {
 
 
 
-/* Nav overlay and list should not be blurred and should be clickable */
 body.menu-open .nav-overlay,
 body.menu-open .nav-list,
 body.menu-open .burger-button {
-    filter: blur(0) ;
+    filter: blur(0);
     pointer-events: auto;
 }
 
@@ -59,8 +56,6 @@ header {
     background: transparent;
     mix-blend-mode: difference;
     z-index: 1000;
-    
-    /* z-index entfernen */
 }
 
 header > a {
@@ -72,7 +67,6 @@ header > a {
 .logo {
     width: clamp(120px, 10vw, 180px);
     display: block;
-    /* isolation entfernen */
 }
 
 .burger-menu {
@@ -102,7 +96,6 @@ header > a {
 .burger-button.active .burger-icon {
     transform: scale(0);
 }
-/* Nav Overlay */
 .nav-overlay {
     position: fixed;
     top: 0;
@@ -174,7 +167,6 @@ header > a {
     display: inline-block;
 }
 
-/* Submenu Container */
 .nav-item-has-submenu {
     position: relative;
 }
@@ -190,7 +182,6 @@ header > a {
     padding: 0;
 }
 
-/* Geöffnet */
 .nav-item-has-submenu.active .nav-submenu {
     max-height: 500px;
     opacity: 1;
@@ -213,7 +204,6 @@ header > a {
     color: #E1E1E1;
 }
 
-/* Pfeil/Icon für Toggle */
 .nav-submenu-toggle {
     position: relative;
     padding-right: 1.5rem;
@@ -435,7 +425,7 @@ header > a {
     cursor: pointer;
     border: none;
     align-self: flex-start;
-    font-size: clamp(0.6rem, 0.9vw, 0.8rem); /* Mittelweg */  
+    font-size: clamp(0.6rem, 0.9vw, 0.8rem);  
     width: auto;
     margin-top: clamp(0.5rem, 1vw, 1rem);
     width: fit-content;
@@ -505,18 +495,18 @@ header > a {
         
     }
     .img-mobil {
-        display: none; /* Beste Performance */
+        display: none;
     }
     .test-container {
-        grid-template-columns: 1fr 1fr; /* Explizites Grid */
+        grid-template-columns: 1fr 1fr;
     }
     .test-img {
-        display: block; /* Sichtbar auf Desktop */
+        display: block;
         grid-column: 1;
     }
     .test-content-wrapper {
         grid-column: 2;
-        grid-template-rows: 1fr auto; /* Auf Desktop: nur 2 Zeilen (ohne Bilder) */
+        grid-template-rows: 1fr auto;
     }
     .testimonial-card {
         justify-self: stretch;
@@ -527,19 +517,17 @@ header > a {
 }
 @media (max-width: 1124px) {
   .test-img {
-    display: none; /* Versteckt auf Mobile */
+    display: none;
   }
 
 }
 
-/* Hero Section - Normale Section ohne Basis-Klasse */
 .hero-section {
     width: 100%;
     min-height: auto;
     padding-bottom: clamp(3rem, 6vw, 8rem);
 }
 
-/* Hero-Animation: nur opacity + transform (GPU-freundlich), minimal */
 @keyframes hero-in {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
@@ -547,7 +535,6 @@ header > a {
 .hero-section .test-img { animation: hero-in 0.5s ease-out both; }
 .hero-section .test-content-wrapper { animation: hero-in 0.5s ease-out 0.1s both; }
 
-/* Hero-Animation: team, portfolio, smc, kontakt, nein */
 .section.test .h1-hero.team { animation: hero-in 0.5s ease-out both; }
 .section.test .span-test { animation: hero-in 0.5s ease-out 0.1s both; }
 .section.portfolio .h1.portfolio-title { animation: hero-in 0.5s ease-out both; }
@@ -564,8 +551,6 @@ header > a {
 .section.impressum-hero .impressum-content { animation: hero-in 0.5s ease-out 0.1s both; }
 .section.datenschutz-hero .datenschutz-hero-container { animation: hero-in 0.5s ease-out both; }
 
-/* Spezifische Section-Unterklassen */
-/* .hero-test-section hat spezifische Eigenschaften in Media Queries */
 .test-content-wrapper {
     display: grid;
     gap: 3rem;
@@ -617,7 +602,6 @@ header > a {
     padding-top: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
-/* Testimonial Cards - Horizontaler Scroll */
 .blockquote-container {
     display: flex;
     gap: clamp(1rem, 2vw, 2rem);
@@ -648,14 +632,12 @@ header > a {
     scroll-snap-align: start;
 }
 
-/* Desktop: 3 Karten sichtbar */
 @media (min-width: 1125px) {
     .testimonial-card {
         width: calc((100% - 2 * clamp(1rem, 2vw, 2rem)) / 3);
     }
 }
 
-/* Mobile: 1 Karte sichtbar */
 @media (max-width: 1124px) {
     .blockquote-container {
         gap: 1rem;
@@ -669,7 +651,6 @@ header > a {
     }
 }
 
-/* Scroll Progress Bar */
 .scroll-progress-track {
     width: 100%;
     max-width: 200px;
@@ -739,16 +720,15 @@ header > a {
     font-weight: 400;
     color: #666666;
 }
-  /* Spezifische Eigenschaften für section-Unterklassen auf Desktop */
   .section {
     padding-block: clamp(2rem, 4vw, 5rem);
   }
   .referenz-raster {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr; /* Alle Zeilen haben die gleiche Höhe */
+    grid-auto-rows: 1fr;
     margin-top: 3vh;
-    gap: 0; /* Optional: Falls du Abstand zwischen den Boxen willst, kannst du hier einen Wert setzen */
+    gap: 0;
 }
 
 .referenz-box {
@@ -758,8 +738,8 @@ header > a {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    box-sizing: border-box; /* Padding und Border werden in der Größe berücksichtigt */
-    min-height: 0; /* Verhindert, dass Grid-Items größer werden als nötig */
+    box-sizing: border-box;
+    min-height: 0;
 }
 
 .referenz-box-plus {
@@ -886,21 +866,21 @@ header > a {
     padding-left: clamp(1rem, 2vw, 2vw);
     padding-right: clamp(1rem, 2vw, 2vw);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* WICHTIG: Immer definieren - Desktop: 3 Spalten */
-    grid-template-rows: auto 1fr auto; /* projekte-text oben, services/bilder in der Mitte, button unten */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
     gap: 1rem;
-    min-height: 0; /* Wichtig für Grid in Flex-Container */
+    min-height: 0;
     margin-top: clamp(2rem, 4vw, 8vw);
-    align-self: center; /* Horizontal zentrieren */
+    align-self: center;
 }
 
 @media (max-width: 1124px) {
     .inhalt-stagger {
-        grid-template-columns: 1fr 1fr; /* Mobile: 2 Spalten für Bilder */
+        grid-template-columns: 1fr 1fr;
     }
     
     .services-projekte {
-        grid-column: 1 / -1; /* services-projekte über beide Spalten */
+        grid-column: 1 / -1;
     }
     
     .button.portfolio-projekte {
@@ -937,7 +917,7 @@ header > a {
     background-color: transparent;
     position: relative;
     overflow: visible;
-    flex-shrink: 0; /* WICHTIG: Logo behält seine Position */
+    flex-shrink: 0;
 }
 
 .stagger-item:nth-child(2) .positionlogo-container {
@@ -952,13 +932,13 @@ header > a {
     width: 25%;
     height: 100%;
     background-color: #9CC4FF;
-    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    border-radius: 50px 50px 0 0;
     z-index: -1;
 }
 
 .stagger-item:nth-child(2) .logo-projekt {
     position: absolute;
-    left: 12.5%; /* Mitte von 0-25% */
+    left: 12.5%;
     transform: translateX(-50%);
 }
 
@@ -974,13 +954,13 @@ header > a {
     width: 25%;
     height: 100%;
     background-color: #5B8FE6;
-    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    border-radius: 50px 50px 0 0;
     z-index: -1;
 }
 
 .stagger-item:nth-child(3) .logo-projekt {
     position: absolute;
-    left: 37.5%; /* Mitte von 25-50% */
+    left: 37.5%;
     transform: translateX(-50%);
 }
 
@@ -996,13 +976,13 @@ header > a {
     width: 25%;
     height: 100%;
     background-color: #1F63C6;
-    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    border-radius: 50px 50px 0 0;
     z-index: -1;
 }
 
 .stagger-item:nth-child(4) .logo-projekt {
     position: absolute;
-    left: 62.5%; /* Mitte von 50-75% */
+    left: 62.5%;
     transform: translateX(-50%);
 }
 
@@ -1018,13 +998,13 @@ header > a {
     width: 25%;
     height: 100%;
     background-color: #004CB2;
-    border-radius: 50px 50px 0 0; /* Nur obere Ecken abgerundet */
+    border-radius: 50px 50px 0 0;
     z-index: -1;
 }
 
 .stagger-item:nth-child(5) .logo-projekt {
     position: absolute;
-    left: 87.5%; /* Mitte von 75-100% */
+    left: 87.5%;
     transform: translateX(-50%);
 }
 
@@ -1058,7 +1038,6 @@ header > a {
     overflow: hidden;
     transition: color 0.3s ease;
     z-index: 0;
-    transition: color 0.3s ease;
 }
 
 .p-services::before {
@@ -1177,7 +1156,6 @@ header > a {
     grid-column: 2;
 }
 .alle-leistungen {
-    grid-column: 2;
     grid-column: 2/-2;
     list-style: none;
     padding: 0;
@@ -1211,14 +1189,14 @@ header > a {
     margin-bottom: clamp(0.5rem, 1vw, 1vw);
     line-height: 1;
     font-weight: 200;
-    font-size: clamp(1.25rem, 3vw, 5rem); /* Minimum kleiner für kleine Geräte */
+    font-size: clamp(1.25rem, 3vw, 5rem);
     transition: font-weight 0.3s ease;
     margin-top: 0;
     text-decoration: none;
     color: inherit;
     display: inline-block;
 }
-.h4-leistungen:hover {  /* Kein Leerzeichen = hover auf .h4-leistungen selbst */
+.h4-leistungen:hover {
     font-weight: 400;
 }
 .p-leistungen {
@@ -1278,16 +1256,15 @@ header > a {
     height: 100vh;
     width: 100%;
     position: relative;
-    /* Kein z-index hier - würde neuen Stacking-Context erstellen */
 }
 
 .bts-text {
     font-size: clamp(0.5rem, 1vw, 2rem);
     font-weight: 700;
-    color: #FFFFFF; /* Weiß für besseren Kontrast */
-    mix-blend-mode: difference; /* Blend-Mode aktivieren */
+    color: #FFFFFF;
+    mix-blend-mode: difference;
     position: relative;
-    z-index: 2; /* Text über den Bildern */
+    z-index: 2;
     align-self: center;
     text-align: center;
 }
@@ -1297,12 +1274,12 @@ header > a {
     gap: 1rem;
     position: absolute;
     top: 50%;
-    left: 100%; /* Startet außerhalb des Viewports (rechts) */
+    left: 100%;
     transform: translateY(-50%);
     will-change: transform;
     pointer-events: none;
-    opacity: 0; /* Versteckt bis Animation startet */
-    z-index: 1; /* Bilder unter dem Text */
+    opacity: 0;
+    z-index: 1;
 }
 
 .bts-img {
@@ -1318,11 +1295,10 @@ header > a {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     width: 100%;
-    column-gap: 2rem;
     position: sticky;
     top: 0;
-    z-index: 1; /* WICHTIG: Damit es über anderen Content liegt */
-    background: #0E0E0E; /* WICHTIG: Damit Content nicht durchscheint */
+    z-index: 1;
+    background: #0E0E0E;
 }
 @media (max-width: 1124px) {
     .kontakt-container {
@@ -1361,7 +1337,6 @@ header > a {
 .button.kontakt-button {
     margin-top: auto;
 }
-/* ========== FOOTER ========== */
 .section.footer {
     padding-bottom: 0;
     border: 1px solid #E1E1E1;
@@ -1395,7 +1370,6 @@ header > a {
     flex-direction: column;
 }
 
-/* Location Column */
 .footer-city {
     font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     font-weight: 500;
@@ -1409,7 +1383,6 @@ header > a {
     margin: 0.25rem 0 0 0;
 }
 
-/* Contact Buttons */
 .footer-contact {
     gap: 0.5rem;
 }
@@ -1452,7 +1425,6 @@ header > a {
     border: 1px solid #E1E1E1;
 }
 
-/* Social Links */
 .social-links {
     display: flex;
     flex-direction: column;
@@ -1481,7 +1453,6 @@ header > a {
     height: clamp(20px, 1.8vw, 26px);
 }
 
-/* Footer Navigation */
 .footer-nav.footer-col,
 .footer-col.footer-nav {
     display: flex;
