@@ -197,6 +197,7 @@
                     <ul class="footer-nav-col">
                         <li><a href="impressum.html">Impressum</a></li>
                         <li><a href="Datenschutz.html">Datenschutz</a></li>
+                        <li><a href="#" id="cookie-link" class="cookie-link">Cookies</a></li>
                     </ul>
                 </div>
             </nav>
@@ -211,10 +212,48 @@
             <img src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ">
         </div>
     </footer>
-</body>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="main.js"></script>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Hinweis" hidden>
+        <p class="cookie-banner-text">Wir verwenden Cookies, um die Website optimal für dich zu gestalten. Wähle „Alle akzeptieren" oder „Nur notwendige". <a href="Datenschutz.html" class="cookie-banner-link">Datenschutzerklärung</a></p>
+        <div class="cookie-banner-buttons">
+            <button type="button" id="cookie-accept" class="cookie-banner-btn cookie-banner-btn-primary">Alle akzeptieren</button>
+            <button type="button" id="cookie-necessary" class="cookie-banner-btn cookie-banner-btn-secondary">Nur notwendige</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      (function () {
+        var STORAGE_KEY = 'wavez_cookie_consent';
+        var banner = document.getElementById('cookie-banner');
+        var cookieLink = document.getElementById('cookie-link');
+
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          banner.removeAttribute('hidden');
+        }
+
+        function hideBanner(value) {
+          localStorage.setItem(STORAGE_KEY, value);
+          banner.setAttribute('hidden', '');
+        }
+
+        function showBanner() {
+          banner.removeAttribute('hidden');
+        }
+
+        if (cookieLink) {
+          cookieLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showBanner();
+          });
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', function () { hideBanner('accepted'); });
+        document.getElementById('cookie-necessary').addEventListener('click', function () { hideBanner('necessary'); });
+      })();
+    </script>
 </body>
 </html>

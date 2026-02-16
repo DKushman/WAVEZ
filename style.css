@@ -1844,7 +1844,6 @@ header > a {
     bottom: 0;
     font-size: clamp(2rem, 3vw, 5rem);
     mix-blend-mode: difference;
-    z-index: 10;
 }
 
 /* Team Section */
