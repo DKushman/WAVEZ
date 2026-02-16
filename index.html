@@ -20,21 +20,23 @@
     <!-- KRITISCH: Bild-Preload ZUERST für schnellstes LCP - größte Variante preloaden -->
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/IMG_0875_y4gjkc.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)">
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00079_ystbtt.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)">
-    <link rel="preload" href="./images/WAVEZ-LOGO-website.svg" as="image" fetchpriority="high">
     
     <!-- Font Preload danach -->
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
     
-    <!-- DNS Prefetch für externe Ressourcen -->
+    <!-- DNS Prefetch und Preconnect für externe Ressourcen -->
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
     
     <!-- CSS asynchron laden für bessere Performance -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" width="150" height="60" fetchpriority="high"></a>
+        <a href="index.html"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" width="150" height="60" fetchpriority="high" loading="eager"></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
@@ -127,7 +129,7 @@
                 <img class="test-img-mobile" 
                      src="https://res.cloudinary.com/dqcdbdt4v/image/upload/IMG_0875_y4gjkc.jpg" 
                      alt="Racing Podium" 
-                     fetchpriority="high" 
+                     loading="lazy" 
                      decoding="async" 
                      width="400" 
                      height="400">
