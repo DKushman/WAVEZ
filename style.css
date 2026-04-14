@@ -249,7 +249,7 @@ header > a {
 .kreativ-agentur-text {
     position: relative;
     display: inline-block;
-    font-weight: 600 !;
+    font-weight: 600;
 }
 
 .schrift-svg,
@@ -267,68 +267,11 @@ header > a {
 }
 
 
+
 .p {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     margin-top: 0;
-}
-
-.hero-benefits {
-    list-style: none;
-    padding: 0;
-    margin: clamp(1rem, 2vw, 1.5rem) 0;
-    display: flex;
-    flex-direction: row;
-    gap: clamp(1rem, 2vw, 2rem);
-    flex-wrap: wrap;
-    
-}
-
-.hero-benefits li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-    color: #E1E1E1;
-    opacity: 0.8;
-    font-weight: 300;
-    border: 1px solid #666;
-    border-radius: clamp(0.5rem, 0.8vw, 0.75rem);
-    padding: clamp(0.5rem, 0.8vw, 0.75rem) clamp(0.75rem, 1.2vw, 1rem);
-}
-
-.hero-benefits .icon {
-    font-size: clamp(1rem, 1.2vw, 1.1rem);
-    line-height: 1;
-}
-
-.hero-benefits strong {
-    font-weight: 400;
-    font-size: clamp(0.5rem, 1vw, 0.9rem);
-}
-
-@media (max-width: 1124px) {
-    .hero-benefits {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: clamp(0.5rem, 1vw, 1rem);
-    }
-    
-    .hero-benefits li {
-        flex: 1;
-        min-width: 0;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        gap: 0.25rem;
-        padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.5rem, 0.8vw, 0.75rem);
-    }
-    
-    .hero-benefits .icon {
-        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-    }
-    
-
 }
 
 .trust {
@@ -345,10 +288,10 @@ header > a {
 }
 @media (max-width: 1124px) {
     .trust-label {
-        justify-content: center;
+        justify-content: flex-start;
     }
-    .trust-logos {  
-        justify-content: center;
+    .trust-logos {
+        justify-content: flex-start;
     }
 }
 .trust-label svg {
@@ -398,9 +341,8 @@ header > a {
 @media (max-width: 1124px) {
     .trust {
         margin-top: clamp(1rem, 2vw, 1.5rem);
-        justify-self: center;  
-        align-items: center;
-
+        width: 100%;
+        align-self: flex-start;
     }
     
     .trust-logos {
@@ -567,12 +509,13 @@ header > a {
 }
 
 .test-grid-top .button.erstgesprach {
-    margin-top: auto;
+    margin-top: clamp(1.25rem, 2.8vw, 2rem);
     align-self: flex-start;
 }
 @media (max-width: 1124px) {
 .button.erstgesprach {
-    margin-inline: auto;
+    margin-right: auto;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
 }
 }
 .test-grid-top-content {
