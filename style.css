@@ -272,6 +272,7 @@ header > a {
     font-weight: 300;
     font-size: clamp(1rem, 1.4vw, 1.25rem);
     margin-top: 0;
+    padding-top: clamp(0.5rem, 1vw, 1rem);
 }
 
 .trust {
@@ -2032,6 +2033,7 @@ header > a {
     overflow: hidden;
     gap: clamp(1rem, 2vw, 2rem);
     height: fit-content;
+    contain: layout;
 
 }
 .smc-hero-container {
@@ -2782,6 +2784,7 @@ textarea { resize: vertical; min-height: 120px; }
     gap: 1rem;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     z-index: 9998;
+    contain: layout style;
 }
 .cookie-banner[hidden] {
     display: none;

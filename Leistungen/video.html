@@ -84,6 +84,11 @@
         .burger-button{font-size:clamp(1.5rem,4vw,2.5rem);background-color:transparent;border:none;cursor:pointer;color:#E1E1E1;padding:0;margin:0;z-index:10000;position:relative}
         .kontakt-button{color:#E1E1E1;text-decoration:none}
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
+        .smc-hero-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,600px),1fr));gap:clamp(1rem,2vw,2rem);overflow:hidden}
+        .smc-hero-img{width:100%;max-width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;vertical-align:middle}
+        main.page-content{min-height:35vh}
+        #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;box-sizing:border-box;max-width:100%}
+        #cookie-banner[hidden]{display:none!important}
     </style>
     
     <!-- DNS Prefetch und Preconnect für externe Ressourcen -->
@@ -94,18 +99,7 @@
     <!-- KRITISCH: Hero-Bild Preload für schnellstes LCP -->
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" as="image" fetchpriority="high" crossorigin="anonymous">
     
-    <!-- Font Preload verzögert - nach LCP geladen (wie kontakt.html) -->
-    <script>
-      window.addEventListener('load', function() {
-        var fontLink = document.createElement('link');
-        fontLink.rel = 'preload';
-        fontLink.href = '../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
-        fontLink.as = 'font';
-        fontLink.type = 'font/woff2';
-        fontLink.crossOrigin = 'anonymous';
-        document.head.appendChild(fontLink);
-      });
-    </script>
+    <link rel="preload" href="../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS asynchron laden für bessere Performance (wie kontakt.html) -->
     <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
