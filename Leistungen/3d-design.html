@@ -94,17 +94,7 @@
     <!-- KRITISCH: Hero-Bild Preload für schnellstes LCP -->
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" as="image" fetchpriority="high" crossorigin="anonymous">
     
-    <script>
-      window.addEventListener('load', function() {
-        var fontLink = document.createElement('link');
-        fontLink.rel = 'preload';
-        fontLink.href = '../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
-        fontLink.as = 'font';
-        fontLink.type = 'font/woff2';
-        fontLink.crossOrigin = 'anonymous';
-        document.head.appendChild(fontLink);
-      });
-    </script>
+    <link rel="preload" href="../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -149,7 +139,7 @@
                         <a href="https://wavez-agency.de/fragebogen" class="button hero">KONTAKT</a>
                     </div>
                 </div>
-                <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" alt="3D-Design Produktion" fetchpriority="high" loading="eager" decoding="sync" crossorigin="anonymous" width="800" height="800">
+                <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" alt="3D-Design Produktion" fetchpriority="high" decoding="async" crossorigin="anonymous" width="800" height="800">
             </div>
         </section>
         <section class="section service">
