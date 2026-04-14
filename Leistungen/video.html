@@ -94,25 +94,9 @@
     <!-- KRITISCH: Hero-Bild Preload für schnellstes LCP -->
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" as="image" fetchpriority="high" crossorigin="anonymous">
     
-    <!-- Font Preload verzögert - nach LCP geladen -->
-    <script>
-      window.addEventListener('load', function() {
-        var fontLink = document.createElement('link');
-        fontLink.rel = 'preload';
-        fontLink.href = '../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
-        fontLink.as = 'font';
-        fontLink.type = 'font/woff2';
-        fontLink.crossOrigin = 'anonymous';
-        document.head.appendChild(fontLink);
-      });
-    </script>
-    
-    <!-- CSS asynchron laden für bessere Performance -->
-    <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../style.css"></noscript>
-    <script>
-      var raf=requestAnimationFrame||setTimeout;raf(function(){var link=document.querySelector('link[rel="preload"][href="../style.css"]');if(link&&link.rel==="preload"){link.rel="stylesheet"}});
-    </script>
+    <link rel="preload" href="../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
@@ -168,7 +152,7 @@
                 <div class="service-item">
                     
                         
-                        <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00410_2_ergebnis_oxasof.webp" alt="Video-Produktion Planung" loading="lazy" crossorigin="anonymous">
+                        <img class="service-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00410_2_ergebnis_oxasof.webp" alt="Video-Produktion Planung" loading="lazy" crossorigin="anonymous">
                     
                     <h3 class="h3 service">Planung</h3>
                     <ul class="service-list">
@@ -180,7 +164,7 @@
                 <div class="service-item">
                     
                         
-                        <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00477_2_ergebnis_hvtunx.webp" alt="Video-Produktion Dreharbeiten" loading="lazy" crossorigin="anonymous">
+                        <img class="service-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00477_2_ergebnis_hvtunx.webp" alt="Video-Produktion Dreharbeiten" loading="lazy" crossorigin="anonymous">
                     
                     <h3 class="h3 service">Production</h3>
                     <ul class="service-list">
@@ -192,7 +176,7 @@
                 <div class="service-item">
                     
                         
-                        <img class="service-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC02454_3_ergebnis_yafxpx.webp" alt="Video-Produktion Post-Production" loading="lazy" crossorigin="anonymous">
+                        <img class="service-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC02454_3_ergebnis_yafxpx.webp" alt="Video-Produktion Post-Production" loading="lazy" crossorigin="anonymous">
                     
                     <h3 class="h3 service">Post-Production</h3>
                     <ul class="service-list">
@@ -285,31 +269,31 @@
                 <li class="sneakpeak-item">
                     
                         
-                        <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03854_2_ergebnis_izjxcu.webp" alt="Video-Produktion Imagefilm" loading="lazy" crossorigin="anonymous">
+                        <img class="sneakpeak-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03854_2_ergebnis_izjxcu.webp" alt="Video-Produktion Imagefilm" loading="lazy" crossorigin="anonymous">
                     
                 </li>
                 <li class="sneakpeak-item">
                     
                         
-                        <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03939_2_ergebnis_br3k79.webp" alt="Video-Produktion Social Media" loading="lazy" crossorigin="anonymous">
+                        <img class="sneakpeak-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC03939_2_ergebnis_br3k79.webp" alt="Video-Produktion Social Media" loading="lazy" crossorigin="anonymous">
                     
                 </li>
                 <li class="sneakpeak-item">
                     
                         
-                        <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC04559_2_ergebnis_gx9am6.webp" alt="Video-Produktion Produktvideo" loading="lazy" crossorigin="anonymous">
+                        <img class="sneakpeak-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC04559_2_ergebnis_gx9am6.webp" alt="Video-Produktion Produktvideo" loading="lazy" crossorigin="anonymous">
                     
                 </li>
                 <li class="sneakpeak-item">
                     
                         
-                        <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC05681_2_ergebnis_fl3g2g.webp" alt="Video-Produktion Eventdokumentation" loading="lazy" crossorigin="anonymous">
+                        <img class="sneakpeak-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC05681_2_ergebnis_fl3g2g.webp" alt="Video-Produktion Eventdokumentation" loading="lazy" crossorigin="anonymous">
                     
                 </li>
                 <li class="sneakpeak-item">
                     
                         
-                        <img class="sneakpeak-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC07977_2_ergebnis_wcyf8e.webp" alt="Video-Produktion Marketing" loading="lazy" crossorigin="anonymous">
+                        <img class="sneakpeak-img" width="800" height="800" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC07977_2_ergebnis_wcyf8e.webp" alt="Video-Produktion Marketing" loading="lazy" crossorigin="anonymous">
                     
                 </li>
             </ul>
@@ -320,7 +304,7 @@
             <blockquote class="quote-services">
                 <p class="quote-services-text">"Manchmal gucke ich die Wand an und denk darüber nach, aus welchem Grund Katzen früher angebetet wurden und heute einer diese Hurensöhne die Opposition ist."</p>
                 <div class="testimonial-author services">
-                    <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00103_ergebnis_jp2dmj.webp" alt="John Doe" loading="lazy" crossorigin="anonymous"></img>
+                    <img class="author-avatar" width="64" height="64" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00103_ergebnis_jp2dmj.webp" alt="John Doe" loading="lazy" crossorigin="anonymous">
                     <div class="author-info">
                         <span class="author-name">John Doe</span>
                         <span class="author-handle">@johndoe</span>
