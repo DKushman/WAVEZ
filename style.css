@@ -474,6 +474,11 @@ header > a {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Nur Transform: Hero bleibt sichtbar für LCP (kein opacity:0 mit fill-mode both) */
+@keyframes smc-hero-in {
+    from { transform: translateY(12px); }
+    to { transform: translateY(0); }
+}
 .hero-section .test-img { animation: hero-in 0.5s ease-out both; }
 .hero-section .test-content-wrapper { animation: hero-in 0.5s ease-out 0.1s both; }
 
@@ -481,8 +486,8 @@ header > a {
 .section.test .span-test { animation: hero-in 0.5s ease-out 0.1s both; }
 .section.portfolio .h1.portfolio-title { animation: hero-in 0.5s ease-out both; }
 .section.portfolio .slider { animation: hero-in 0.5s ease-out 0.1s both; }
-.smc-hero .smc-hero-container { animation: hero-in 0.5s ease-out both; }
-.smc-hero .smc-hero-img { animation: hero-in 0.5s ease-out 0.1s both; }
+.smc-hero .smc-hero-container { animation: smc-hero-in 0.5s ease-out both; }
+.smc-hero .smc-hero-img { animation: smc-hero-in 0.5s ease-out 0.1s both; }
 @media (prefers-reduced-motion: reduce) {
     .smc-hero .smc-hero-container,
     .smc-hero .smc-hero-img {
