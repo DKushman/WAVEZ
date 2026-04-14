@@ -2393,6 +2393,25 @@ header > a {
     }
 
 }
+
+.interessant-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    width: 100%;
+}
+.button.interessant-tile {
+    margin-top: 0;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: clamp(0.35rem, 1.2vw, 0.75rem);
+}
+
 .quote-services-author {
     display: flex;
     flex-direction: row;

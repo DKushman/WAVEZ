@@ -80,6 +80,15 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
+  # Root-Seiten ohne .html (falls jemand die kanonische URL aufruft)
+  RewriteRule ^portfolio/?$ portfolio.html [L,NC]
+  RewriteRule ^team/?$ team.html [L,NC]
+  RewriteRule ^kontakt/?$ kontakt.html [L,NC]
+  RewriteRule ^fragebogen/?$ Fragebogen.html [L,NC]
+  RewriteRule ^nein/?$ nein.html [L,NC]
+  RewriteRule ^impressum/?$ impressum.html [L,NC]
+  RewriteRule ^datenschutz/?$ Datenschutz.html [L,NC]
+
   RewriteRule ^leistungen/social-media-content/?$ Leistungen/social-media.html [L,NC]
   RewriteRule ^leistungen/influencer-management/?$ Leistungen/management.html [L,NC]
   RewriteRule ^leistungen/fotoproduktion/?$ Leistungen/smc.html [L,NC]
