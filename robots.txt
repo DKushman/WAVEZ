@@ -1,0 +1,11 @@
+# WAVEZ – wavez-agency.de
+# Hinweis: /nein ist bewusst von der Sitemap ausgenommen (noindex).
+
+User-agent: *
+Allow: /
+
+# Nur Absage-Hinweis, kein Ranking-Ziel
+Disallow: /nein
+
+# Sitemap für Google & Co.
+Sitemap: https://wavez-agency.de/sitemap.xml

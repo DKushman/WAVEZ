@@ -47,3 +47,43 @@
         Header set Cache-Control "max-age=3600, public, must-revalidate"
     </FilesMatch>
 </IfModule>
+
+# --- SEO: kanonische /leistungen/…-URLs (sprechende Pfade) → echte HTML-Dateien + 301 von alten URLs ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 301: alte .html-Dateien unter Leistungen/
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/social-media\.html[\s?] [NC]
+  RewriteRule ^Leistungen/social-media\.html$ /leistungen/social-media-content [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/management\.html[\s?] [NC]
+  RewriteRule ^Leistungen/management\.html$ /leistungen/influencer-management [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/smc\.html[\s?] [NC]
+  RewriteRule ^Leistungen/smc\.html$ /leistungen/fotoproduktion [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/video\.html[\s?] [NC]
+  RewriteRule ^Leistungen/video\.html$ /leistungen/videoproduktion [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/3d-design\.html[\s?] [NC]
+  RewriteRule ^Leistungen/3d-design\.html$ /leistungen/3d-visualisierung [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+Leistungen/motion\.html[\s?] [NC]
+  RewriteRule ^Leistungen/motion\.html$ /leistungen/motion-graphics [R=301,L]
+
+  # 301: frühere kurze „Pretty-URLs“ → neue sprechende Slugs
+  RewriteRule ^leistungen/social-media$ /leistungen/social-media-content [R=301,L,NC]
+  RewriteRule ^leistungen/management$ /leistungen/influencer-management [R=301,L,NC]
+  RewriteRule ^leistungen/smc$ /leistungen/fotoproduktion [R=301,L,NC]
+  RewriteRule ^leistungen/video$ /leistungen/videoproduktion [R=301,L,NC]
+  RewriteRule ^leistungen/3d-design$ /leistungen/3d-visualisierung [R=301,L,NC]
+  RewriteRule ^leistungen/motion$ /leistungen/motion-graphics [R=301,L,NC]
+
+  # Intern: neue Slugs → vorhandene Dateien (Ordner „Leistungen“)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^leistungen/social-media-content/?$ Leistungen/social-media.html [L,NC]
+  RewriteRule ^leistungen/influencer-management/?$ Leistungen/management.html [L,NC]
+  RewriteRule ^leistungen/fotoproduktion/?$ Leistungen/smc.html [L,NC]
+  RewriteRule ^leistungen/videoproduktion/?$ Leistungen/video.html [L,NC]
+  RewriteRule ^leistungen/3d-visualisierung/?$ Leistungen/3d-design.html [L,NC]
+  RewriteRule ^leistungen/motion-graphics/?$ Leistungen/motion.html [L,NC]
+</IfModule>

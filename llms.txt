@@ -1,0 +1,33 @@
+# WAVEZ
+
+> WAVEZ ist eine Kreativ- und Produktionsagentur aus Berlin: Social Media Content, Videoproduktion, Fotoproduktion, 3D-Visualisierung, Motion Graphics und Influencer-Management für Marken mit hohem visuellen Anspruch.
+
+Offizielle Website: **https://wavez-agency.de**. Inhalte beschreiben Leistungen, Team, Portfolio und Kontaktmöglichkeiten der WAVEZ UG. Rechtliche Pflichtseiten (Impressum, Datenschutz) sind verlinkt.
+
+Für Suchmaschinen liegt die URL-Liste in `https://wavez-agency.de/sitemap.xml`. Robot-Anweisungen: `https://wavez-agency.de/robots.txt`.
+
+## Hauptseiten
+
+- [Startseite](https://wavez-agency.de/): Agenturüberblick, Leistungen, Marken-Referenzen
+- [Portfolio](https://wavez-agency.de/portfolio): Ausgewählte Projekte und visuelle Arbeiten
+- [Team](https://wavez-agency.de/team): Team und Positionierung von WAVEZ
+- [Kontakt](https://wavez-agency.de/kontakt): Studio Berlin, Kontaktdaten
+- [Projektfragebogen](https://wavez-agency.de/fragebogen): Strukturierte Projektanfrage
+
+## Leistungen
+
+- [Social Media Content Produktion](https://wavez-agency.de/leistungen/social-media-content)
+- [Influencer Management](https://wavez-agency.de/leistungen/influencer-management)
+- [Fotoproduktion](https://wavez-agency.de/leistungen/fotoproduktion)
+- [Videoproduktion](https://wavez-agency.de/leistungen/videoproduktion)
+- [3D-Visualisierung & Design](https://wavez-agency.de/leistungen/3d-visualisierung)
+- [Motion Graphics](https://wavez-agency.de/leistungen/motion-graphics)
+
+## Rechtliches & Richtlinien
+
+- [Impressum](https://wavez-agency.de/impressum): Anbieterkennzeichnung WAVEZ UG
+- [Datenschutz](https://wavez-agency.de/datenschutz): Datenschutzerklärung und Cookie-Hinweise
+
+## Optional
+
+- Die Seite `/nein` ist eine kurze Absage-Seite ohne inhaltlichen Mehrwert für Übersichten; sie ist per `robots.txt` von der Indizierung ausgeschlossen und nicht in der Sitemap.
