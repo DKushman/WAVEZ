@@ -42,23 +42,23 @@
 
         <h2 class="h2">Als Foto-Produktion setzen wir auf:</h2>
 
-                    <strong class="focuspoints-item-title">Effektivität</strong>
+                    <h3 class="focuspoints-item-title">Effektivität</h3>
                     <p class="focuspoints-item-description">In unserer Fotoproduktion achten wir auf Effektivität: Durch präzise Planung und strukturierte Abläufe sorgt unser Team dafür, dass Projekte effizient umgesetzt und hochwertige Ergebnisse erzielt werden.</p>
   
 
-                    <strong class="focuspoints-item-title">Verlässlichkeit</strong>
+                    <h3 class="focuspoints-item-title">Verlässlichkeit</h3>
                     <p class="focuspoints-item-description">Als kreative Agentur garantieren wir Verlässlichkeit bei jedem Projekt. Wir koordinieren Termine, Ressourcen und Teammitglieder sorgfältig, sodass jede Fotoproduktion reibungslos abläuft.</p>
 
-                    <strong class="focuspoints-item-title">Qualität</strong>
+                    <h3 class="focuspoints-item-title">Qualität</h3>
                     <p class="focuspoints-item-description">Qualität steht bei uns an erster Stelle: Von der Bildkomposition über Lichtführung bis zur finalen Retusche stellen wir sicher, dass jedes Foto höchste Standards erfüllt.</p>
 
-                    <strong class="focuspoints-item-title">Verantwortung</strong>
+                    <h3 class="focuspoints-item-title">Verantwortung</h3>
                     <p class="focuspoints-item-description">Wir übernehmen volle Verantwortung für unsere Produktionen. Sorgfältige Planung, nachhaltige Methoden und professionelle Umsetzung sichern den Erfolg jedes Projekts.</p>
 
-                    <strong class="focuspoints-item-title">Entlastung</strong>
+                    <h3 class="focuspoints-item-title">Entlastung</h3>
                     <p class="focuspoints-item-description">Unser Team entlastet Kunden und Partner, indem wir die komplette Fotoproduktion organisieren, koordinieren und umsetzen – so kann sich jeder auf das Wesentliche konzentrieren.</p>
 
-                    <strong class="focuspoints-item-title">Transparenz</strong>
+                    <h3 class="focuspoints-item-title">Transparenz</h3>
                     <p class="focuspoints-item-description">Transparenz ist uns wichtig: Wir dokumentieren alle Abläufe, Entscheidungen und Fortschritte klar, sodass unsere Kunden jederzeit Einblick in den Produktionsprozess haben.</p>
 
     

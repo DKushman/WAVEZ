@@ -2158,7 +2158,6 @@ header > a {
     margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 .focuspoints-list {
-    list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: clamp(2rem, 4vw, 4rem);
@@ -2183,6 +2182,7 @@ header > a {
 }
 
 .focuspoints-item-title {
+    margin: 0;
     font-size: clamp(0.7rem, 2vw, 2.5rem);
     font-weight: 500;
     line-height: 1;
@@ -2399,6 +2399,7 @@ header > a {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(0.5rem, 1.5vw, 1rem);
     width: 100%;
+    padding-top: clamp(1rem, 4vw, 4vw);
 }
 .button.interessant-tile {
     margin-top: 0;
