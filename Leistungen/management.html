@@ -94,9 +94,25 @@
     <!-- KRITISCH: Hero-Bild Preload für schnellstes LCP -->
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" as="image" fetchpriority="high" crossorigin="anonymous">
     
-    <link rel="preload" href="../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Font Preload verzögert - nach LCP geladen (wie kontakt.html) -->
+    <script>
+      window.addEventListener('load', function() {
+        var fontLink = document.createElement('link');
+        fontLink.rel = 'preload';
+        fontLink.href = '../fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
+        fontLink.as = 'font';
+        fontLink.type = 'font/woff2';
+        fontLink.crossOrigin = 'anonymous';
+        document.head.appendChild(fontLink);
+      });
+    </script>
 
-    <link rel="stylesheet" href="../style.css">
+    <!-- CSS asynchron laden für bessere Performance (wie kontakt.html) -->
+    <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../style.css"></noscript>
+    <script>
+      var raf=requestAnimationFrame||setTimeout;raf(function(){var link=document.querySelector('link[rel="preload"][href="../style.css"]');if(link&&link.rel==="preload"){link.rel="stylesheet"}});
+    </script>
 </head>
 <body>
     <header>
@@ -139,7 +155,7 @@
                         <a href="https://wavez-agency.de/fragebogen" class="button hero">KONTAKT</a>
                     </div>
                 </div>
-                <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" alt="Influencer Management" fetchpriority="high" crossorigin="anonymous" width="800" height="800">
+                <img class="smc-hero-img" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/DSC00031_2_ergebnis_nlphnt.webp" alt="Influencer Management" fetchpriority="high" loading="eager" crossorigin="anonymous" width="800" height="800">
             </div>
         </section>
         <section class="section service">
