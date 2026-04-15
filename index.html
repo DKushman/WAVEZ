@@ -116,6 +116,10 @@
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
         #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;box-sizing:border-box;max-width:100%}
         #cookie-banner[hidden]{display:none!important}
+        @media (max-width:1124px){.test-img{display:none!important}}
+        @media (min-width:1125px){.img-mobil{display:none!important}}
+        .img-mobil{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+        .test-img-mobile{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
     </style>
     
     <!-- DNS Prefetch und Preconnect ZUERST - Verbindung vor Preload herstellen -->
@@ -127,19 +131,7 @@
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg" as="image" fetchpriority="high" media="(min-width: 1125px)" crossorigin="anonymous">
     <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg" as="image" fetchpriority="high" media="(max-width: 1124px)" crossorigin="anonymous">
     
-    <!-- Font Preload verzögert - nach LCP geladen -->
-    <script>
-      // Font nach LCP laden (nicht blockierend)
-      window.addEventListener('load', function() {
-        var fontLink = document.createElement('link');
-        fontLink.rel = 'preload';
-        fontLink.href = './fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2';
-        fontLink.as = 'font';
-        fontLink.type = 'font/woff2';
-        fontLink.crossOrigin = 'anonymous';
-        document.head.appendChild(fontLink);
-      });
-    </script>
+    <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- CSS asynchron laden für bessere Performance -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -152,7 +144,7 @@
 </head>
 <body>
     <header>
-        <a href="https://wavez-agency.de/"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" fetchpriority="high" loading="eager"></a>
+        <a href="https://wavez-agency.de/"><img class="logo" src="./images/WAVEZ-LOGO-website.svg" alt="WAVEZ Logo" fetchpriority="low" loading="eager"></a>
         <nav class="burger-menu">
             <button class="burger-button">
                 <span class="burger-icon">☰</span>
@@ -188,8 +180,8 @@
              srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_80,f_auto/IMG_0875_y4gjkc.jpg 600w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg 800w"
              sizes="(max-width: 1124px) 100vw, 50vw"
              alt="Racing Podium" 
-             fetchpriority="high" 
-             decoding="sync" 
+             fetchpriority="low"
+             decoding="async" 
              crossorigin="anonymous"
              width="800" 
              height="800">
@@ -229,8 +221,9 @@
                      srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg 300w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_80,f_auto/DSC00079_ystbtt.jpg 400w"
                      sizes="(max-width: 600px) 50vw, 300px"
                      alt="Racing Podium" 
-                     fetchpriority="high" 
-                     decoding="sync" 
+                     fetchpriority="high"
+                     loading="eager"
+                     decoding="async" 
                      crossorigin="anonymous"
                      width="400" 
                      height="400">
@@ -276,7 +269,6 @@
                     <span class="quote-icon">"</span>
                     <p class="testimonial-text">Impressed by the professionalism and attention to detail.</p>
                     <div class="testimonial-author">
-                        <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00103_ergebnis_jp2dmj.webp" alt="Guy Hawkins" loading="lazy" crossorigin="anonymous" width="60" height="60">
                         <div class="author-info">
                             <span class="author-name">Guy Hawkins</span>
                             <span class="author-handle">@guyhawkins</span>
@@ -287,7 +279,6 @@
                     <span class="quote-icon">"</span>
                     <p class="testimonial-text">A seamless experience from start to finish. Highly recommend!</p>
                     <div class="testimonial-author">
-                        <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00110_ergebnis_byjns8.webp" alt="Karla Lynn" loading="lazy" crossorigin="anonymous" width="60" height="60">
                         <div class="author-info">
                             <span class="author-name">Karla Lynn</span>
                             <span class="author-handle">@karlalynn98</span>
@@ -298,7 +289,6 @@
                     <span class="quote-icon">"</span>
                     <p class="testimonial-text">Reliable and trustworthy. Made my life so much easier!</p>
                     <div class="testimonial-author">
-                        <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00122_ergebnis_s9bdve.webp" alt="Jane Cooper" loading="lazy" crossorigin="anonymous" width="60" height="60">
                         <div class="author-info">
                             <span class="author-name">Jane Cooper</span>
                             <span class="author-handle">@janecooper</span>
@@ -309,7 +299,6 @@
                     <span class="quote-icon">"</span>
                     <p class="testimonial-text">Outstanding quality and service. Exceeded all my expectations!</p>
                     <div class="testimonial-author">
-                        <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00129_ergebnis_fagf2s.webp" alt="John Doe" loading="lazy" crossorigin="anonymous" width="60" height="60">
                         <div class="author-info">
                             <span class="author-name">John Doe</span>
                             <span class="author-handle">@johndoe</span>
@@ -320,7 +309,6 @@
                     <span class="quote-icon">"</span>
                     <p class="testimonial-text">Professional team with incredible attention to detail.</p>
                     <div class="testimonial-author">
-                        <img class="author-avatar" src="https://res.cloudinary.com/dqcdbdt4v/image/upload/DSC00148_ergebnis_mibfmo.webp" alt="Sarah Smith" loading="lazy" crossorigin="anonymous" width="60" height="60">
                         <div class="author-info">
                             <span class="author-name">Sarah Smith</span>
                             <span class="author-handle">@sarahsmith</span>

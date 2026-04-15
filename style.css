@@ -475,8 +475,13 @@ header > a {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Startseite: Text-Wrapper ohne Opacity-Fade — LCP ist h1; opacity:0 verzögert Element-Render massiv */
+@keyframes hero-in-slide {
+    from { opacity: 1; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .hero-section .test-img { animation: hero-in 0.5s ease-out both; }
-.hero-section .test-content-wrapper { animation: hero-in 0.5s ease-out 0.1s both; }
+.hero-section .test-content-wrapper { animation: hero-in-slide 0.5s ease-out 0.1s both; }
 
 .section.test .h1-hero.team { animation: hero-in 0.5s ease-out both; }
 .section.test .span-test { animation: hero-in 0.5s ease-out 0.1s both; }
@@ -487,6 +492,12 @@ header > a {
 @media (prefers-reduced-motion: reduce) {
     .smc-hero .smc-hero-container,
     .smc-hero .smc-hero-img {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .hero-section .test-img,
+    .hero-section .test-content-wrapper {
         animation: none;
         opacity: 1;
         transform: none;
@@ -645,14 +656,6 @@ header > a {
     align-items: center;
     gap: clamp(0.75rem, 1.2vw, 1rem);
     margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
-}
-
-.author-avatar {
-    width: clamp(40px, 5vw, 56px);
-    height: clamp(40px, 5vw, 56px);
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
 }
 
 .author-info {
