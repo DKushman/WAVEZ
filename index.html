@@ -123,6 +123,7 @@
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
+    <link rel="preload" href="images/WAVEZ%20VIDEO%20HERO.mp4" as="video" type="video/mp4" fetchpriority="high">
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
     
     <!-- CSS asynchron laden für bessere Performance -->
@@ -168,7 +169,7 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-video-wrap" aria-hidden="true">
-                <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback>
+                <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" fetchpriority="high" disablepictureinpicture disableremoteplayback>
                     <source src="images/WAVEZ%20VIDEO%20HERO.mp4" type="video/mp4">
                 </video>
             </div>
