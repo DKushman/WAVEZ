@@ -32,9 +32,13 @@ if (typeof gsap !== 'undefined') {
     // Animationen anwenden
     createScrollAnimation(".bts-images-track", ".section.bts");
     
-    // Zahlen aufdecken beim Scrollen
-    gsap.utils.toArray('.zahlen-number, .metric, .reveal').forEach(el => {
-        gsap.fromTo(el, {y: '100%'}, {y: '0%', duration: 0.8, ease: 'power2.out', scrollTrigger: {trigger: el, start: 'top 80%'}});
+    // Zahlen aufdecken beim Scrollen (zahlen-service: animiert .animation-zahl, Clip über .zahlen-number)
+    gsap.utils.toArray('.zahlen-services .animation-zahl').forEach(el => {
+        const trigger = el.closest('.zahlen-number');
+        gsap.fromTo(el, { y: '100%' }, { y: '0%', duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: trigger || el, start: 'top 80%' } });
+    });
+    gsap.utils.toArray('.metric, .reveal').forEach(el => {
+        gsap.fromTo(el, { y: '100%' }, { y: '0%', duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 80%' } });
     });
     
     // Ja/Nein Button Hover Animation

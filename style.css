@@ -2189,6 +2189,10 @@ header > a {
 .animation-zahl {
     overflow: hidden;
 }
+.zahlen-services .zahlen-number {
+    overflow: hidden;
+    display: block;
+}
 .zahlen-number {
     font-size: clamp(1.5rem, 7vw, 9rem);
     font-weight: 600;
