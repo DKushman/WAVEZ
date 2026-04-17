@@ -1,0 +1,43 @@
+/**
+ * Synchron laden (blocking <link> im <head>), damit Cross-Document View Transitions
+ * auf jeder Seite greifen — unabhängig vom async-geladenen style.css.
+ */
+@view-transition {
+    navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: none;
+    }
+}
+
+@keyframes view-transition-old-out {
+    to {
+        transform: translateX(-18%);
+        opacity: 0.85;
+    }
+}
+
+@keyframes view-transition-new-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+::view-transition-old(root) {
+    animation-name: view-transition-old-out;
+    animation-duration: 0.35s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+}
+
+::view-transition-new(root) {
+    animation-name: view-transition-new-in;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+}
