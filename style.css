@@ -516,7 +516,7 @@ header > a {
 @media (max-width: 1124px) {
     .hero-section .h1,
     .hero-section .h1 span {
-        font-size: clamp(2.75rem, 5.5vw, 7.5rem);
+        font-size: clamp(2.35rem, 4.85vw, 6.85rem);
     }
 
     /* Nur so breit wie der Text: SVG (left 50% + translate) umschließt „Kreativ-Agentur“, nicht die volle Zeile */
