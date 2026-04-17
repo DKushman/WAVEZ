@@ -7,6 +7,13 @@
     font-display: swap;
 }
 
+:root {
+    --site-header-offset: max(
+        clamp(4.25rem, 11.5vh, 7.25rem),
+        calc(env(safe-area-inset-top, 0px) + clamp(3.25rem, 8vh, 5.5rem))
+    );
+}
+
 body {
     padding-left: clamp(1rem, 2vw, 2vw);
     padding-right: clamp(1rem, 2vw, 2vw);
@@ -46,13 +53,28 @@ body.menu-open .burger-button {
     pointer-events: auto;
 }
 
+/* Fixed Header: liegt über dem Inhalt; Main bekommt Offset, außer Startseite mit Hero bis oben */
+main.page-content {
+    position: relative;
+    z-index: 0;
+    padding-top: var(--site-header-offset);
+}
+
+main.page-content:has(> section.hero-section:first-child) {
+    padding-top: 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: max(2vh, env(safe-area-inset-top, 0px)) clamp(1rem, 2vw, 2vw) 2vh;
     background: transparent;
     mix-blend-mode: difference;
     z-index: 1000;
@@ -414,61 +436,100 @@ header > a {
 
 
 
-.test-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50%, 500px), 1fr));
-    gap: 1rem;
-    column-gap: 5rem;
+.hero-section {
+    width: calc(100% + 2 * clamp(1rem, 2vw, 2vw));
+    max-width: none;
+    margin-left: calc(-1 * clamp(1rem, 2vw, 2vw));
+    margin-right: calc(-1 * clamp(1rem, 2vw, 2vw));
 }
 
-.img-mobil {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    align-items: start;
+.hero-container {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    isolation: isolate;
 }
 
+/* Portrait-Clip quer drehen: füllt den Viewport nach Rotation */
+.hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vh;
+    height: 100vw;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    transform-origin: center center;
+    pointer-events: none;
+}
+
+.hero-bg-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* Oben gleichmäßig abgedunkelt, unten weicher Übergang zur Seitenfarbe #0E0E0E */
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 55%,
+            rgba(14, 14, 14, 0.12) 72%,
+            rgba(14, 14, 14, 0.55) 88%,
+            #0E0E0E 100%
+        ),
+        rgba(0, 0, 0, 0.55);
+}
+
+.hero-foreground {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(1rem, 2vw, 2vw);
+    padding-top: var(--site-header-offset);
+}
+
+.hero-section .h1,
+.hero-section .h1 span {
+    color: #fff;
+    font-size: clamp(3rem, 6.25vw, 8rem);
+}
+
+.hero-section .p {
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 40rem;
+}
+
+.hero-foreground .button.erstgesprach {
+    margin-top: clamp(1.25rem, 2.8vw, 2rem);
+    align-self: flex-start;
+}
 
 @media (min-width: 1125px) {
-    .hero-section {
-        height: 90dvh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-    }
-    .img-mobil {
-        display: none;
-    }
-    .test-container {
-        grid-template-columns: 1fr 1fr;
-    }
-    .test-img {
-        display: block;
-        grid-column: 1;
-    }
-    .test-content-wrapper {
-        grid-column: 2;
-        grid-template-rows: 1fr auto;
-    }
     .testimonial-card {
         justify-self: stretch;
     }
     .button.portfolio-mobile {
         display: none;
     }
-}
-@media (max-width: 1124px) {
-  .test-img {
-    display: none;
-  }
-
-}
-
-.hero-section {
-    width: 100%;
-    min-height: auto;
-    padding-bottom: clamp(3rem, 6vw, 8rem);
 }
 
 @keyframes hero-in {
@@ -480,8 +541,8 @@ header > a {
     from { opacity: 1; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.hero-section .test-img { animation: hero-in 0.5s ease-out both; }
-.hero-section .test-content-wrapper { animation: hero-in-slide 0.5s ease-out 0.1s both; }
+.hero-section .hero-video-wrap { animation: hero-in 0.55s ease-out both; }
+.hero-section .hero-foreground { animation: hero-in-slide 0.5s ease-out 0.1s both; }
 
 .section.test .h1-hero.team { animation: hero-in 0.5s ease-out both; }
 .section.test .span-test { animation: hero-in 0.5s ease-out 0.1s both; }
@@ -496,11 +557,17 @@ header > a {
         opacity: 1;
         transform: none;
     }
-    .hero-section .test-img,
-    .hero-section .test-content-wrapper {
+    .hero-section .hero-video-wrap,
+    .hero-section .hero-foreground {
         animation: none;
         opacity: 1;
         transform: none;
+    }
+    .hero-video-wrap {
+        display: none;
+    }
+    .hero-bg-scrim {
+        background: #0E0E0E;
     }
 }
 .section.kontaktseite .kontaktseite-heading { animation: hero-in 0.5s ease-out both; }
@@ -513,48 +580,12 @@ header > a {
 .section.impressum-hero .impressum-content { animation: hero-in 0.5s ease-out 0.1s both; }
 .section.datenschutz-hero .datenschutz-hero-container { animation: hero-in 0.5s ease-out both; }
 
-.test-content-wrapper {
-    display: grid;
-    gap: 3rem;
-    grid-template-rows: auto;
-}
-
-.test-grid-top {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.8rem, 1.3vw, 1.3rem);
-    padding-top: clamp(0px, calc(5vh - 4vw), 5vh);
-    justify-content: space-between;
-    flex: 1;
-}
-
-.test-grid-top .button.erstgesprach {
-    margin-top: clamp(1.25rem, 2.8vw, 2rem);
-    align-self: flex-start;
-}
 @media (max-width: 1124px) {
 .button.erstgesprach {
     margin-right: auto;
     margin-top: clamp(0.5rem, 1vw, 1rem);
 }
 }
-.test-grid-top-content {
-    justify-self: center;
-}
-
-  .test-img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    margin-inline: auto 0;
-  }
-
-  .test-img-mobile {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-  }
 
 .section.quote {
     min-height: auto;

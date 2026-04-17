@@ -107,7 +107,7 @@
     <!-- Critical CSS für Header und Hero-Section - schnellerer First Contentful Paint -->
     <style>
         body{margin:0;padding-left:clamp(1rem,2vw,2vw);padding-right:clamp(1rem,2vw,2vw);background-color:#0E0E0E;color:#E1E1E1;font-family:'Poppins',sans-serif}
-        header{display:flex;justify-content:space-between;align-items:center;padding:2vh 0;position:sticky;top:0;background:transparent;mix-blend-mode:difference;z-index:1000}
+        header{display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;right:0;width:100%;box-sizing:border-box;padding:max(2vh,env(safe-area-inset-top,0)) clamp(1rem,2vw,2vw) 2vh;background:transparent;mix-blend-mode:difference;z-index:1000}
         header>a{display:flex;align-items:center;text-decoration:none}
         .logo{width:clamp(120px,10vw,180px);display:block}
         .burger-menu{position:absolute;left:50%;transform:translateX(-50%)}
@@ -116,20 +116,12 @@
         .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;z-index:9999}
         #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;box-sizing:border-box;max-width:100%}
         #cookie-banner[hidden]{display:none!important}
-        @media (max-width:1124px){.test-img{display:none!important}}
-        @media (min-width:1125px){.img-mobil{display:none!important}}
-        .img-mobil{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
-        .test-img-mobile{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
     </style>
     
     <!-- DNS Prefetch und Preconnect ZUERST - Verbindung vor Preload herstellen -->
     <link rel="dns-prefetch" href="https://res.cloudinary.com">
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    
-    <!-- KRITISCH: Bild-Preload NACH Preconnect für schnellstes LCP - optimierte Größen und Qualität -->
-    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg" as="image" media="(min-width: 1125px)" crossorigin="anonymous">
-    <link rel="preload" href="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg" as="image" media="(max-width: 1124px)" crossorigin="anonymous">
     
     <link rel="preload" href="./fonts/Poppins_Complete/Fonts/WEB/fonts/Poppins-Variable.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
     
@@ -174,20 +166,14 @@
     </header>
     <main class="page-content">
     <section class="hero-section">
-        <div class="test-container">
-        <img class="test-img" 
-             src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg" 
-             srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_600,q_80,f_auto/IMG_0875_y4gjkc.jpg 600w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_800,q_80,f_auto/IMG_0875_y4gjkc.jpg 800w"
-             sizes="(max-width: 1124px) 100vw, 50vw"
-             alt="Racing Podium" 
-             fetchpriority="low"
-             decoding="async" 
-             crossorigin="anonymous"
-             width="800" 
-             height="800">
-        <div class="test-content-wrapper">
-            <div class="test-grid-top">
-                <div class="test-grid-top-content">
+        <div class="hero-container">
+            <div class="hero-video-wrap" aria-hidden="true">
+                <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback>
+                    <source src="images/WAVEZ%20VIDEO%20HERO.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-bg-scrim" aria-hidden="true"></div>
+            <div class="hero-foreground">
                 <h1 class="h1">
                     <span class="kreativ-agentur-text">
                         Kreativ-Agentur
@@ -195,51 +181,10 @@
                     </span>
                     <span>für Branding, Design & Digitales Wachstum</span>
                 </h1>
-                <p class="p">Wir sind eine Videoproduktion, mit wieofew iowdeid jweiodj woeidj oewidj eoiwd joeid jwoeidj oweid jowjd eiwdj weoid jowiedj weio djwdeio jiodjw ioedjw
-                </p>
-                <div class="trust">
-                    <span class="trust-label">
-                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <strong>Vertraut von</strong>
-                    </span>
-                    <ul class="trust-logos">
-                        <li><img src="./logos-wavez-website/bentley-logo.png" alt="Bentley Logo" loading="lazy" width="85" height="42"></li>
-                        <li><img src="./logos-wavez-website/ralphlauren-LOGO.png" alt="Ralph Lauren Logo" loading="lazy" width="85" height="42"></li>
-                        <li><img src="./logos-wavez-website/ferrari-LOGO.png" alt="Ferrari Logo" loading="lazy" width="85" height="42"></li>
-                        <li class="more">+</li>
-                    </ul>
-                </div>
-            </div>
-            <a href="https://wavez-agency.de/fragebogen" class="button erstgesprach">KOSTENLOSES ERSTGESPRÄCH</a>
-            </div>
-            
-            <div class="img-mobil">
-                <img class="test-img-mobile" 
-                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg" 
-                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/DSC00079_ystbtt.jpg 300w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_80,f_auto/DSC00079_ystbtt.jpg 400w"
-                     sizes="(max-width: 600px) 50vw, 300px"
-                     alt="Racing Podium" 
-                     fetchpriority="high"
-                     loading="eager"
-                     decoding="async" 
-                     crossorigin="anonymous"
-                     width="400" 
-                     height="400">
-                <img class="test-img-mobile" 
-                     src="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/IMG_0875_y4gjkc.jpg" 
-                     srcset="https://res.cloudinary.com/dqcdbdt4v/image/upload/w_300,q_80,f_auto/IMG_0875_y4gjkc.jpg 300w, https://res.cloudinary.com/dqcdbdt4v/image/upload/w_400,q_80,f_auto/IMG_0875_y4gjkc.jpg 400w"
-                     sizes="(max-width: 600px) 50vw, 300px"
-                     alt="Racing Podium" 
-                     loading="lazy" 
-                     decoding="async" 
-                     crossorigin="anonymous"
-                     width="400" 
-                     height="400">
+                <p class="p">Wir sind eine Videoproduktion mit Fokus auf starke Marken, klares Design und Inhalte, die wirken.</p>
+                <a href="https://wavez-agency.de/fragebogen" class="button erstgesprach">KOSTENLOSES ERSTGESPRÄCH</a>
             </div>
         </div>
-    </div>
     </section>
     <section class="section">
         <h2 class="h2">Wir arbeiten mit über <u>30 Marken</u> zusammen</h2>
